@@ -16,9 +16,9 @@ export default function HeroSection() {
           </span>
         </div>
         <h2 className="text-4xl md:text-7xl font-bold tracking-tight">
-          Calm websites
+          Rethinking the way
           <br />
-          for fast startups
+          you use react native.
         </h2>
         <p className="text-xl text-muted-foreground">
           We build easy to manage marketing websites for
@@ -27,7 +27,7 @@ export default function HeroSection() {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
           <Button size="lg" className=" rounded-full h-12">
-            Get a free quote
+            Get started now
           </Button>
           <Button size="lg" variant="outline" className="rounded-full h-12">
             Book an intro call

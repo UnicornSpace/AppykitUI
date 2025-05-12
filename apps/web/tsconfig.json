@@ -21,7 +21,8 @@
     "paths": {
       "@/*": ["./src/*"],
       "@payload-config": ["./payload.config.ts"],
-      "content-collections": ["./.content-collections/generated"]
+      "content-collections": ["./.content-collections/generated"],
+      "@repo/ui": ["../../packages/ui/src"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
