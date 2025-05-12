@@ -10,11 +10,8 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-
 import Link from "next/link";
-import Image from "next/image";
 import { Button } from "./ui/button";
-// import { useTheme } from "next-themes";
 
 const Navbar1 = () => {
   // const { theme } = useTheme();
@@ -25,11 +22,11 @@ const Navbar1 = () => {
   //     : "/logos/logo-black-256x256.png";
 
   return (
-    <header className="py-6 flex justify-between px-5 md:px-16 items-center z-10 bg-background">
+    <header className="py-4 flex justify-between px-5 md:px-16 items-center z-10 bg-background">
       <div>
         <Link
           href={"/"}
-          className="text-2xl md:text-2xl font-semibold flex items-center text-foreground"
+          className="text-xl md:text-xl font-semibold flex items-center text-foreground"
         >
           {/* <Image
             src={logoSrc}
@@ -38,10 +35,20 @@ const Navbar1 = () => {
             alt="UnicornSpace logo"
             className="hidden md:block"
           />{" "} */}
-          UnicornSpace Native
+          <span className="bg-primary text-foreground"></span>
+          <span className="bg-primary text-white rounded-sm">
+            A
+          </span>
+          ppykit Native UI
         </Link>
       </div>
       <nav className="text-foreground/70 text-sm xl:flex gap-4 hidden">
+        <Link
+          href={"/components"}
+          className="hover:text-foreground hover:scale-105 transition-transform"
+        >
+          Components
+        </Link>
         <Link
           href="/resources"
           className="hover:text-foreground hover:scale-105 transition-transform"
@@ -54,12 +61,12 @@ const Navbar1 = () => {
         >
           Blog
         </Link>
-        <Link
+        {/* <Link
           href={"/course"}
           className="hover:text-foreground hover:scale-105 transition-transform"
         >
           Course
-        </Link>
+        </Link> */}
       </nav>
       <div className="lg:flex hidden gap-4">
         <Link href={"#"}>

@@ -29,8 +29,8 @@ function ResourceCard({
   isFavorite,
 }: ResourceCardType) {
   return (
-    <Link href={link} target="_blank">
-      <Card className="w-80 border-[0.4px] pt-0 dark:border-zinc-700 border-zinc-100  xl:w-[310px] dark:hover:bg-zinc-900  bg-[#EFEEF0] dark:bg-[#222125] hover:bg-zinc-200 hover:transition-all hover:delay-75 hover:duration-150 rounded-lg md:shadow-md group">
+    <Link href={link} target="_blank" className="w-80">
+      <Card className=" border-[0.4px] pt-0 dark:border-zinc-700 border-zinc-100  xl:w-[310px] dark:hover:bg-zinc-900  bg-[#EFEEF0] dark:bg-[#222125] hover:bg-zinc-200 hover:transition-all hover:delay-75 hover:duration-150 rounded-lg md:shadow-md group">
         <CardContent className=" p-6 flex flex-col gap-1 items-start">
           <div className="flex justify-between w-full items-center">
             <div className="flex items-start">

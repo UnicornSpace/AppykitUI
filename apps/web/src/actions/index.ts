@@ -47,17 +47,18 @@ export const getBlogsFromPayload = async () => {
   return blogs;
 };
 
-// export const getBlogFromSlug = async (slug: string) => {
-//   const payload = await getPayload({ config });
-//   console.log("🚀🚀🚀🚀🚀🚀", slug, "---", toTitle(slug));
-//   const data = await payload.find({
-//     collection: "blogs",
-//     where: {
-//       title: { contains: toTitle(slug) },
-//     },
-//   });
-//   console.log("🚀🚀🚀🚀🚀🚀", data);
-//   if (data.docs.length === 0) return null;
+export const getBlogFromSlug = async (slug: string) => {
+  const payload = await getPayload({ config });
+  console.log("----------", slug);
+  const data = await payload.find({
+    collection: "blogs",
+    where: {
+      slug: { equals: slug },
+      // id: { equals: 2 },
+    },
+  });
+  console.log("🏃‍♀️🏃‍♀️", data);
+  if (data.docs.length === 0) return null;
 
-//   return data.docs[0];
-// };
+  return data.docs[0];
+};

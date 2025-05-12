@@ -29,13 +29,13 @@ export default async function Home() {
   // console.log(guides);
 
   return (
-    <div className="">
-      <h1 className="text-4xl font-bold font-passion ">Guides</h1>
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <h1 className="text-4xl font-bold font-passion ">Blogs</h1>
       <p className="max-w-2xl text-lg  text-muted-foreground mb-8">
         Clear, step-by-step follow-along guides for every level. (Complex
         concepts made easy.)
       </p>
-      <main className="grid max-w-4xl auto-rows-min grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 w-full">
+      <main className="grid max-w-4xl mx-auto auto-rows-min grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 w-full">
         {blogs.docs.map((blog, i) => {
           if (blog.isPublished)
             return (
