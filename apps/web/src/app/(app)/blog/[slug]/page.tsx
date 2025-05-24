@@ -14,7 +14,7 @@ const page = async (props: { params: Params }) => {
       {slug}
       <h1 className='text-3xl font-bold'>{blog?.title}</h1>
       <div className='mt-4'>
-        <PayloadMDXRender data={blog?.content} />      </div>
+        {blog?.content && <PayloadMDXRender data={blog.content} />}      </div>
       {/* <pre>{JSON.stringify(blog, null, 2)}</pre> */}
     </div>
   )

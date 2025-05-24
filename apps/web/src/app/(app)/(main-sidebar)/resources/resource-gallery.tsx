@@ -3,7 +3,7 @@
 import { useState, useMemo } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Star } from "lucide-react";
+// import { Star } from "lucide-react";
 import { Resource } from "@/types";
 import { SlScreenDesktop } from "react-icons/sl";
 // import { AiOutlineFontSize } from "react-icons/ai";

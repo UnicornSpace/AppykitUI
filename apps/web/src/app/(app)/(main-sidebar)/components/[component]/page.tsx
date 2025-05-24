@@ -11,8 +11,8 @@ const page = async (props: { params: Params }) => {
   const foundComponent = allComponents.find((c) => c.slug === component);
   console.log("foundComponent", foundComponent);
   return (
-    <div className="max-w-3xl">
-
+    <div className="max-w-3xl ">
+      
       <h1 className="text-3xl font-bold mb-1">
         {foundComponent?.title}
       </h1>

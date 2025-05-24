@@ -2,16 +2,15 @@ import React from "react";
 import { Text, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Link } from "expo-router";
+
 import Testing from "./testing";
-import ProductScreen from "@/blocks/ecommerce/home";
+import Block1 from "@/blocks/ecommerce/1.block";
 
 export default function Page() {
   return (
     <View className="flex flex-1">
-      <Header />
-      <Content />
-      <Footer />
-      <ProductScreen />
+      <Block1 />
+      {/* <Testing/> */}
     </View>
   );
 }
@@ -23,7 +22,7 @@ function Content() {
         <View className="px-4 md:px-6">
           <View className="flex flex-col items-center gap-4 text-center">
             <Text
-              role="heading"
+              role="cell"
               className="text-3xl text-center native:text-5xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl"
             >
               Welcome to Project AppyKitUI
@@ -31,8 +30,6 @@ function Content() {
             <Text className="mx-auto max-w-[700px] text-lg text-center text-gray-500 md:text-xl dark:text-gray-400">
               Discover the components. Explore our services now.
             </Text>
-            <Testing />
-
           </View>
         </View>
       </View>

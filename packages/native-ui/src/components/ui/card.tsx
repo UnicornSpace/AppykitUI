@@ -1,23 +1,60 @@
-import { View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import React from "react";
-import Text from "@/components/ui/text";
-import Button from "@/components/ui/button";
-
-
-const Card = () => {
-    return (
-        <View>
-
-            <View className="flex flex-col gap-1 w-full h-32 bg-slate-900 rounded-md p-4">
-
-            </View>
-            <View className="flex flex-col gap-1 mt-4">
-                <Text >The Nintendo Switch gaming console is a compact device that can be taken everywhere. This portable super device is also equipped with 2 gamepads. Read more</Text>
-                <Button>Add to cart</Button>
-            </View>
-
-        </View>
-    );
+import clsx from "clsx";
+const Card = ({children, className}:{children:React.ReactNode, className:string}) => {
+  return (
+    <View className={clsx("bg-white shadow-md rounded-lg p-4 flex flex-col", className)}>
+      {children}
+    </View>
+  );
 };
 
-export default Card;
+function CardHeader({
+  children,
+  className,
+}: {
+  children?: React.ReactNode;
+  className?: string;
+}) {
+  return <View className={className}>{children}</View>;
+}
+function CardContent({
+  children,
+  className,
+}: {
+  children?: React.ReactNode;
+  className?: string;
+}) {
+  return <View>{children}</View>;
+}
+function CardFooter({
+  children,
+  className,
+}: {
+  children?: React.ReactNode;
+  className?: string;
+}) {
+  return (
+   <View>{children}</View>
+  );
+}
+function CardTitle({
+  children,
+  className,
+}: {
+  children?: React.ReactNode;
+  className?: string;
+}) {
+  return <Text className={clsx("text-black",className)}>{children}</Text>;
+}
+function CardDescription({
+  children,
+  className,
+}: {
+  children?: React.ReactNode;
+  className?: string;
+}) {
+  return <Text className={clsx("text-black",className)}>{children}</Text>;;
+}
+
+export { Card , CardHeader, CardContent, CardFooter, CardTitle, CardDescription };

@@ -1,24 +1,16 @@
 import { allCourses } from 'content-collections'
 import React from 'react'
 type Params = Promise<{ course: string, chapter: string }>
-import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-} from "@/components/ui/card"
+
 import {
     Pagination,
     PaginationContent,
-    PaginationEllipsis,
     PaginationItem,
-    PaginationLink,
+
     PaginationNext,
     PaginationPrevious,
 } from "@/components/ui/pagination"
-import Link from 'next/link'
+// import Link from 'next/link'
 import { MDXContent } from '@content-collections/mdx/react'
 import { components } from '@/components/mdx-component'
 

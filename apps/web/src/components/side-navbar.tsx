@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname,  } from "next/navigation";
 import clsx from "clsx";
 import { NavigationProps } from "@/config/navbar";
 import { Badge } from "./ui/badge";
@@ -14,7 +14,7 @@ export function SideNavBar({
   navigation: NavigationProps[];
   className?: string;
 }) {
-  let router = useRouter();
+  // let router = useRouter();
   const path = usePathname();
   // console.log(path);
 

@@ -1,44 +1,59 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import React from "react";
-import { Link } from "expo-router";
-import { cva } from "class-variance-authority";
-// import { cn } from "@/lib";
+// Internal button.tsx file
+import { Pressable, Text } from "react-native";
+import { tv } from "tailwind-variants";
 
-const Button = ({
-  children,
-  variant = "default",
-  className,
-}: {
-  children?: string;
-  variant?: "default" | "secondary" | "destructive" | "outline";
-  className?: string;
-}) => {
-  return (
-    <TouchableOpacity className={buttonVariants({ variant }) + " " + "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive font-medium"}>
-      <Text className={variant==="default"? "text-white": ""}>{children}</Text>
-    </TouchableOpacity>
-  );
-};
-
-export default Button;
-
-const buttonVariants = cva("text-black rounded-md shadow ", {
+export const buttonVariants = tv({ 
+  base: "rounded-md px-4 py-2 ",
   variants: {
     variant: {
-      default: "bg-slate-900 text-white",
-      secondary: "bg-slate-400 text-black",
-      destructive: "bg-red-500 text-white",
-      outline: "border-[0.5px] border-slate-900/70 text-slate-900",
+      primary: "bg-black ",
+      secondary: "bg-gray-200 ",
+      destructive: "bg-red-500 ",
+      outline:  "border border-slate-400  bg-white box-shadow-sm "
     },
     size: {
-      default: "px-4 py-2",
-      sm: "px-3 py-1.5 text-xs",
-      lg: "px-8 py-3 text-lg",
+      sm: "px-4",
+      lg: "px-8 py-2",
     },
   },
   defaultVariants: {
-    variant: "default",
-    size: "default",
+    variant: "primary",
+    size: "sm",
   },
-});
+ });
+export const buttonTextVariants = tv({ 
+  base: "font-medium  ",
+  variants: {
+    variant: {
+      primary: "text-white",
+      secondary: "text-black",
+      destructive: "text-white",
+      outline :"text-black"
+    },
+    size: {
+      sm: "text-sm",
+      lg: "text-sm",
+    },
+  },
+  defaultVariants: {
+    variant: "primary",
+    size: "sm",
+  },
+ });
+
+export type ButtonProps = {
+  variant?: "primary" | "secondary" | "destructive"| "outline";
+  size?: "sm" | "lg";
+  children: React.ReactNode;
+  className?: string;
+};
+
+export const Button = ({ children, variant, size,className }: ButtonProps) => {
+  return (
+    <Pressable  className={buttonVariants({ variant, size ,className})}>
+      <Text className={buttonTextVariants({ variant, size,className })}>{children}</Text>
+    </Pressable>
+  );
+};
+
 

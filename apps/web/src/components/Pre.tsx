@@ -38,7 +38,7 @@ export const Pre: React.FC<PreProps> = ({ children }) => {
         children.type === 'code'
     ) {
         const codeElement = children as React.ReactElement<CodeProps>;
-        const { className, children: codeText, 'data-meta': meta } = codeElement.props;
+        const { className, children: codeText,  } = codeElement.props;
         const language = className?.replace(/language-/, '') || '';
 
         // let title = '';

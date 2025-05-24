@@ -1,6 +1,6 @@
 import { lexicalEditor } from "@payloadcms/richtext-lexical";
 import type { CollectionConfig } from "payload";
-import { slateEditor } from "@payloadcms/richtext-slate";
+// import { slateEditor } from "@payloadcms/richtext-slate";
 
 
 // import {
@@ -51,7 +51,7 @@ export const Blogs: CollectionConfig = {
                       ({ value, data }) => {
                         if (!value) {
                           // console.log("check----------", data.title, data);
-                          // @ts-ignore
+                          // @ts-expect-error title is not defined
                           return data.title.toLowerCase().replace(/\s+/g, "-");
                         }
                         return value;

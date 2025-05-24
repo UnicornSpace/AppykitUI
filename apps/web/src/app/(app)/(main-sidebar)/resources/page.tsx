@@ -1,5 +1,5 @@
 // Todo: Think
-import { Resource, SearchParams } from "@/types";
+import { Resource,  } from "@/types";
 import ResourceGallery from "./resource-gallery";
 import { Metadata } from "next";
 
@@ -9,7 +9,8 @@ export const metadata: Metadata = {
     "A free collection of web development resources, tools, and utilities to boost your development process. Simple to use and open-source.",
 };
 
-const page = (props: { searchParams: SearchParams }) => {
+// props: { searchParams: SearchParams }
+const page = () => {
   /*
   TODO: add search functionality with searchParams, 
   eg: if /resources?category=ui, 
