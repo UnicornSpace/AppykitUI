@@ -15,7 +15,7 @@ export default function Home() {
             className="block bg-fd-secondary rounded-lg shadow-md overflow-hidden p-6"
           >
             <h2 className="text-xl font-semibold mb-2">{post.data.title}</h2>
-            <p className="mb-4 opacity-50">{post.data.description}</p>
+            <p className="mb-4 opacity-45 text-sm">{post.data.description}</p>
           </Link>
         ))}
       </div>
