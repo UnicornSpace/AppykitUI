@@ -1,4 +1,4 @@
-import { docs } from '@/.source';
+import { blockConfig, blogConfig, CourseConfig, docs } from '@/.source';
 import { loader } from 'fumadocs-core/source';
 // import { blogConfig } from 'source.config';
 import { createMDXSource } from 'fumadocs-mdx';
@@ -11,7 +11,15 @@ export const source = loader({
 });
 
 
-// export const blog = loader({
-//   baseUrl: "/blog",
-//   source: createMDXSource(blogConfig, [])
-// })
+export const blocks = loader({
+  baseUrl: "/blocks",
+  source: createMDXSource(blockConfig)
+})
+export const blogs = loader({
+  baseUrl: "/blog",
+  source: createMDXSource(blogConfig)
+})
+export const course = loader({
+  baseUrl: "/course",
+  source: createMDXSource(CourseConfig)
+})

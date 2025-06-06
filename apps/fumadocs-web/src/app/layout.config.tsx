@@ -25,12 +25,36 @@ export const baseOptions: BaseLayoutProps = {
   },
   // see https://fumadocs.dev/docs/ui/navigation/links
   links: [
-  //  {
-  //     // icon: <BookIcon />,
-  //     text: 'Components',
-  //     url: '/components',
-  //     // secondary items will be displayed differently on navbar
-  //     secondary: false,
-  //   },
+   {
+      // icon: <BookIcon />,
+      text: 'Components',
+      url: '/components',
+      // secondary items will be displayed differently on navbar
+      secondary: false,
+    },
+   {
+      // icon: <BookIcon />,
+      text: 'Blocks',
+      url: '/blocks',
+      // secondary items will be displayed differently on navbar
+      secondary: false,
+      active:"nested-url"
+    },
+   {
+      // icon: <BookIcon />,
+      text: 'Blog',
+      url: '/blog',
+      // secondary items will be displayed differently on navbar
+      secondary: false,
+      active:"nested-url"
+    },
+   {
+      // icon: <BookIcon />,
+      text: 'Course',
+      url: '/course',
+      // secondary items will be displayed differently on navbar
+      secondary: false,
+      active:"nested-url"
+    },
   ],
 };
