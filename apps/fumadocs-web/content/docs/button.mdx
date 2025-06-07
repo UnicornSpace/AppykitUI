@@ -30,60 +30,107 @@ Copy and paste the following code into your project.
 
 
 ```ts
-// Internal button.tsx file
-import { Pressable, Text } from "react-native";
+
+import { ComponentProps } from "react";
+import { Pressable, PressableProps, Text, View } from "react-native";
 import { tv } from "tailwind-variants";
 
-export const buttonVariants = tv({ 
-  base: "rounded-md px-4 py-2 ",
+export const buttonVariants = tv({
+  base: "rounded-md px-4 py-2 flex-row items-center",
   variants: {
     variant: {
-      primary: "bg-black ",
+      primary: "bg-black  ",
       secondary: "bg-gray-200 ",
-      destructive: "bg-red-500 ",
-      outline:  "border border-slate-400  bg-white box-shadow-sm "
+      destructive: "bg-red-400",
+      outline: "border border-slate-400  bg-white box-shadow-sm ",
     },
     size: {
       sm: "px-4",
-      lg: "px-8 py-2",
+      lg: "px-6 py-3",
     },
   },
   defaultVariants: {
     variant: "primary",
     size: "sm",
   },
- });
-export const buttonTextVariants = tv({ 
+});
+export const buttonTextVariants = tv({
   base: "font-medium  ",
   variants: {
     variant: {
       primary: "text-white",
       secondary: "text-black",
       destructive: "text-white",
-      outline :"text-black"
+      outline: "text-black",
     },
     size: {
       sm: "text-sm",
-      lg: "text-sm",
+      lg: "text-lg",
     },
   },
   defaultVariants: {
     variant: "primary",
     size: "sm",
   },
- });
+});
 
 export type ButtonProps = {
-  variant?: "primary" | "secondary" | "destructive"| "outline";
+  variant?: "primary" | "secondary" | "destructive" | "outline";
   size?: "sm" | "lg";
-  children: React.ReactNode;
+  children?: React.ReactNode;
   className?: string;
-};
+  textclassName?: string;
+  rightIcon?: React.ReactNode;
+  leftIcon?: React.ReactNode;
+} & PressableProps;
 
-export const Button = ({ children, variant, size,className }: ButtonProps) => {
+export const Button = ({
+  children,
+  variant,
+  size,
+  className,
+  textclassName,
+  rightIcon,
+  leftIcon,
+  ...pressableProps
+}: ButtonProps) => {
+  // if nothing to render, return null
+  if (!children && !rightIcon && !leftIcon) return null;
+
   return (
-    <Pressable  className={buttonVariants({ variant, size ,className})}>
-      <Text className={buttonTextVariants({ variant, size,className })}>{children}</Text>
+    <Pressable
+      className={buttonVariants({ variant, size, className })}
+      {...pressableProps}
+    >
+      {/* If only leftIcon */}
+      {leftIcon && !children && !rightIcon && (
+        <View className="mx-auto">{leftIcon}</View>
+      )}
+
+      {/* If leftIcon + children */}
+      {leftIcon && children && (
+        <View className="mr-2">{leftIcon}</View>
+      )}
+
+      {/* If text */}
+      {children && (
+        <Text
+          className={buttonTextVariants({
+            variant,
+            size,
+            className: textclassName,
+          })}
+        >
+          {children}
+        </Text>
+      )}
+
+      {/* If rightIcon */}
+      {rightIcon && (
+        <View className={`${children ? "ml-2" : "mx-auto"}`}>
+          {rightIcon}
+        </View>
+      )}
     </Pressable>
   );
 };
