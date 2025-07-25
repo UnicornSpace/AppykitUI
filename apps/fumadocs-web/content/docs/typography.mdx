@@ -1,0 +1,110 @@
+---
+title: Typography
+description: Displays a Text 
+---
+
+import { Step, Steps } from 'fumadocs-ui/components/steps';
+
+
+## Preview
+
+![](./preview/typography.png)
+
+## Installation
+
+<Tabs items={['cli','manual', ]}>
+  <Tab value="manual">
+   
+<Steps>
+<Step>
+Install the following dependencies:
+```shell
+npx expo install @rn-primitives/types
+```
+{/* TODO: add tabs for other installation purposes*/}
+
+</Step>
+<Step>
+Install the following dependencies:
+```shell
+npx expo install @rn-primitives/slot
+```
+{/* TODO: add tabs for other installation purposes*/}
+
+</Step>
+
+<Step>
+Copy and paste the following code into your project.
+
+```ts
+import * as Slot from '@rn-primitives/slot';
+import * as React from 'react';
+import { Text as RNText } from 'react-native';
+import { cn } from '~/lib/utils';
+
+const TextClassContext = React.createContext<string | undefined>(undefined);
+
+function Text({
+  className,
+  asChild = false,
+  ...props
+}: React.ComponentProps<typeof RNText> & {
+  ref?: React.RefObject<RNText>;
+  asChild?: boolean;
+}) {
+  const textClass = React.useContext(TextClassContext);
+  const Component = asChild ? Slot.Text : RNText;
+  return (
+    <Component
+      className={cn('text-base text-foreground ', textClass, className)}
+      {...props}
+    />
+  );
+}
+
+export { Text, TextClassContext };
+
+```
+
+</Step>
+<Step>
+Create a utility function to merge class names. 
+Create a file named `utils.ts` in your project and add the following code:
+```ts
+import { clsx, type ClassValue } from 'clsx';
+import { twMerge } from 'tailwind-merge';
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+```
+</Step>
+<Step>
+Update the import paths to match your project setup.
+</Step>
+
+</Steps>
+  
+  </Tab>
+  <Tab value="cli">
+  ```ts
+npx shadcn@latest add ""
+```
+  </Tab>
+</Tabs>
+
+
+
+
+## Usage
+
+```tsx
+import { Text } from "@/components/ui/text";
+```
+
+```tsx
+<Text>Text</Text>
+```
+
+## Examples
+

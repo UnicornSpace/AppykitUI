@@ -30,7 +30,7 @@ export default function HeroSection() {
             Get started now
           </Button>
           <Button size="lg" variant="outline" className="rounded-full h-12">
-            Book an intro call
+            Discover Components
           </Button>
         </div>
       </div>

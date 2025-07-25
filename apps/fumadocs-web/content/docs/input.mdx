@@ -1,0 +1,118 @@
+---
+title: Input
+description: Displays a Text Input component.
+---
+import { Step, Steps } from 'fumadocs-ui/components/steps';
+
+
+## Preview
+
+![](./preview/input.png)
+
+## Installation
+
+<Tabs items={['cli','manual', ]}>
+  <Tab value="manual">
+   
+<Steps>
+
+<Step>
+Install the following dependencies:
+```shell
+bun expo add tailwind-variants
+```
+{/* TODO: add tabs for other installation purposes*/}
+
+</Step>
+<Step>
+Copy and paste the following code into your project.
+
+```ts
+import * as React from 'react';
+import { TextInput, type TextInputProps } from 'react-native';
+import { cn } from '~/lib/utils';
+
+function Input({
+  className,
+  placeholderClassName,
+  ...props
+}: TextInputProps & {
+  ref?: React.RefObject<TextInput>;
+}) {
+  return (
+    <TextInput
+      className={cn(
+        'h-12 w-full rounded-md border border-input bg-background px-3 text-lg leading-[1.25] text-foreground placeholder:text-muted-foreground',
+        props.editable === false && 'opacity-50',
+        className
+      )}
+      placeholderTextColor="#9CA3AF" // Fallback for muted-foreground
+      {...props}
+    />
+  );
+}
+
+export { Input };
+
+```
+
+</Step>
+<Step>
+Create a utility function to merge class names. 
+Create a file named `utils.ts` in your project and add the following code:
+```ts
+import { clsx, type ClassValue } from 'clsx';
+import { twMerge } from 'tailwind-merge';
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+```
+</Step>
+<Step>
+Update the import paths to match your project setup.
+</Step>
+
+</Steps>
+  
+  </Tab>
+  <Tab value="cli">
+  ```ts
+npx shadcn@latest add ""
+```
+  </Tab>
+</Tabs>
+
+
+
+
+## Usage
+
+```tsx
+import { Input } from "../ui/input";
+import { Text } from '~/components/ui/text';
+```
+
+```tsx  
+function Example() {
+  const [value, setValue] = React.useState('');
+
+  const onChangeText = (text: string) => {
+    setValue(text);
+  };
+
+  return (
+      <Input
+        placeholder='Write some stuff...'
+        value={value}
+        onChangeText={onChangeText}
+        aria-labelledby='inputLabel'
+        aria-errormessage='inputError'
+      />
+  );
+}
+
+```
+
+## Examples
+

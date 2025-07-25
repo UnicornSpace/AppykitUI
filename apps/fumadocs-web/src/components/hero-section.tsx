@@ -33,7 +33,7 @@ export default function HeroSection() {
           */}
           <Link href={"/components"} className="w-full sm:w-auto">
             <button className="rounded-full h-12 flex items-center gap-2 border  px-4 dark:bg-white dark:text-black bg-black text-white">
-              Book an intro call <ArrowRight size={16} />
+              Discover Components <ArrowRight size={16} />
             </button>
           </Link>
         </div>

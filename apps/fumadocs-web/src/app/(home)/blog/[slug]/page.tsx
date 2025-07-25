@@ -1,15 +1,15 @@
-import { notFound } from 'next/navigation';
-import Link from 'next/link';
-import { InlineTOC } from 'fumadocs-ui/components/inline-toc';
-import defaultMdxComponents from 'fumadocs-ui/mdx';
-import { blogs } from '@/lib/source';
-import { BsArrowLeft } from 'react-icons/bs';
+import { notFound } from "next/navigation";
+import Link from "next/link";
+import { InlineTOC } from "fumadocs-ui/components/inline-toc";
+import defaultMdxComponents from "fumadocs-ui/mdx";
+import { blocks } from "@/lib/source";
+import { BsArrowLeft } from "react-icons/bs";
 
 export default async function Page(props: {
   params: Promise<{ slug: string }>;
 }) {
   const params = await props.params;
-  const page = blogs.getPage([params.slug]);
+  const page = blocks.getPage([params.slug]);
 
   if (!page) notFound();
   const Mdx = page.data.body;
@@ -17,13 +17,12 @@ export default async function Page(props: {
   return (
     <>
       <div className="container rounded-xl border py-12 md:px-8">
-            <div className='mb-2  flex items-center gap-2 '>
+        <div className="mb-2  flex items-center gap-2 ">
           <BsArrowLeft />
-        <Link  href="/blog">Back</Link>
+          <Link href="/blog">Back</Link>
         </div>
         <h1 className="mb-2 text-3xl font-bold">{page.data.title}</h1>
         <p className="mb-4 text-fd-muted-foreground">{page.data.description}</p>
-    
       </div>
       <article className="container flex flex-col px-4 py-8">
         <div className="prose min-w-0">
@@ -48,17 +47,16 @@ export default async function Page(props: {
 }
 
 export function generateStaticParams(): { slug: string }[] {
-  return blogs.getPages().map((page) => ({
+  return blocks.getPages().map((page) => ({
     slug: page.slugs[0],
   }));
 }
-
 
 export async function generateMetadata(props: {
   params: Promise<{ slug: string }>;
 }) {
   const params = await props.params;
-  const page = blogs.getPage([params.slug]);
+  const page = blocks.getPage([params.slug]);
   if (!page) notFound();
   return {
     title: page.data.title,

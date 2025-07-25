@@ -38,23 +38,28 @@ export const baseOptions: BaseLayoutProps = {
       url: '/blocks',
       // secondary items will be displayed differently on navbar
       secondary: false,
-      active:"nested-url"
+      // active:"nested-url"
     },
-   {
-      // icon: <BookIcon />,
-      text: 'Blog',
-      url: '/blog',
-      // secondary items will be displayed differently on navbar
-      secondary: false,
-      active:"nested-url"
-    },
-   {
-      // icon: <BookIcon />,
-      text: 'Course',
-      url: '/course',
-      // secondary items will be displayed differently on navbar
-      secondary: false,
-      active:"nested-url"
-    },
+  //  {
+  //     // icon: <BookIcon />,
+  //     text: 'Blog',
+  //     url: '/blog',
+  //     // secondary items will be displayed differently on navbar
+  //     secondary: false,
+  //     active:"nested-url"
+  //   },
+  //  {
+  //     // icon: <BookIcon />,
+  //     text: 'Course',
+  //     url: '/course',
+  //     // secondary items will be displayed differently on navbar
+  //     secondary: false,
+  //     active:"nested-url"
+  //   },
+  //   {
+  //     text: 'Tools',
+  //     url: '/tools',
+      
+  //   }
   ],
 };

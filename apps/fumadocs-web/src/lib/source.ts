@@ -23,3 +23,9 @@ export const course = loader({
   baseUrl: "/course",
   source: createMDXSource(CourseConfig)
 })
+
+
+// export const tools = loader({
+//   baseUrl: "/tools",
+//   source: createMDXSource(toolConfig),
+// })

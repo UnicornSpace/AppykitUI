@@ -7,7 +7,9 @@ import { Step, Steps } from 'fumadocs-ui/components/steps';
 
 ## Preview
 
+{/* ![](./preview/button.png) */}
 ![](./preview/button.png)
+{/* ![](./preview/button1.png) */}
 
 ## Installation
 
@@ -27,118 +29,97 @@ bun expo add tailwind-variants
 <Step>
 Copy and paste the following code into your project.
 
-
-
 ```ts
+import { cva, type VariantProps } from 'class-variance-authority';
+import * as React from 'react';
+import { Pressable } from 'react-native';
+import { TextClassContext } from '~/components/ui/text';
+import { cn } from '~/lib/utils';
 
-import { ComponentProps } from "react";
-import { Pressable, PressableProps, Text, View } from "react-native";
-import { tv } from "tailwind-variants";
-
-export const buttonVariants = tv({
-  base: "rounded-md px-4 py-2 flex-row items-center",
-  variants: {
-    variant: {
-      primary: "bg-black  ",
-      secondary: "bg-gray-200 ",
-      destructive: "bg-red-400",
-      outline: "border border-slate-400  bg-white box-shadow-sm ",
+const buttonVariants = cva(
+  'flex items-center justify-center rounded-md',
+  {
+    variants: {
+      variant: {
+        default: 'bg-primary active:opacity-90',
+        destructive: 'bg-destructive active:opacity-90',
+        outline: 'border border-input bg-background active:bg-accent',
+        secondary: 'bg-secondary active:opacity-80',
+      },
+      size: {
+        default: 'h-12 px-5 py-3',
+        sm: 'h-9 rounded-md px-3',
+        lg: 'h-14 rounded-md px-8',
+        icon: 'h-10 w-10',
+      },
     },
-    size: {
-      sm: "px-4",
-      lg: "px-6 py-3",
+    defaultVariants: {
+      variant: 'default',
+      size: 'default',
     },
-  },
-  defaultVariants: {
-    variant: "primary",
-    size: "sm",
-  },
-});
-export const buttonTextVariants = tv({
-  base: "font-medium  ",
-  variants: {
-    variant: {
-      primary: "text-white",
-      secondary: "text-black",
-      destructive: "text-white",
-      outline: "text-black",
+  }
+);
+
+const buttonTextVariants = cva(
+  'text-base font-medium text-foreground',
+  {
+    variants: {
+      variant: {
+        default: 'text-primary-foreground',
+        destructive: 'text-destructive-foreground',
+        outline: '',
+        secondary: 'text-secondary-foreground',
+      },
+      size: {
+        default: '',
+        sm: '',
+        lg: 'text-lg',
+        icon: '',
+      },
     },
-    size: {
-      sm: "text-sm",
-      lg: "text-lg",
+    defaultVariants: {
+      variant: 'default',
+      size: 'default',
     },
-  },
-  defaultVariants: {
-    variant: "primary",
-    size: "sm",
-  },
-});
+  }
+);
 
-export type ButtonProps = {
-  variant?: "primary" | "secondary" | "destructive" | "outline";
-  size?: "sm" | "lg";
-  children?: React.ReactNode;
-  className?: string;
-  textclassName?: string;
-  rightIcon?: React.ReactNode;
-  leftIcon?: React.ReactNode;
-} & PressableProps;
+type ButtonProps = React.ComponentProps<typeof Pressable> & VariantProps<typeof buttonVariants>;
 
-export const Button = ({
-  children,
-  variant,
-  size,
-  className,
-  textclassName,
-  rightIcon,
-  leftIcon,
-  ...pressableProps
-}: ButtonProps) => {
-  // if nothing to render, return null
-  if (!children && !rightIcon && !leftIcon) return null;
-
+function Button({ ref, className, variant, size, ...props }: ButtonProps) {
   return (
-    <Pressable
-      className={buttonVariants({ variant, size, className })}
-      {...pressableProps}
+    <TextClassContext.Provider
+      value={buttonTextVariants({ variant, size, className })}
     >
-      {/* If only leftIcon */}
-      {leftIcon && !children && !rightIcon && (
-        <View className="mx-auto">{leftIcon}</View>
-      )}
-
-      {/* If leftIcon + children */}
-      {leftIcon && children && (
-        <View className="mr-2">{leftIcon}</View>
-      )}
-
-      {/* If text */}
-      {children && (
-        <Text
-          className={buttonTextVariants({
-            variant,
-            size,
-            className: textclassName,
-          })}
-        >
-          {children}
-        </Text>
-      )}
-
-      {/* If rightIcon */}
-      {rightIcon && (
-        <View className={`${children ? "ml-2" : "mx-auto"}`}>
-          {rightIcon}
-        </View>
-      )}
-    </Pressable>
+      <Pressable
+        className={cn(
+          props.disabled && 'opacity-50',
+          buttonVariants({ variant, size, className })
+        )}
+        ref={ref}
+        role='button'
+        {...props}
+      />
+    </TextClassContext.Provider>
   );
-};
+}
 
-
-
+export { Button, buttonTextVariants, buttonVariants };
+export type { ButtonProps };
 ```
 
+</Step>
+<Step>
+Create a utility function to merge class names. 
+Create a file named `utils.ts` in your project and add the following code:
+```ts
+import { clsx, type ClassValue } from 'clsx';
+import { twMerge } from 'tailwind-merge';
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+```
 </Step>
 <Step>
 Update the import paths to match your project setup.
@@ -164,26 +145,51 @@ import { Button } from "@/components/ui/button"
 ```
 
 ```tsx
-<Button variant="outline">Button</Button>
+<Button variant="default">Button</Button>
 ```
 
 ## Examples
 
 ### Secondary 
-```tsx
+<Tabs  items={['Preview', 'Code']}>
+  <Tab value="Preview">
+  ![](./preview/button-secondary.png)
+  </Tab>
+  <Tab value="Code">
+  ```tsx
 <Button variant="secondary">Button</Button>
 ```
+  </Tab>
+</Tabs>
+
+
 
 
 ### Destructive
+<Tabs  items={['Preview', 'Code']}>
+  <Tab value="Preview">
+  ![](./preview/button-destructive.png)
+  </Tab>
+  <Tab value="Code">
 ```tsx
 <Button variant="destructive">Button</Button>
 ```
+  </Tab>
+</Tabs>
+
 
 ### Outline
+<Tabs  items={['Preview', 'Code']}>
+  <Tab value="Preview">
+  ![](./preview/button-outline.png)
+  </Tab>
+  <Tab value="Code">
 ```tsx
 <Button variant="outline">Button</Button>
 ```
+  </Tab>
+</Tabs>
+
 {/* ### Icon 
 ```tsx */}
 
