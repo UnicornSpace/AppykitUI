@@ -13,11 +13,13 @@ import { File, Folder, Files } from 'fumadocs-ui/components/files';
 
 ## Installation
 
-<Tabs items={['cli','manual', ]}>
+<Tabs items={['manual','cli', ]}>
   <Tab value="manual">
    
 <Steps>
+
 <Step>
+Create the following folder structure in your project:
 <Files>
   <Folder name="app" defaultOpen>
     <File name="layout.tsx" />
@@ -120,11 +122,13 @@ Update the import paths to match your project setup.
 </Steps>
   
   </Tab>
+ 
   <Tab value="cli">
   ```ts
 npx shadcn@latest add ""
 ```
   </Tab>
+
 </Tabs>
 
 ## Usage
