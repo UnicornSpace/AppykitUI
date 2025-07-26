@@ -4,6 +4,8 @@ description: Displays an avatar component.
 ---
 
 import { Step, Steps } from "fumadocs-ui/components/steps";
+import { File, Folder, Files } from 'fumadocs-ui/components/files';
+
 
 ## Preview
 
@@ -15,22 +17,42 @@ import { Step, Steps } from "fumadocs-ui/components/steps";
   <Tab value="manual">
    
 <Steps>
+<Step>
+<Files>
+  <Folder name="app" defaultOpen>
+    <File name="layout.tsx" />
+    <File name="page.tsx" />
+  </Folder>
+  <Folder name="components" defaultOpen>
+  <Folder name="ui" defaultOpen>
+  <File name="avatar.tsx" />
+  </Folder>
+    
+  </Folder>
+  <Folder name="lib" defaultOpen>
+    <File name="utils.ts" />
+  </Folder>
+  <File name="package.json" />
+
+</Files>
+</Step>
 
 <Step>
 Install the following dependencies:
 ```shell
-bun expo add tailwind-variants
+npx expo add tailwind-variants
+npx expo install @rn-primitives/avatar
+npx expo install clsx
 ```
 {/* TODO: add tabs for other installation purposes*/}
 
 </Step>
 <Step>
-Copy and paste the following code into your project.
-
+Create a folder named `ui` under component folder in your project and add the following code in a file named `avatar.tsx`:
 ```ts
 import * as AvatarPrimitive from '@rn-primitives/avatar';
 import * as React from 'react';
-import { cn } from '~/lib/utils';
+import { cn } from '../../lib/utils';
 
 function Avatar({
   className,
@@ -40,7 +62,7 @@ function Avatar({
 }) {
   return (
     <AvatarPrimitive.Root
-      className={cn('flex h-10 w-10 shrink-0 overflow-hidden rounded-full', className)}
+      className={cn('relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full', className)}
       {...props}
     />
   );
@@ -53,10 +75,7 @@ function AvatarImage({
   ref?: React.RefObject<AvatarPrimitive.ImageRef>;
 }) {
   return (
-    <AvatarPrimitive.Image
-      className={cn('aspect-square h-full w-full', className)}
-      {...props}
-    />
+    <AvatarPrimitive.Image className={cn('aspect-square h-full w-full', className)} {...props} />
   );
 }
 
@@ -77,7 +96,7 @@ function AvatarFallback({
   );
 }
 
-export { Avatar, AvatarImage, AvatarFallback };
+export { Avatar, AvatarFallback, AvatarImage };
 
 ```
 
@@ -118,7 +137,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 <Avatar alt="Zach Nugent's Avatar">
   <AvatarImage
     source={{
-      uri: "https://unsplash.com/photos/dog-holding-flower-2s6ORaJY6gI",
+      uri: "https://github.com/mrzachnugent.png",
     }}
   />
   <AvatarFallback>

@@ -16,31 +16,27 @@ import { Step, Steps } from 'fumadocs-ui/components/steps';
   <Tab value="manual">
    
 <Steps>
-<Step>
-Install the following dependencies:
-```shell
-npx expo install @rn-primitives/types
-```
-{/* TODO: add tabs for other installation purposes*/}
 
-</Step>
 <Step>
 Install the following dependencies:
 ```shell
+npx expo add tailwind-variants
 npx expo install @rn-primitives/slot
+npx expo install react-native-svg lucide-react-native
+npx expo install clsx
 ```
 {/* TODO: add tabs for other installation purposes*/}
 
 </Step>
 
 <Step>
-Copy and paste the following code into your project.
+Create a folder named `ui` under component folder in your project and add the following code in a file named `text.tsx`:
 
 ```ts
 import * as Slot from '@rn-primitives/slot';
 import * as React from 'react';
 import { Text as RNText } from 'react-native';
-import { cn } from '~/lib/utils';
+import { cn } from '../lib/utils';
 
 const TextClassContext = React.createContext<string | undefined>(undefined);
 
@@ -63,6 +59,7 @@ function Text({
 }
 
 export { Text, TextClassContext };
+
 
 ```
 

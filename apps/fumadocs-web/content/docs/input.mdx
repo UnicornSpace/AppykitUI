@@ -3,7 +3,7 @@ title: Input
 description: Displays a Text Input component.
 ---
 import { Step, Steps } from 'fumadocs-ui/components/steps';
-
+import { File, Folder, Files } from 'fumadocs-ui/components/files';
 
 ## Preview
 
@@ -17,15 +17,38 @@ import { Step, Steps } from 'fumadocs-ui/components/steps';
 <Steps>
 
 <Step>
+<Files>
+  <Folder name="app" defaultOpen>
+    <File name="layout.tsx" />
+    <File name="page.tsx" />
+  </Folder>
+  <Folder name="components" defaultOpen>
+  <Folder name="ui" defaultOpen>
+  <File name="input.tsx" />
+  </Folder>
+    
+  </Folder>
+  <Folder name="lib" defaultOpen>
+ 
+    <File name="utils.ts" />
+  </Folder>
+  <File name="package.json" />
+
+</Files>
+</Step>
+
+<Step>
 Install the following dependencies:
 ```shell
-bun expo add tailwind-variants
+npx expo add tailwind-variants
+npx expo install react-native-svg lucide-react-native
+npx expo install clsx
 ```
 {/* TODO: add tabs for other installation purposes*/}
 
 </Step>
 <Step>
-Copy and paste the following code into your project.
+Create a folder named `ui` under component folder in your project and add the following code in a file named `input.tsx`:
 
 ```ts
 import * as React from 'react';
@@ -42,17 +65,18 @@ function Input({
   return (
     <TextInput
       className={cn(
-        'h-12 w-full rounded-md border border-input bg-background px-3 text-lg leading-[1.25] text-foreground placeholder:text-muted-foreground',
-        props.editable === false && 'opacity-50',
+        'web:flex h-10 native:h-12 web:w-full rounded-md border border-input bg-background px-3 web:py-2 text-base lg:text-sm native:text-lg native:leading-[1.25] text-foreground placeholder:text-muted-foreground web:ring-offset-background file:border-0 file:bg-transparent file:font-medium web:focus-visible:outline-none web:focus-visible:ring-2 web:focus-visible:ring-ring web:focus-visible:ring-offset-2',
+        props.editable === false && 'opacity-50 web:cursor-not-allowed',
         className
       )}
-      placeholderTextColor="#9CA3AF" // Fallback for muted-foreground
+      placeholderClassName={cn('text-muted-foreground', placeholderClassName)}
       {...props}
     />
   );
 }
 
 export { Input };
+
 
 ```
 

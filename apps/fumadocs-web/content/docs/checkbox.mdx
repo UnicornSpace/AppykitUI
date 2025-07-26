@@ -4,6 +4,7 @@ description: Displays a checkbox component.
 ---
 
 import { Step, Steps } from "fumadocs-ui/components/steps";
+import { File, Folder, Files } from 'fumadocs-ui/components/files';
 
 ## Preview
 
@@ -17,21 +18,50 @@ import { Step, Steps } from "fumadocs-ui/components/steps";
 <Steps>
 
 <Step>
+<Files>
+  <Folder name="app" defaultOpen>
+    <File name="layout.tsx" />
+    <File name="page.tsx" />
+  </Folder>
+  <Folder name="components" defaultOpen>
+  <Folder name="ui" defaultOpen>
+  <File name="checkbox.tsx" />
+  </Folder>
+    
+  </Folder>
+  <Folder name="lib" defaultOpen>
+  <Folder name="icons" defaultOpen>
+    <File name="Check.tsx" />
+    <File name="iconWithClassName.ts" />
+  </Folder>
+    <File name="utils.ts" />
+  </Folder>
+  <File name="package.json" />
+
+</Files>
+</Step>
+
+
+<Step>
 Install the following dependencies:
 ```shell
-bun expo add tailwind-variants
+npx expo add tailwind-variants
+npx expo install @rn-primitives/checkbox
+npx expo install react-native-svg lucide-react-native
+npx expo install clsx
 ```
 {/* TODO: add tabs for other installation purposes*/}
 
 </Step>
 <Step>
-Copy and paste the following code into your project.
+Create a folder named `ui` under component folder in your project and add the following code in a file named `checkbox.tsx`:
 
 ```ts
 import * as CheckboxPrimitive from '@rn-primitives/checkbox';
 import * as React from 'react';
-import { Check } from '~/lib/icons/Check';
-import { cn } from '~/lib/utils';
+import { Platform } from 'react-native';
+import { Check } from '../lib/icons/Check';
+import { cn } from '../lib/utils';
 
 function Checkbox({
   className,
@@ -42,18 +72,17 @@ function Checkbox({
   return (
     <CheckboxPrimitive.Root
       className={cn(
-        'h-[20] w-[20] shrink-0 rounded-sm border border-primary',
+        'web:peer h-4 w-4 native:h-[20] native:w-[20] shrink-0 rounded-sm native:rounded border border-primary web:ring-offset-background web:focus-visible:outline-none web:focus-visible:ring-2 web:focus-visible:ring-ring web:focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
         props.checked && 'bg-primary',
-        props.disabled && 'opacity-50',
         className
       )}
       {...props}
     >
-      <CheckboxPrimitive.Indicator className="items-center justify-center h-full w-full">
+      <CheckboxPrimitive.Indicator className={cn('items-center justify-center h-full w-full')}>
         <Check
           size={12}
-          strokeWidth={3.5}
-          className="text-primary-foreground"
+          strokeWidth={Platform.OS === 'web' ? 2.5 : 3.5}
+          className='text-primary-foreground'
         />
       </CheckboxPrimitive.Indicator>
     </CheckboxPrimitive.Root>
@@ -61,22 +90,42 @@ function Checkbox({
 }
 
 export { Checkbox };
+
+
+
 ```
-
 </Step>
+Add the iconWithClassName function in the ~/lib/icons/iconWithClassName.ts file.
 <Step>
-Create a utility function to merge class names. 
-Create a file named `utils.ts` in your project and add the following code:
 ```ts
-import { clsx, type ClassValue } from 'clsx';
-import { twMerge } from 'tailwind-merge';
+import type { LucideIcon } from 'lucide-react-native';
+import { cssInterop } from 'nativewind';
 
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
+export function iconWithClassName(icon: LucideIcon) {
+cssInterop(icon, {
+    className: {
+    target: 'style',
+    nativeStyleToProp: {
+        color: true,
+        opacity: true,
+    },
+    },
+});
 }
 ```
 </Step>
 <Step>
+
+Add the iconWithClassName function in the ~/lib/icons/Check.tsx file.
+<Step>
+```ts
+import { Check } from 'lucide-react-native';
+import { iconWithClassName } from './iconWithClassName';
+iconWithClassName(Check);
+export { Check };
+```
+</Step>
+
 Update the import paths to match your project setup.
 </Step>
 
