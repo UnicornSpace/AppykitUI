@@ -22,6 +22,9 @@ export const blockConfig = defineCollections({
   type: "doc",
   dir: "content/blocks",
 })
+
+
+
 export const blogConfig = defineCollections({
   type: "doc",
   dir: "content/blog",
