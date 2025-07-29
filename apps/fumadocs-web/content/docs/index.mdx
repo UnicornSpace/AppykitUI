@@ -3,16 +3,44 @@ title: Components
 description: These are components that are made for react-native...
 ---
 
-<Cards>
+{/* <Cards>
   <Card title="Avatar" href="/components/avatar" />
   <Card title="Button" href="/components/button" />
   <Card title="Checkbox" href="/components/checkbox" />
   <Card title="Input" href="/components/input" />
   <Card title="Typography" href="/components/typography" />
-</Cards>
+</Cards> */}
 
-<ComponentThumbnailCard title="Avatar" href="/components/avatar" />
-<ComponentThumbnailCard title="Button" href="/components/button" />
-<ComponentThumbnailCard title="Checkbox" href="/components/checkbox" />
-<ComponentThumbnailCard title="Input" href="/components/input" />
-<ComponentThumbnailCard title="Typography" href="/components/typography" />
+<div className="flex flex-wrap gap-4">
+  {/* public folder the images are reffering to  */}
+  <ComponentThumbnailCard
+    title="Avatar"
+    image="/avatar_thumbnail.png"
+    href="/components/avatar"
+  />
+  <ComponentThumbnailCard
+    title="Button"
+    image="/button_thumbnail.png"
+    href="/components/button"
+  />
+  <ComponentThumbnailCard
+    title="Checkbox"
+    image="/checkbox_thumbnail.png"
+    href="/components/checkbox"
+  />
+  <ComponentThumbnailCard
+    title="Input"
+    image="/input_thumbnail.png"
+    href="/components/input"
+  />
+  <ComponentThumbnailCard
+    title="Typography"
+    image="/typography_thumbnail.png"
+    href="/components/typography"
+  />
+  <ComponentThumbnailCard
+    title="Skeleton"
+    image="/skeleton_thumbnail.png"
+    href="/components/skeleton"
+  />
+</div>

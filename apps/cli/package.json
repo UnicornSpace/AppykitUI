@@ -1,0 +1,27 @@
+{
+  "name": "appykit",
+  "version": "1.0.6",
+  "description": "Simple CLI to add/remove components",
+  "bin": {
+    "appykit": "./bin/appykit.js"
+  },
+  "type": "module",
+  "main": "dist/appykit.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "files": [
+    "bin",
+    "dist"
+  ],
+  "keywords": [
+    "cli",
+    "typescript"
+  ],
+  "author": "Likitha N",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^14.0.0",
+    "ora": "^8.2.0"
+  }
+}
