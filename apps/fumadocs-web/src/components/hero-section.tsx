@@ -2,6 +2,7 @@
 // import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Clock, DollarSign, ShieldCheck } from "lucide-react";
 import Link from "next/link";
+import { Button } from "./ui/button";
 
 export default function HeroSection() {
   return (
@@ -32,9 +33,12 @@ export default function HeroSection() {
           </Button>
           */}
           <Link href={"/components"} className="w-full sm:w-auto">
-            <button className="rounded-full h-12 flex items-center gap-2 border  px-4 dark:bg-white dark:text-black bg-black text-white">
+            <Button variant="default" className="h-10 p-0 px-10 rounded-full">
+              Get started now <ArrowRight size={16} />
+            </Button>
+            {/* <button className="rounded-full h-10 flex items-center gap-2 border  px-4 dark:bg-white dark:text-black bg-black text-white">
               Discover Components <ArrowRight size={16} />
-            </button>
+            </button> */}
           </Link>
         </div>
       </div>

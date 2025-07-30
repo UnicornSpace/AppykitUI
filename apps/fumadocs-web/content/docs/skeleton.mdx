@@ -2,4 +2,146 @@
 title: Skeleton
 description: Displays a skeleton component.
 ---
-This is skeleton code for the
+
+import { Step, Steps } from "fumadocs-ui/components/steps";
+import { File, Folder, Files } from 'fumadocs-ui/components/files';
+
+
+## Preview
+
+{/* ![](./preview/avatar.png) */}
+
+## Installation
+
+<Tabs items={['manual','cli', ]}>
+  <Tab value="manual">
+   
+<Steps>
+
+{/* <Step>
+Create the following folder structure in your project:
+<Files>
+  <Folder name="app" defaultOpen>
+    <File name="layout.tsx" />
+    <File name="page.tsx" />
+  </Folder>
+  <Folder name="components" defaultOpen>
+  <Folder name="ui" defaultOpen>
+  <File name="avatar.tsx" />
+  </Folder>
+    
+  </Folder>
+  <Folder name="lib" defaultOpen>
+    <File name="utils.ts" />
+  </Folder>
+  <File name="package.json" />
+
+</Files>
+</Step> */}
+
+<Step>
+Install the following dependencies:
+```shell
+npx expo add tailwind-variants
+npx expo install clsx
+```
+{/* TODO: add tabs for other installation purposes*/}
+
+</Step>
+<Step>
+Create a folder named `ui` under component folder in your project and add the following code in a file named `tabs.tsx`:
+```ts
+import * as React from 'react';
+import Animated, {
+  useAnimatedStyle,
+  useSharedValue,
+  withRepeat,
+  withSequence,
+  withTiming,
+} from 'react-native-reanimated';
+import { cn } from '~/lib/utils';
+
+const duration = 1000;
+
+function Skeleton({
+  className,
+  ...props
+}: Omit<React.ComponentPropsWithoutRef<typeof Animated.View>, 'style'>) {
+  const sv = useSharedValue(1);
+
+  React.useEffect(() => {
+    sv.value = withRepeat(
+      withSequence(withTiming(0.5, { duration }), withTiming(1, { duration })),
+      -1
+    );
+  }, []);
+
+  const style = useAnimatedStyle(() => ({
+    opacity: sv.value,
+  }));
+
+  return (
+    <Animated.View
+      style={style}
+      className={cn('rounded-md bg-secondary dark:bg-muted', className)}
+      {...props}
+    />
+  );
+}
+
+export { Skeleton };
+
+```
+
+</Step>
+
+
+
+<Step>
+Create a utility function to merge class names. 
+Create a file named `utils.ts` in your project and add the following code:
+```ts
+import { clsx, type ClassValue } from 'clsx';
+import { twMerge } from 'tailwind-merge';
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+```
+</Step>
+<Step>
+Update the import paths to match your project setup.
+</Step>
+
+</Steps>
+  
+  </Tab>
+ 
+  <Tab value="cli">
+  ```ts
+npx shadcn@latest add ""
+```
+  </Tab>
+
+</Tabs>
+
+## Usage
+
+```tsx
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+```
+
+```tsx
+<Avatar alt="Zach Nugent's Avatar">
+  <AvatarImage
+    source={{
+      uri: "https://github.com/mrzachnugent.png",
+    }}
+  />
+  <AvatarFallback>
+    <Text className="text-white">LN</Text>
+  </AvatarFallback>
+</Avatar>
+```
+
+## Examples

@@ -19,7 +19,7 @@ export default async function Page(props: {
   const MDXContent = page.data.body;
 
   return (
-    <div className="">
+    // <div className="">
       <DocsPage   full={page.data.full}>
         {/* <DocsTitle>{page.data.title}</DocsTitle>
         <DocsDescription>{page.data.description}</DocsDescription> */}
@@ -32,7 +32,7 @@ export default async function Page(props: {
           />
         </DocsBody>
       </DocsPage>
-    </div>
+    // </div>
   );
 }
 

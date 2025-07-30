@@ -1,0 +1,193 @@
+---
+title: Badge
+description: Displays a badge component.
+---
+
+import { Step, Steps } from "fumadocs-ui/components/steps";
+import { File, Folder, Files } from 'fumadocs-ui/components/files';
+
+
+## Preview
+
+{/* ![](./preview/avatar.png) */}
+
+## Installation
+
+<Tabs items={['manual','cli', ]}>
+  <Tab value="manual">
+   
+<Steps>
+
+{/* <Step>
+Create the following folder structure in your project:
+<Files>
+  <Folder name="app" defaultOpen>
+    <File name="layout.tsx" />
+    <File name="page.tsx" />
+  </Folder>
+  <Folder name="components" defaultOpen>
+  <Folder name="ui" defaultOpen>
+  <File name="avatar.tsx" />
+  </Folder>
+    
+  </Folder>
+  <Folder name="lib" defaultOpen>
+    <File name="utils.ts" />
+  </Folder>
+  <File name="package.json" />
+
+</Files>
+</Step> */}
+
+<Step>
+Install the following dependencies:
+```shell
+npx expo add tailwind-variants
+npx expo install clsx
+npx expo install @rn-primitives/slot
+```
+{/* TODO: add tabs for other installation purposes*/}
+
+</Step>
+<Step>
+Create a folder named `ui` under component folder in your project and add the following code in a file named `tabs.tsx`:
+```ts
+import * as Slot from '@rn-primitives/slot';
+import { cva, type VariantProps } from 'class-variance-authority';
+import { View, ViewProps } from 'react-native';
+import { cn } from '~/lib/utils';
+import { TextClassContext } from '~/components/ui/text';
+
+const badgeVariants = cva(
+  'web:inline-flex items-center rounded-full border border-border px-2.5 py-0.5 web:transition-colors web:focus:outline-none web:focus:ring-2 web:focus:ring-ring web:focus:ring-offset-2',
+  {
+    variants: {
+      variant: {
+        default: 'border-transparent bg-primary web:hover:opacity-80 active:opacity-80',
+        secondary: 'border-transparent bg-secondary web:hover:opacity-80 active:opacity-80',
+        destructive: 'border-transparent bg-destructive web:hover:opacity-80 active:opacity-80',
+        outline: 'text-foreground',
+      },
+    },
+    defaultVariants: {
+      variant: 'default',
+    },
+  }
+);
+
+const badgeTextVariants = cva('text-xs font-semibold ', {
+  variants: {
+    variant: {
+      default: 'text-primary-foreground',
+      secondary: 'text-secondary-foreground',
+      destructive: 'text-destructive-foreground',
+      outline: 'text-foreground',
+    },
+  },
+  defaultVariants: {
+    variant: 'default',
+  },
+});
+
+type BadgeProps = ViewProps & {
+  asChild?: boolean;
+} & VariantProps<typeof badgeVariants>;
+
+function Badge({ className, variant, asChild, ...props }: BadgeProps) {
+  const Component = asChild ? Slot.View : View;
+  return (
+    <TextClassContext.Provider value={badgeTextVariants({ variant })}>
+      <Component className={cn(badgeVariants({ variant }), className)} {...props} />
+    </TextClassContext.Provider>
+  );
+}
+
+export { Badge, badgeTextVariants, badgeVariants };
+export type { BadgeProps };
+
+```
+
+</Step>
+
+<Step>
+Create a folder named `ui` under component folder in your project and add the following code in a file named `text.tsx`:
+```ts
+import * as Slot from '@rn-primitives/slot';
+import * as React from 'react';
+import { Text as RNText } from 'react-native';
+import { cn } from '~/lib/utils';
+
+const TextClassContext = React.createContext<string | undefined>(undefined);
+
+function Text({
+  className,
+  asChild = false,
+  ...props
+}: React.ComponentProps<typeof RNText> & {
+  ref?: React.RefObject<RNText>;
+  asChild?: boolean;
+}) {
+  const textClass = React.useContext(TextClassContext);
+  const Component = asChild ? Slot.Text : RNText;
+  return (
+    <Component
+      className={cn('text-base text-foreground ', textClass, className)}
+      {...props}
+    />
+  );
+}
+
+export { Text, TextClassContext };
+
+```
+</Step>
+
+
+<Step>
+Create a utility function to merge class names. 
+Create a file named `utils.ts` in your project and add the following code:
+```ts
+import { clsx, type ClassValue } from 'clsx';
+import { twMerge } from 'tailwind-merge';
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+```
+</Step>
+<Step>
+Update the import paths to match your project setup.
+</Step>
+
+</Steps>
+  
+  </Tab>
+ 
+  <Tab value="cli">
+  ```ts
+npx shadcn@latest add ""
+```
+  </Tab>
+
+</Tabs>
+
+## Usage
+
+```tsx
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+```
+
+```tsx
+<Avatar alt="Zach Nugent's Avatar">
+  <AvatarImage
+    source={{
+      uri: "https://github.com/mrzachnugent.png",
+    }}
+  />
+  <AvatarFallback>
+    <Text className="text-white">LN</Text>
+  </AvatarFallback>
+</Avatar>
+```
+
+## Examples

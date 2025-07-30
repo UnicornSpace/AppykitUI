@@ -1,3 +1,58 @@
+V0: 
+
+Components ->5
+1. Button
+2. Avatar
+3. Checkbox
+4. Input
+5. Typography
+
+3 Blocks
+-----
+
+V1: ->5 == 10 
+1. Accordion ✅
+2. Card✅
+3. Tab✅
+4. Skeleton✅
+5. Badge✅
+
+
+Blocks ->6 == 9 blocks
+1. https://dribbble.com/shots/24462838-Finance-Mobile-App-Component  (4 Comp)
+2. https://dribbble.com/shots/19980336-Photobook-App-More-Screens (2 comp)
+3. 
+2. Select
+1. Textarea
+3. Modal
+4. Switch
+
+
+
+
+
+
+
+-----
+5. Progress
+-----
+Advance
+
+1. Radio Group
+2. Table
+3. Date Picker
+4. Input OTP
+5. Toast/Sonner
+6. Carousel
+7. Toggle
+8. Toggle Group
+9. Chart
+10. Drawer/Sheet
+11. Slider
+------
+
+
+
 # fumadocs-web
 
 This is a Next.js application generated with

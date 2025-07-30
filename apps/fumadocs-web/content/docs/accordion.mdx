@@ -1,0 +1,275 @@
+---
+title: Accordion
+description: Displays an accordion component.
+---
+
+import { Step, Steps } from "fumadocs-ui/components/steps";
+import { File, Folder, Files } from 'fumadocs-ui/components/files';
+
+
+## Preview
+
+{/* ![](./preview/avatar.png) */}
+
+## Installation
+
+<Tabs items={['manual','cli', ]}>
+  <Tab value="manual">
+   
+<Steps>
+
+{/* <Step>
+Create the following folder structure in your project:
+<Files>
+  <Folder name="app" defaultOpen>
+    <File name="layout.tsx" />
+    <File name="page.tsx" />
+  </Folder>
+  <Folder name="components" defaultOpen>
+  <Folder name="ui" defaultOpen>
+  <File name="avatar.tsx" />
+  </Folder>
+    
+  </Folder>
+  <Folder name="lib" defaultOpen>
+    <File name="utils.ts" />
+  </Folder>
+  <File name="package.json" />
+
+</Files>
+</Step> */}
+
+<Step>
+Install the following dependencies:
+```shell
+npx expo add tailwind-variants
+npx expo install clsx
+npx expo install @rn-primitives/accordion
+```
+{/* TODO: add tabs for other installation purposes*/}
+
+</Step>
+<Step>
+Create a folder named `ui` under component folder in your project and add the following code in a file named `accordion.tsx`:
+```ts
+import * as AccordionPrimitive from '@rn-primitives/accordion';
+import * as React from 'react';
+import { Platform, Pressable, View } from 'react-native';
+import Animated, {
+  Extrapolation,
+  FadeIn,
+  FadeOutUp,
+  LayoutAnimationConfig,
+  LinearTransition,
+  interpolate,
+  useAnimatedStyle,
+  useDerivedValue,
+  withTiming,
+} from 'react-native-reanimated';
+import { ChevronDown } from '~/lib/icons/ChevronDown';
+import { cn } from '~/lib/utils';
+import { TextClassContext } from '~/components/ui/text';
+
+function Accordion({
+  children,
+  ...props
+}: Omit<AccordionPrimitive.RootProps, 'asChild'> & {
+  ref?: React.RefObject<AccordionPrimitive.RootRef>;
+}) {
+  return (
+    <LayoutAnimationConfig skipEntering>
+      <AccordionPrimitive.Root
+        {...(props as AccordionPrimitive.RootProps)}
+        asChild={Platform.OS !== 'web'}
+      >
+        <Animated.View layout={LinearTransition.duration(200)}>{children}</Animated.View>
+      </AccordionPrimitive.Root>
+    </LayoutAnimationConfig>
+  );
+}
+
+function AccordionItem({
+  className,
+  value,
+  ...props
+}: AccordionPrimitive.ItemProps & {
+  ref?: React.RefObject<AccordionPrimitive.ItemRef>;
+}) {
+  return (
+    <Animated.View className={'overflow-hidden'} layout={LinearTransition.duration(200)}>
+      <AccordionPrimitive.Item
+        className={cn('border-b border-border', className)}
+        value={value}
+        {...props}
+      />
+    </Animated.View>
+  );
+}
+
+const Trigger = Platform.OS === 'web' ? View : Pressable;
+
+function AccordionTrigger({
+  className,
+  children,
+  ...props
+}: AccordionPrimitive.TriggerProps & {
+  children?: React.ReactNode;
+  ref?: React.RefObject<AccordionPrimitive.TriggerRef>;
+}) {
+  const { isExpanded } = AccordionPrimitive.useItemContext();
+
+  const progress = useDerivedValue(() =>
+    isExpanded ? withTiming(1, { duration: 250 }) : withTiming(0, { duration: 200 })
+  );
+  const chevronStyle = useAnimatedStyle(() => ({
+    transform: [{ rotate: `${progress.value * 180}deg` }],
+    opacity: interpolate(progress.value, [0, 1], [1, 0.8], Extrapolation.CLAMP),
+  }));
+
+  return (
+    <TextClassContext.Provider value='native:text-lg font-medium web:group-hover:underline'>
+      <AccordionPrimitive.Header className='flex'>
+        <AccordionPrimitive.Trigger {...props} asChild>
+          <Trigger
+            className={cn(
+              'flex flex-row web:flex-1 items-center justify-between py-4 web:transition-all group web:focus-visible:outline-none web:focus-visible:ring-1 web:focus-visible:ring-muted-foreground',
+              className
+            )}
+          >
+            {children}
+            <Animated.View style={chevronStyle}>
+              <ChevronDown size={18} className={'text-foreground shrink-0'} />
+            </Animated.View>
+          </Trigger>
+        </AccordionPrimitive.Trigger>
+      </AccordionPrimitive.Header>
+    </TextClassContext.Provider>
+  );
+}
+
+function AccordionContent({
+  className,
+  children,
+  ...props
+}: AccordionPrimitive.ContentProps & {
+  ref?: React.RefObject<AccordionPrimitive.ContentRef>;
+}) {
+  const { isExpanded } = AccordionPrimitive.useItemContext();
+  return (
+    <TextClassContext.Provider value='native:text-lg'>
+      <AccordionPrimitive.Content
+        className={cn(
+          'overflow-hidden text-sm web:transition-all',
+          isExpanded ? 'web:animate-accordion-down' : 'web:animate-accordion-up'
+        )}
+        {...props}
+      >
+        <InnerContent className={cn('pb-4', className)}>{children}</InnerContent>
+      </AccordionPrimitive.Content>
+    </TextClassContext.Provider>
+  );
+}
+
+function InnerContent({ children, className }: { children: React.ReactNode; className?: string }) {
+  if (Platform.OS === 'web') {
+    return <View className={cn('pb-4', className)}>{children}</View>;
+  }
+  return (
+    <Animated.View
+      entering={FadeIn}
+      exiting={FadeOutUp.duration(200)}
+      className={cn('pb-4', className)}
+    >
+      {children}
+    </Animated.View>
+  );
+}
+
+export { Accordion, AccordionContent, AccordionItem, AccordionTrigger };
+
+```
+
+</Step>
+
+<Step>
+Create a folder named `ui` under component folder in your project and add the following code in a file named `text.tsx`:
+```ts
+import * as Slot from '@rn-primitives/slot';
+import * as React from 'react';
+import { Text as RNText } from 'react-native';
+import { cn } from '~/lib/utils';
+
+const TextClassContext = React.createContext<string | undefined>(undefined);
+
+function Text({
+  className,
+  asChild = false,
+  ...props
+}: React.ComponentProps<typeof RNText> & {
+  ref?: React.RefObject<RNText>;
+  asChild?: boolean;
+}) {
+  const textClass = React.useContext(TextClassContext);
+  const Component = asChild ? Slot.Text : RNText;
+  return (
+    <Component
+      className={cn('text-base text-foreground ', textClass, className)}
+      {...props}
+    />
+  );
+}
+
+export { Text, TextClassContext };
+
+```
+</Step>
+
+
+<Step>
+Create a utility function to merge class names. 
+Create a file named `utils.ts` in your project and add the following code:
+```ts
+import { clsx, type ClassValue } from 'clsx';
+import { twMerge } from 'tailwind-merge';
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+```
+</Step>
+<Step>
+Update the import paths to match your project setup.
+</Step>
+
+</Steps>
+  
+  </Tab>
+ 
+  <Tab value="cli">
+  ```ts
+npx shadcn@latest add ""
+```
+  </Tab>
+
+</Tabs>
+
+## Usage
+
+```tsx
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+```
+
+```tsx
+<Avatar alt="Zach Nugent's Avatar">
+  <AvatarImage
+    source={{
+      uri: "https://github.com/mrzachnugent.png",
+    }}
+  />
+  <AvatarFallback>
+    <Text className="text-white">LN</Text>
+  </AvatarFallback>
+</Avatar>
+```
+
+## Examples
