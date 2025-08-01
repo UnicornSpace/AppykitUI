@@ -1,24 +1,33 @@
 import { DocsLayout } from "fumadocs-ui/layouts/docs";
 import type { ReactNode } from "react";
 import { baseOptions } from "@/app/layout.config";
-import { source } from "@/lib/source";
+import { components } from "@/lib/source";
 
 export default function Layout({ children }: { children: ReactNode }) {
   return (
     <DocsLayout
-      tree={source.pageTree}
+      tree={components.pageTree}
       sidebar={{
         
       }}
-      nav={baseOptions.nav}
-      // {...}
+      themeSwitch={{
+        enabled: false
+      }}
+      {...baseOptions}
       links={[
         {
           // icon: <BookIcon />,
           text: "Introduction",
-          url: "/blocks",
+          url: "/docs",
           // secondary items will be displayed differently on navbar
-          secondary: false,
+          secondary: true,
+        },
+        {
+          // icon: <BookIcon />,
+          text: "Installation",
+          url: "/docs/installation",
+          // secondary items will be displayed differently on navbar
+          secondary: true,
         },
         {
           // icon: <BookIcon />,

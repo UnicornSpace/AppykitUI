@@ -1,3 +1,4 @@
+import { Badge } from '@/components/ui/badge';
 import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
 
 /**
@@ -9,6 +10,7 @@ import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
  */
 export const baseOptions: BaseLayoutProps = {
   nav: {
+
     title: (
       <>
         <svg
@@ -20,10 +22,14 @@ export const baseOptions: BaseLayoutProps = {
           <circle cx={12} cy={12} r={12} fill="currentColor" />
         </svg>
         AppyKit UI
+        <Badge>Beta</Badge>
       </>
     ),
   },
   // see https://fumadocs.dev/docs/ui/navigation/links
+  
+  githubUrl:"https://github.com/UnicornSpace/AppykitUI",
+
   links: [
    {
       // icon: <BookIcon />,

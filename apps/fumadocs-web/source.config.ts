@@ -23,15 +23,19 @@ export const blockConfig = defineCollections({
   dir: "content/blocks",
 })
 
-
-
 export const blogConfig = defineCollections({
   type: "doc",
   dir: "content/blog",
 })
+
 export const CourseConfig = defineCollections({
   type: "doc",
   dir: "content/course",
+})
+
+export const ComponentConfig = defineCollections({
+  type: "doc",
+  dir: "content/components",
 })
 
 

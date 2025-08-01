@@ -19,8 +19,8 @@ const ComponentThumbnailCard = ({ image, title, href }:{
   console.log("ComponentThumbnailCard rendered with title:", image);
   return (
     <Link href={href || "#"} className="no-underline">
-    <Card className="w-80 h-60 m-0 overflow-hidden">
-      <CardHeader className="m-0 flex items-center justify-center">
+    <Card className="w-80 h-56 m-0 overflow-hidden p-0 gap-4">
+      <CardHeader className="m-0 flex items-center justify-center px-0">
         <Image
           src={image}
           className="aspect-video w-full m-0
@@ -30,8 +30,8 @@ const ComponentThumbnailCard = ({ image, title, href }:{
           height={180}
         />
       </CardHeader>
-      <CardContent>
-        <CardTitle>{title}</CardTitle>
+      <CardContent className="h-full">
+        <CardTitle >{title}</CardTitle>
       </CardContent>
     </Card>
     </Link>

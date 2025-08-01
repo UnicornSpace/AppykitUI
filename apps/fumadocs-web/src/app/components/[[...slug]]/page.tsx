@@ -1,4 +1,4 @@
-import { source } from '@/lib/source';
+import { components } from '@/lib/source';
 import {
   DocsPage,
   DocsBody,
@@ -14,7 +14,7 @@ export default async function Page(props: {
   params: Promise<{ slug?: string[] }>;
 }) {
   const params = await props.params;
-  const page = source.getPage(params.slug);
+  const page = components.getPage(params.slug);
   if (!page) notFound();
 
   const MDXContent = page.data.body;
@@ -28,7 +28,7 @@ export default async function Page(props: {
         
           components={getMDXComponents({
             // this allows you to link to other pages with relative file paths
-            a: createRelativeLink(source, page),
+            a: createRelativeLink(components, page),
           })}
         />
 
@@ -38,14 +38,14 @@ export default async function Page(props: {
 }
 
 export async function generateStaticParams() {
-  return source.generateParams();
+  return components.generateParams();
 }
 
 export async function generateMetadata(props: {
   params: Promise<{ slug?: string[] }>;
 }) {
   const params = await props.params;
-  const page = source.getPage(params.slug);
+  const page = components.getPage(params.slug);
   if (!page) notFound();
 
   return {
