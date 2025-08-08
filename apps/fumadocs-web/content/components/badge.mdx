@@ -1,56 +1,69 @@
 ---
 title: Badge
-description: Displays a badge component.
+description: A small label used to highlight status or count.
 ---
 
-import { Step, Steps } from "fumadocs-ui/components/steps";
-import { File, Folder, Files } from 'fumadocs-ui/components/files';
 
 
-## Preview
 
-{/* ![](./preview/avatar.png) */}
+<Tabs items={['preview', 'code']}>
+  <Tab value="preview">
+    ![](./preview/badge.png)
+  </Tab>
+  <Tab value="code">
+```tsx
+import { Badge } from "@/components/ui/badge";
+import { Text } from "@/components/ui/text";
+import { View } from "react-native";
+export default function AccordionDemo() {
+  return (
+    <View className="flex-1 flex-row gap-4 justify-center items-center bg-background p-5">
+      <Badge>
+        <Text>Default</Text>
+      </Badge>
+      <Badge variant={"destructive"}>
+        <Text>Destructive</Text>
+      </Badge>
+      <Badge variant={"outline"}>
+        <Text>outline</Text>
+      </Badge>
+      <Badge variant={"secondary"}>
+        <Text>secondary</Text>
+      </Badge>
+    </View>
+  );
+}
+```
+  </Tab>
+</Tabs>
+
+
+
 
 ## Installation
 
-<Tabs items={['manual','cli', ]}>
+<Tabs items={['cli','manual', ]}>
+ 
+  <Tab value="cli">
+  ```ts
+npx shadcn@latest add badge
+```
+  </Tab>
   <Tab value="manual">
    
 <Steps>
 
-{/* <Step>
-Create the following folder structure in your project:
-<Files>
-  <Folder name="app" defaultOpen>
-    <File name="layout.tsx" />
-    <File name="page.tsx" />
-  </Folder>
-  <Folder name="components" defaultOpen>
-  <Folder name="ui" defaultOpen>
-  <File name="avatar.tsx" />
-  </Folder>
-    
-  </Folder>
-  <Folder name="lib" defaultOpen>
-    <File name="utils.ts" />
-  </Folder>
-  <File name="package.json" />
-
-</Files>
-</Step> */}
 
 <Step>
 Install the following dependencies:
 ```shell
-npx expo add tailwind-variants
-npx expo install clsx
 npx expo install @rn-primitives/slot
 ```
-{/* TODO: add tabs for other installation purposes*/}
+
 
 </Step>
 <Step>
-Create a folder named `ui` under component folder in your project and add the following code in a file named `tabs.tsx`:
+Create a folder named `ui` under component folder in your project and add the following code in a file named `badge.tsx`:
 ```ts
 import * as Slot from '@rn-primitives/slot';
 import { cva, type VariantProps } from 'class-variance-authority';
@@ -110,51 +123,11 @@ export type { BadgeProps };
 </Step>
 
 <Step>
-Create a folder named `ui` under component folder in your project and add the following code in a file named `text.tsx`:
-```ts
-import * as Slot from '@rn-primitives/slot';
-import * as React from 'react';
-import { Text as RNText } from 'react-native';
-import { cn } from '~/lib/utils';
+This component depends on the `Text` component.
+Please follow the installation guide [here](/components/text) before using the `Badge`.
 
-const TextClassContext = React.createContext<string | undefined>(undefined);
-
-function Text({
-  className,
-  asChild = false,
-  ...props
-}: React.ComponentProps<typeof RNText> & {
-  ref?: React.RefObject<RNText>;
-  asChild?: boolean;
-}) {
-  const textClass = React.useContext(TextClassContext);
-  const Component = asChild ? Slot.Text : RNText;
-  return (
-    <Component
-      className={cn('text-base text-foreground ', textClass, className)}
-      {...props}
-    />
-  );
-}
-
-export { Text, TextClassContext };
-
-```
 </Step>
 
-
-<Step>
-Create a utility function to merge class names. 
-Create a file named `utils.ts` in your project and add the following code:
-```ts
-import { clsx, type ClassValue } from 'clsx';
-import { twMerge } from 'tailwind-merge';
-
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
-```
-</Step>
 <Step>
 Update the import paths to match your project setup.
 </Step>
@@ -162,32 +135,18 @@ Update the import paths to match your project setup.
 </Steps>
   
   </Tab>
- 
-  <Tab value="cli">
-  ```ts
-npx shadcn@latest add ""
-```
-  </Tab>
+
 
 </Tabs>
 
 ## Usage
 
 ```tsx
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import { Badge } from "@/components/ui/badge";
 ```
-
 ```tsx
-<Avatar alt="Zach Nugent's Avatar">
-  <AvatarImage
-    source={{
-      uri: "https://github.com/mrzachnugent.png",
-    }}
-  />
-  <AvatarFallback>
-    <Text className="text-white">LN</Text>
-  </AvatarFallback>
-</Avatar>
+<Badge>
+  <Text>Badge</Text>
+</Badge>
 ```
 
-## Examples

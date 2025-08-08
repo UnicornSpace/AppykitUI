@@ -1,6 +1,6 @@
 {
   "name": "appykit",
-  "version": "1.0.6",
+  "version": "1.0.12",
   "description": "Simple CLI to add/remove components",
   "bin": {
     "appykit": "./bin/appykit.js"
@@ -8,7 +8,7 @@
   "type": "module",
   "main": "dist/appykit.js",
   "scripts": {
-    "build": "tsc"
+    "build": "tsup src/appykit.ts --format esm --out-dir dist"
   },
   "files": [
     "bin",
@@ -20,7 +20,12 @@
   ],
   "author": "Likitha N",
   "license": "MIT",
+  "devDependencies": {
+    "tsup": "^8.5.0"
+  },
   "dependencies": {
+    "@rn-primitives/slot": "^1.2.0",
+    "@rn-primitives/types": "^1.2.0",
     "commander": "^14.0.0",
     "ora": "^8.2.0"
   }

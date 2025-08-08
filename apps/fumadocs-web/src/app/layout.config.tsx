@@ -1,6 +1,7 @@
 import { Badge } from '@/components/ui/badge';
 import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
-
+import { BookIcon } from 'lucide-react';
+// Top nav bar
 /**
  * Shared layout configurations
  *
@@ -9,6 +10,7 @@ import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
  * Docs Layout: app/docs/layout.tsx
  */
 export const baseOptions: BaseLayoutProps = {
+  
   nav: {
 
     title: (
@@ -22,7 +24,7 @@ export const baseOptions: BaseLayoutProps = {
           <circle cx={12} cy={12} r={12} fill="currentColor" />
         </svg>
         AppyKit UI
-        <Badge>Beta</Badge>
+        {/* <Badge>Beta</Badge> */}
       </>
     ),
   },
@@ -33,39 +35,39 @@ export const baseOptions: BaseLayoutProps = {
   links: [
    {
       // icon: <BookIcon />,
+      text: 'Introduction',
+      url: '/docs',
+    },
+   {
+      // icon: <BookIcon />,
+      text: 'Installation',
+      url: '/docs/installation',
+     
+    },
+   {
+      // icon: <BookIcon />,
+      text: 'CLI',
+      url: '/docs/cli',
+     
+    },
+   {
+      // icon: <BookIcon />,
+      text: 'Changelog',
+      url: '/docs/changelog',
+     
+    },
+   {
+      // icon: <BookIcon />,
       text: 'Components',
       url: '/components',
-      // secondary items will be displayed differently on navbar
-      secondary: false,
+     
     },
    {
       // icon: <BookIcon />,
       text: 'Blocks',
       url: '/blocks',
-      // secondary items will be displayed differently on navbar
-      secondary: false,
-      // active:"nested-url"
-    },
-  //  {
-  //     // icon: <BookIcon />,
-  //     text: 'Blog',
-  //     url: '/blog',
-  //     // secondary items will be displayed differently on navbar
-  //     secondary: false,
-  //     active:"nested-url"
-  //   },
-  //  {
-  //     // icon: <BookIcon />,
-  //     text: 'Course',
-  //     url: '/course',
-  //     // secondary items will be displayed differently on navbar
-  //     secondary: false,
-  //     active:"nested-url"
-  //   },
-  //   {
-  //     text: 'Tools',
-  //     url: '/tools',
+     
       
-  //   }
+    },
   ],
 };

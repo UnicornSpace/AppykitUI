@@ -1,56 +1,76 @@
 ---
 title: Input
-description: Displays a Text Input component.
+description: A text field for user input with optional placeholder and styling.
 ---
-import { Step, Steps } from 'fumadocs-ui/components/steps';
-import { File, Folder, Files } from 'fumadocs-ui/components/files';
 
-## Preview
 
-![](./preview/input.png)
+
+
+<Tabs items={['preview', 'code']}>
+  <Tab value="preview">
+    ![](./preview/input.png)
+  </Tab>
+  <Tab value="code">
+    ```ts
+    import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Text } from "@/components/ui/text";
+import React from "react";
+import { View } from "react-native";
+
+export default function InputDemo() {
+  const [value, setValue] = React.useState("");
+
+  const onChangeText = (text: string) => {
+    setValue(text);
+  };
+  return (
+    <View className="flex-1   gap-6 justify-center items-start bg-background p-5">
+      <View className="w-full gap-1">
+        <Text>Username</Text>
+        <Input
+          className=""
+          placeholder="Appykit UI"
+          value={value}
+          onChangeText={onChangeText}
+          aria-labelledby="inputLabel"
+          aria-errormessage="inputError"
+        />
+        <Text className="font-normal text-muted-foreground text-sm">
+          This is your public display name.
+        </Text>
+      </View>
+      <Button>
+        <Text className="">Submit</Text>
+      </Button>
+    </View>
+  );
+}
+
+    ```
+  </Tab>
+</Tabs>
+
+
+
 
 ## Installation
 
-<Tabs items={['manual','cli', ]}>
+<Tabs items={['cli','manual', ]}>
+ 
+  <Tab value="cli">
+  ```ts
+npx shadcn@latest add input
+```
+  </Tab>
   <Tab value="manual">
    
 <Steps>
 
-<Step>
-Create the following folder structure in your project:
-<Files>
-  <Folder name="app" defaultOpen>
-    <File name="layout.tsx" />
-    <File name="page.tsx" />
-  </Folder>
-  <Folder name="components" defaultOpen>
-  <Folder name="ui" defaultOpen>
-  <File name="input.tsx" />
-  </Folder>
-    
-  </Folder>
-  <Folder name="lib" defaultOpen>
- 
-    <File name="utils.ts" />
-  </Folder>
-  <File name="package.json" />
 
-</Files>
-</Step>
 
-<Step>
-Install the following dependencies:
-```shell
-npx expo add tailwind-variants
-npx expo install react-native-svg lucide-react-native
-npx expo install clsx
-```
-{/* TODO: add tabs for other installation purposes*/}
-
-</Step>
 <Step>
 Create a folder named `ui` under component folder in your project and add the following code in a file named `input.tsx`:
-
 ```ts
 import * as React from 'react';
 import { TextInput, type TextInputProps } from 'react-native';
@@ -66,7 +86,7 @@ function Input({
   return (
     <TextInput
       className={cn(
-        'web:flex h-10 native:h-12 web:w-full rounded-md border border-input bg-background px-3 web:py-2 text-base lg:text-sm native:text-lg native:leading-[1.25] text-foreground placeholder:text-muted-foreground web:ring-offset-background file:border-0 file:bg-transparent file:font-medium web:focus-visible:outline-none web:focus-visible:ring-2 web:focus-visible:ring-ring web:focus-visible:ring-offset-2',
+        'web:flex h-10 native:h-12 web:w-full rounded-lg border border-input bg-background px-3  web:py-2 text-base lg:text-sm native:text-[14px] native:leading-[1.25] text-foreground placeholder:text-muted-foreground web:ring-offset-background file:border-0 file:bg-transparent file:font-medium web:focus-visible:outline-none web:focus-visible:ring-2 web:focus-visible:ring-ring web:focus-visible:ring-offset-2',
         props.editable === false && 'opacity-50 web:cursor-not-allowed',
         className
       )}
@@ -82,18 +102,14 @@ export { Input };
 ```
 
 </Step>
-<Step>
-Create a utility function to merge class names. 
-Create a file named `utils.ts` in your project and add the following code:
-```ts
-import { clsx, type ClassValue } from 'clsx';
-import { twMerge } from 'tailwind-merge';
 
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
-```
+<Step>
+This component depends on the `Text` component.
+Please follow the installation guide [here](/components/text) before using the `Avatar`.
+
 </Step>
+
+
 <Step>
 Update the import paths to match your project setup.
 </Step>
@@ -101,43 +117,23 @@ Update the import paths to match your project setup.
 </Steps>
   
   </Tab>
-  <Tab value="cli">
-  ```ts
-npx shadcn@latest add ""
-```
-  </Tab>
+
+
 </Tabs>
-
-
-
 
 ## Usage
 
 ```tsx
-import { Input } from "../ui/input";
-import { Text } from '~/components/ui/text';
+import { Input } from "@/components/ui/input";
 ```
-
-```tsx  
-function Example() {
-  const [value, setValue] = React.useState('');
-
-  const onChangeText = (text: string) => {
-    setValue(text);
-  };
-
-  return (
-      <Input
-        placeholder='Write some stuff...'
-        value={value}
-        onChangeText={onChangeText}
-        aria-labelledby='inputLabel'
-        aria-errormessage='inputError'
-      />
-  );
-}
-
+```tsx
+ <Input
+  className="w-full"
+  placeholder="Appykit UI"
+  value={value}
+  onChangeText={onChangeText}
+  aria-labelledby="inputLabel"
+  aria-errormessage="inputError"
+/>
 ```
-
-## Examples
 

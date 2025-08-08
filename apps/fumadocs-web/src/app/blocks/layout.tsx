@@ -10,9 +10,7 @@ export default function Layout({ children }: { children: ReactNode }) {
         name: "Blocks",
         children:[]
       }}
-      sidebar={{
-        
-      }}
+   
       
       {...baseOptions}
       nav={baseOptions.nav}

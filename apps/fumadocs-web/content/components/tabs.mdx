@@ -1,51 +1,132 @@
 ---
 title: Tabs
-description: Displays a tabs component.
+description: A set of horizontally arranged buttons to switch between views.
 ---
 
-import { Step, Steps } from "fumadocs-ui/components/steps";
-import { File, Folder, Files } from "fumadocs-ui/components/files";
+<Tabs items={["preview", "code"]}>
+  <Tab value="preview">![](./preview/tabs.png)</Tab>
+  <Tab value="code">
+  ```ts
+  import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Text } from "@/components/ui/text";
+import React from "react";
+import { View } from "react-native";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '~/components/ui/card';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "~/components/ui/tabs";
+export default function TabsDemo() {
+  const [value, setValue] = React.useState("account");
 
-## Preview
-
-{/* ![](./preview/avatar.png) */}
+  return (
+    <View className="flex-1 flex-row justify-center items-center p-6 gap-5 bg-white">
+      <Tabs
+        value={value}
+        onValueChange={setValue}
+        className="w-full max-w-[400px] mx-auto flex-col gap-1.5"
+      >
+        <TabsList className="flex-row w-full">
+          <TabsTrigger value="account" className="flex-1">
+            <Text>Account</Text>
+          </TabsTrigger>
+          <TabsTrigger value="password" className="flex-1">
+            <Text>Password</Text>
+          </TabsTrigger>
+        </TabsList>
+        <TabsContent value="account">
+          <Card>
+            <CardHeader>
+              <CardTitle>Account</CardTitle>
+              <CardDescription>
+                Make changes to your account here. Click save when you're done.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="gap-4 native:gap-2">
+              <View className="gap-1">
+                <Text nativeID="name">Name</Text>
+                <Input
+                  aria-aria-labelledby="name"
+                  defaultValue="Pedro Duarte"
+                />
+              </View>
+              <View className="gap-1">
+                <Text nativeID="username">Username</Text>
+                <Input id="username" defaultValue="@peduarte" />
+              </View>
+            </CardContent>
+            <CardFooter>
+              <Button>
+                <Text>Save changes</Text>
+              </Button>
+            </CardFooter>
+          </Card>
+        </TabsContent>
+        <TabsContent value="password">
+          <Card>
+            <CardHeader>
+              <CardTitle>Password</CardTitle>
+              <CardDescription>
+                Change your password here. After saving, you'll be logged out.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="gap-4 native:gap-2">
+              <View className="gap-1">
+                <Text nativeID="current">Current password</Text>
+                <Input
+                  placeholder="********"
+                  aria-Textledby="current"
+                  secureTextEntry
+                />
+              </View>
+              <View className="gap-1">
+                <Text nativeID="new">New password</Text>
+                <Input
+                  placeholder="********"
+                  aria-labelledby="new"
+                  secureTextEntry
+                />
+              </View>
+            </CardContent>
+            <CardFooter>
+              <Button>
+                <Text>Save password</Text>
+              </Button>
+            </CardFooter>
+          </Card>
+        </TabsContent>
+      </Tabs>
+    </View>
+  );
+}
+```
+  </Tab>
+ 
+</Tabs>
 
 ## Installation
 
-<Tabs items={['manual','cli', ]}>
+<Tabs items={['cli','manual', ]}>
+ 
+  <Tab value="cli">
+  ```ts
+npx shadcn@latest add tabs
+```
+  </Tab>
   <Tab value="manual">
    
 <Steps>
- <Step>
-Create the following folder structure in your project:
-
-{/* <Files>
-  <Folder name="app" defaultOpen>
-    <File name="layout.tsx" />
-    <File name="page.tsx" />
-  </Folder>
-  <Folder name="components" defaultOpen>
-  <Folder name="ui" defaultOpen>
-  <File name="avatar.tsx" />
-  </Folder>
-    
-  </Folder>
-  <Folder name="lib" defaultOpen>
-    <File name="utils.ts" />
-  </Folder>
-  <File name="package.json" />
-
-</Files> */}
-</Step>
 
 <Step>
 Install the following dependencies:
 ```shell
-npx expo add tailwind-variants
-npx expo install clsx
 npx expo install @rn-primitives/tabs
 ```
-{/* TODO: add tabs for other installation purposes*/}
 
 </Step>
 <Step>
@@ -53,8 +134,8 @@ Create a folder named `ui` under component folder in your project and add the fo
 ```ts
 import * as TabsPrimitive from '@rn-primitives/tabs';
 import * as React from 'react';
-import { cn } from '~/lib/utils';
 import { TextClassContext } from '~/components/ui/text';
+import { cn } from '~/lib/utils';
 
 const Tabs = TabsPrimitive.Root;
 
@@ -90,7 +171,7 @@ value === props.value && 'text-foreground'
 )} >
 <TabsPrimitive.Trigger
 className={cn(
-'inline-flex items-center justify-center shadow-none web:whitespace-nowrap rounded-sm px-3 py-1.5 text-sm font-medium web:ring-offset-background web:transition-all web:focus-visible:outline-none web:focus-visible:ring-2 web:focus-visible:ring-ring web:focus-visible:ring-offset-2',
+'inline-flex items-center justify-center shadow-none web:whitespace-nowrap rounded-md px-2 py-1.5 text-sm font-medium web:ring-offset-background web:transition-all web:focus-visible:outline-none web:focus-visible:ring-2 web:focus-visible:ring-ring web:focus-visible:ring-offset-2',
 props.disabled && 'web:pointer-events-none opacity-50',
 props.value === value && 'bg-background shadow-lg shadow-foreground/10',
 className
@@ -125,100 +206,49 @@ export { Tabs, TabsContent, TabsList, TabsTrigger };
 </Step>
 
 <Step>
-Create a folder named `ui` under component folder in your project and add the following code in a file named `text.tsx`:
-```ts
-import * as Slot from '@rn-primitives/slot';
-import * as React from 'react';
-import { Text as RNText } from 'react-native';
-import { cn } from '~/lib/utils';
-
-const TextClassContext = React.createContext<string | undefined>(undefined);
-
-function Text({
-  className,
-  asChild = false,
-  ...props
-}: React.ComponentProps<typeof RNText> & {
-  ref?: React.RefObject<RNText>;
-  asChild?: boolean;
-}) {
-  const textClass = React.useContext(TextClassContext);
-  const Component = asChild ? Slot.Text : RNText;
-  return (
-    <Component
-      className={cn('text-base text-foreground ', textClass, className)}
-      {...props}
-    />
-  );
-}
-
-export { Text, TextClassContext };
-
-````
+This component depends on the `Text` component.
+Please follow the installation guide [here](/components/text) before using the `Avatar`.
 
 </Step>
 
-<Step>
-Create a utility function to merge class names. 
-Create a file named `utils.ts` in your project and add the following code:
-```ts
-import { clsx, type ClassValue } from 'clsx';
-import { twMerge } from 'tailwind-merge';
 
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
-```
-</Step>
+
 <Step>
 Update the import paths to match your project setup.
 </Step>
 
 </Steps>
-  
+
   </Tab>
- 
-  <Tab value="cli">
-  ```ts
-npx shadcn@latest add ""
-```
-  </Tab>
+
 
 </Tabs>
 
 ## Usage
 
 ```tsx
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "../ui/tabs";
-```
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "~/components/ui/tabs";
+````
 
 ```tsx
-<View className="flex-1 justify-center p-6 ">
-  <Tabs
-    value={value}
-    onValueChange={setValue}
-    className="w-full max-w-[400px] mx-auto flex-col gap-1.5"
-  >
-    <TabsList className="flex-row w-full">
-      <TabsTrigger value="account" className="flex-1">
-        <Text className="text-white">Account</Text>
-      </TabsTrigger>
-      <TabsTrigger value="password" className="flex-1">
-        <Text className="text-white">Password</Text>
-      </TabsTrigger>
-    </TabsList>
-    <TabsContent className=" rounded-xl" value="account">
-      <View className="bg-black p-10 rounded-md">
-        <Text className="text-white mx-auto">Account</Text>
-      </View>
-    </TabsContent>
-    <TabsContent value="password">
-      <View className="bg-black p-10 rounded-md">
-        <Text className="text-white mx-auto">Password</Text>
-      </View>
-    </TabsContent>
-  </Tabs>
-</View>
+<Tabs
+  value={value}
+  onValueChange={setValue}
+  className="w-full max-w-[400px] mx-auto flex-col gap-1.5"
+>
+  <TabsList className="flex-row w-full">
+    <TabsTrigger value="account" className="flex-1">
+      <Text>Account</Text>
+    </TabsTrigger>
+    <TabsTrigger value="password" className="flex-1">
+      <Text>Password</Text>
+    </TabsTrigger>
+  </TabsList>
+  <TabsContent value="account">
+    <Text>Make changes to your account here.</Text>
+  </TabsContent>
+  <TabsContent value="password">
+    <Text>Change your password here.</Text>
+  </TabsContent>
+</Tabs>
 ```
-
-## Examples

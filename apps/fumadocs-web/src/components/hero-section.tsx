@@ -17,23 +17,23 @@ export default function HeroSection() {
             {/* <ArrowRight className="w-4 h-4 ml-1" /> */}
           </span>
         </div>
-        <h2 className="text-4xl md:text-7xl font-bold tracking-tight">
-          Rethinking UI
+        <h1 className="text-4xl md:text-7xl font-bold tracking-tight">
+          Rethinking UI {" "}
           <br />
           for react native.
-        </h2>
-        <p className="text-xl text-muted-foreground">
+        </h1>
+        <h2 className="text-xl text-muted-foreground">
           A growing library of beautifully crafted components
           <br />
           to help developers ship faster and design better.
-        </p>
+        </h2>
         <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
           {/* <Button size="lg" className=" rounded-full h-12">
             Get started now
           </Button>
           */}
           <Link href={"/components"} className="w-full sm:w-auto">
-            <Button variant="default" className="h-10 p-0 px-10 rounded-full">
+            <Button variant="default" className="h-10 p-0 px-20 rounded-full">
               Get started now <ArrowRight size={16} />
             </Button>
             {/* <button className="rounded-full h-10 flex items-center gap-2 border  px-4 dark:bg-white dark:text-black bg-black text-white">

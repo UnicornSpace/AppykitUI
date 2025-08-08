@@ -1,45 +1,62 @@
-import { program } from "commander";
-import fs from "fs";
-import path from "path";
-import ora from "ora";
+#!/usr/bin/env node
+import { initProject } from './commands/init.js';
+import { addComponent } from './commands/add.js';
+import { removeComponent } from './commands/remove.js';
+import { componentsMap } from './components/index.js';
 
-const allowedComponents = ['button', 'checkbox', 'input', 'text', 'avatar'];
+const command = process.argv[2];
+const target = process.argv[3];
 
-const COMPONENT_TEMPLATE = (name: string) =>
-  `// This is a component named ${name}
-export const ${name} = () => {
-  console.log("This is the ${name} component");
-};
-`;
+function showHelp() {
+  console.log(`
+ AppyKit CLI – Beautiful, Reusable Components for React Native
 
-program
-  .command("add <name>")
-  .description("Add a component")
-  .action((name: string) => {
-    if (!allowedComponents.includes(name.toLowerCase())) {
-      console.log(`❌ '${name}' is not an allowed component.`);
-      console.log(`Allowed: ${allowedComponents.join(", ")}`);
-      return;
-    }
+Usage:
+  npx appykit <command> [options]
 
-    const spinner = ora(`Creating ${name}...`).start();
-    const filePath = path.join(process.cwd(), `${name}.ts`);
-    fs.writeFileSync(filePath, COMPONENT_TEMPLATE(name));
-    spinner.succeed(`${name}.ts created!`);
-  });
+Available commands:
+  init                   Initialize your project with Tailwind, NativeWind, and theming
+  add <component>        Add a UI component to components/ui
+  remove <component>     Remove a UI component from components/ui
+  --help, --h            Show this help message
 
-program
-  .command("remove <name>")
-  .description("Remove a component")
-  .action((name: string) => {
-    const spinner = ora(`Removing ${name}...`).start();
-    const filePath = path.join(process.cwd(), `${name}.ts`);
-    if (fs.existsSync(filePath)) {
-      fs.unlinkSync(filePath);
-      spinner.succeed(`${name}.ts removed!`);
+Available components:
+  ${Object.keys(componentsMap).join(', ')}
+
+Examples:
+  npx appykit init
+  npx appykit add avatar
+  npx appykit remove avatar
+`);
+}
+
+switch (command) {
+  case 'init':
+    initProject();
+    break;
+
+  case 'add':
+    if (!target) {
+      console.log('❌ Please specify a component to add.');
     } else {
-      spinner.fail(`${name}.ts does not exist.`);
+      addComponent(target);
     }
-  });
+    break;
 
-program.parse();
+  case 'remove':
+    if (!target) {
+      console.log('❌ Please specify a component to remove.');
+    } else {
+      removeComponent(target);
+    }
+    break;
+
+  case '--help':
+  case '--h':
+    showHelp();
+    break;
+
+  default:
+    console.log(`❌ Unknown command '${command}'. Try '--help' for usage.`);
+    break;
+}

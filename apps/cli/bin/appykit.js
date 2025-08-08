@@ -1,2 +1,2 @@
 #!/usr/bin/env node
-import("../dist/appykit.js");
+import('../dist/appykit.js');

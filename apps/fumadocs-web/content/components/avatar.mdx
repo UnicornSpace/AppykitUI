@@ -1,52 +1,58 @@
 ---
 title: Avatar
-description: Displays an avatar component.
+description: A circular image used to represent a user profile or identity.
 ---
 
-import { Step, Steps } from "fumadocs-ui/components/steps";
-import { File, Folder, Files } from 'fumadocs-ui/components/files';
+<Tabs items={['preview', 'code']}>
+  <Tab value="preview">
+    ![](./preview/avatar.png)
+  </Tab>
+  <Tab value="code">
+    ```ts
+    import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Text } from "@/components/ui/text";
+import { View } from "react-native";
 
-
-## Preview
-
-![](./preview/avatar.png)
+export default function AvatarDemo() {
+  const GITHUB_AVATAR_URI = "https://github.com/mrzachnugent.png";
+  return (
+    <View className="flex-1 flex-row gap-8 justify-center items-center bg-background">
+      <Avatar alt="Appykit UI">
+        <AvatarImage source={{ uri: GITHUB_AVATAR_URI }} />
+        <AvatarFallback>
+          <Text>ZN</Text>
+        </AvatarFallback>
+      </Avatar>
+      <Avatar alt="Appykit UI">
+        <AvatarFallback>
+          <Text className="">AP</Text>
+        </AvatarFallback>
+      </Avatar>
+    </View>
+  );
+}
+    ```
+  </Tab>
+</Tabs>
 
 ## Installation
 
-<Tabs items={['manual','cli', ]}>
+<Tabs items={['cli','manual', ]}>
+ 
+  <Tab value="cli">
+  ```ts
+npx shadcn@latest add avatar
+```
+  </Tab>
   <Tab value="manual">
    
 <Steps>
 
 <Step>
-Create the following folder structure in your project:
-<Files>
-  <Folder name="app" defaultOpen>
-    <File name="layout.tsx" />
-    <File name="page.tsx" />
-  </Folder>
-  <Folder name="components" defaultOpen>
-  <Folder name="ui" defaultOpen>
-  <File name="avatar.tsx" />
-  </Folder>
-    
-  </Folder>
-  <Folder name="lib" defaultOpen>
-    <File name="utils.ts" />
-  </Folder>
-  <File name="package.json" />
-
-</Files>
-</Step>
-
-<Step>
 Install the following dependencies:
 ```shell
-npx expo add tailwind-variants
-npx expo install @rn-primitives/avatar
-npx expo install clsx
+npx expo install @rn-primitives/avatar react-native-reanimated react-native-svg
 ```
-{/* TODO: add tabs for other installation purposes*/}
 
 </Step>
 <Step>
@@ -54,80 +60,72 @@ Create a folder named `ui` under component folder in your project and add the fo
 ```ts
 import * as AvatarPrimitive from '@rn-primitives/avatar';
 import * as React from 'react';
-import { cn } from '../../lib/utils';
+import { cn } from '~/lib/utils';
 
 function Avatar({
-  className,
-  ...props
+className,
+...props
 }: AvatarPrimitive.RootProps & {
-  ref?: React.RefObject<AvatarPrimitive.RootRef>;
+ref?: React.RefObject<AvatarPrimitive.RootRef>;
 }) {
-  return (
-    <AvatarPrimitive.Root
-      className={cn('relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full', className)}
-      {...props}
-    />
-  );
+return (
+<AvatarPrimitive.Root
+className={cn('relative flex size-10 shrink-0 overflow-hidden rounded-full ', className)}
+{...props}
+/>
+);
 }
 
 function AvatarImage({
-  className,
-  ...props
+className,
+...props
 }: AvatarPrimitive.ImageProps & {
-  ref?: React.RefObject<AvatarPrimitive.ImageRef>;
+ref?: React.RefObject<AvatarPrimitive.ImageRef>;
 }) {
-  return (
-    <AvatarPrimitive.Image className={cn('aspect-square h-full w-full', className)} {...props} />
-  );
+return (
+<AvatarPrimitive.Image className={cn('aspect-square h-full w-full', className)} {...props} />
+);
 }
 
 function AvatarFallback({
-  className,
-  ...props
+className,
+...props
 }: AvatarPrimitive.FallbackProps & {
-  ref?: React.RefObject<AvatarPrimitive.FallbackRef>;
+ref?: React.RefObject<AvatarPrimitive.FallbackRef>;
 }) {
-  return (
-    <AvatarPrimitive.Fallback
-      className={cn(
-        'flex h-full w-full items-center justify-center rounded-full bg-muted',
-        className
-      )}
-      {...props}
-    />
-  );
+return (
+<AvatarPrimitive.Fallback
+className={cn(
+'flex h-full w-full items-center justify-center rounded-full bg-muted',
+className
+)}
+{...props}
+/>
+);
 }
 
 export { Avatar, AvatarFallback, AvatarImage };
 
-```
+````
 
 </Step>
+
 <Step>
-Create a utility function to merge class names. 
-Create a file named `utils.ts` in your project and add the following code:
-```ts
-import { clsx, type ClassValue } from 'clsx';
-import { twMerge } from 'tailwind-merge';
+This component depends on the `Text` component.
+Please follow the installation guide [here](/components/text) before using the `Avatar`.
 
-export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs));
-}
-```
 </Step>
+
+
+
 <Step>
 Update the import paths to match your project setup.
 </Step>
 
 </Steps>
-  
+
   </Tab>
- 
-  <Tab value="cli">
-  ```ts
-npx shadcn@latest add ""
-```
-  </Tab>
+
 
 </Tabs>
 
@@ -135,19 +133,13 @@ npx shadcn@latest add ""
 
 ```tsx
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-```
+````
 
 ```tsx
-<Avatar alt="Zach Nugent's Avatar">
-  <AvatarImage
-    source={{
-      uri: "https://github.com/mrzachnugent.png",
-    }}
-  />
+<Avatar alt="Appykit UI">
+  <AvatarImage source={{ uri: GITHUB_AVATAR_URI }} />
   <AvatarFallback>
-    <Text className="text-white">LN</Text>
+    <Text>ZN</Text>
   </AvatarFallback>
 </Avatar>
 ```
-
-## Examples

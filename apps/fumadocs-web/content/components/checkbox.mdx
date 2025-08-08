@@ -1,68 +1,75 @@
 ---
 title: Checkbox
-description: Displays a checkbox component.
+description: A box input for toggling between checked and unchecked states.
 ---
 
-import { Step, Steps } from "fumadocs-ui/components/steps";
-import { File, Folder, Files } from 'fumadocs-ui/components/files';
 
-## Preview
 
-![](./preview/checkbox.png)
+
+<Tabs items={['preview', 'code']}>
+  <Tab value="preview">
+    ![](./preview/checkbox.png)
+  </Tab>
+  <Tab value="code">
+    ```ts
+    import { Checkbox } from "@/components/ui/checkbox";
+import React from "react";
+import { Text, View } from "react-native";
+
+export default function Demo() {
+  const [checked, setChecked] = React.useState(false);
+  const [checked2, setChecked2] = React.useState(false);
+  return (
+    <View className="flex-1   gap-4 justify-center items-start  bg-background p-20">
+      <View className="flex-row items-center gap-2">
+        <Checkbox checked={checked} onCheckedChange={setChecked} />
+        <Text>Accept terms and conditions</Text>
+      </View>
+      <View className="flex-row    items-end gap-2">
+        <Checkbox checked={checked2} onCheckedChange={setChecked2} />
+        <Text>Enable Notification</Text>
+      </View>
+    </View>
+  );
+}
+    ```
+  </Tab>
+</Tabs>
+
+
+
 
 ## Installation
 
-<Tabs items={['manual','cli', ]}>
+<Tabs items={['cli','manual', ]}>
+ 
+  <Tab value="cli">
+  ```ts
+npx shadcn@latest add checkbox
+```
+  </Tab>
   <Tab value="manual">
    
 <Steps>
 
-<Step>
-Create the following folder structure in your project:
-<Files>
-  <Folder name="app" defaultOpen>
-    <File name="layout.tsx" />
-    <File name="page.tsx" />
-  </Folder>
-  <Folder name="components" defaultOpen>
-  <Folder name="ui" defaultOpen>
-  <File name="checkbox.tsx" />
-  </Folder>
-    
-  </Folder>
-  <Folder name="lib" defaultOpen>
-  <Folder name="icons" defaultOpen>
-    <File name="Check.tsx" />
-    <File name="iconWithClassName.ts" />
-  </Folder>
-    <File name="utils.ts" />
-  </Folder>
-  <File name="package.json" />
-
-</Files>
-</Step>
 
 
 <Step>
 Install the following dependencies:
 ```shell
-npx expo add tailwind-variants
 npx expo install @rn-primitives/checkbox
-npx expo install react-native-svg lucide-react-native
-npx expo install clsx
 ```
-{/* TODO: add tabs for other installation purposes*/}
+
 
 </Step>
 <Step>
 Create a folder named `ui` under component folder in your project and add the following code in a file named `checkbox.tsx`:
-
 ```ts
 import * as CheckboxPrimitive from '@rn-primitives/checkbox';
 import * as React from 'react';
 import { Platform } from 'react-native';
-import { Check } from '../lib/icons/Check';
-import { cn } from '../lib/utils';
+import { Check } from '~/lib/icons/Check';
+import { cn } from '~/lib/utils';
 
 function Checkbox({
   className,
@@ -73,7 +80,7 @@ function Checkbox({
   return (
     <CheckboxPrimitive.Root
       className={cn(
-        'web:peer h-4 w-4 native:h-[20] native:w-[20] shrink-0 rounded-sm native:rounded border border-primary web:ring-offset-background web:focus-visible:outline-none web:focus-visible:ring-2 web:focus-visible:ring-ring web:focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
+        'web:peer h-4 w-4 native:h-[16] native:w-[16] shrink-0 rounded-sm native:rounded border border-gray-300   web:ring-offset-background web:focus-visible:outline-none web:focus-visible:ring-2 web:focus-visible:ring-ring web:focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50',
         props.checked && 'bg-primary',
         className
       )}
@@ -92,65 +99,33 @@ function Checkbox({
 
 export { Checkbox };
 
-
-
 ```
-</Step>
-Add the iconWithClassName function in the ~/lib/icons/iconWithClassName.ts file.
-<Step>
-```ts
-import type { LucideIcon } from 'lucide-react-native';
-import { cssInterop } from 'nativewind';
 
-export function iconWithClassName(icon: LucideIcon) {
-cssInterop(icon, {
-    className: {
-    target: 'style',
-    nativeStyleToProp: {
-        color: true,
-        opacity: true,
-    },
-    },
-});
-}
-```
-</Step>
-<Step>
-
-Add the iconWithClassName function in the ~/lib/icons/Check.tsx file.
-<Step>
-```ts
-import { Check } from 'lucide-react-native';
-import { iconWithClassName } from './iconWithClassName';
-iconWithClassName(Check);
-export { Check };
-```
 </Step>
 
+
+<Step>
 Update the import paths to match your project setup.
 </Step>
 
 </Steps>
   
   </Tab>
-  <Tab value="cli">
-  ```ts
-npx shadcn@latest add ""
-```
-  </Tab>
+
+
 </Tabs>
 
 ## Usage
 
 ```tsx
-import { Checkbox } from "~/components/ui/checkbox";
+import { Checkbox } from "@/components/ui/checkbox";
 ```
-
 ```tsx
-function Example() {
+function CheckboxDemo() {
   const [checked, setChecked] = React.useState(false);
-  return <Checkbox checked={checked} onCheckedChange={setChecked} />;
+  return (
+     <Checkbox checked={checked} onCheckedChange={setChecked} />
+  );
 }
 ```
 
-## Examples

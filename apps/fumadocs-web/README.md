@@ -11,11 +11,29 @@ Components ->5
 -----
 
 V1: ->5 == 10 
-1. Accordion ✅
-2. Card✅
-3. Tab✅
-4. Skeleton✅
-5. Badge✅
+1. Accordion 
+2. Card
+3. Tab
+4. Skeleton
+5. Badge
+
+ 
+Avatar✅
+Badge✅
+Button✅
+Card✅
+Checkbox✅
+Input✅
+Select✅
+Seperator✅
+Switch✅
+Textarea✅
+Text✅
+Tabs
+Accordion
+Modal
+Skeleton
+
 
 
 Blocks ->6 == 9 blocks
