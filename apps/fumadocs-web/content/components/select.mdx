@@ -24,7 +24,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '~/components/ui/select';
-export default function InputDemo() {
+export default function SelectDemo() {
   const insets = useSafeAreaInsets();
   const contentInsets = {
     top: insets.top,
@@ -297,7 +297,7 @@ export {
 
 <Step>
 This component depends on the `Text` component.
-Please follow the installation guide [here](/components/text) before using the `Avatar`.
+Please follow the installation guide [here](/components/text) before using the `Select`.
 
 </Step>
 
@@ -327,25 +327,24 @@ import {
 } from '~/components/ui/select';
 ```
 ```tsx
- <Select defaultValue={{ value: 'Light', label: 'Light' }}>
-  <SelectTrigger className='w-[250px]'>
+<Select defaultValue={{ value: "Light", label: "Light" }}>
+  <SelectTrigger className="w-[250px]">
     <SelectValue
-          className='text-foreground text-sm native:text-lg'
-          placeholder='Select a Theme'
-        />
+      className="text-foreground text-sm native:text-lg"
+      placeholder="Select a Theme"
+    />
   </SelectTrigger>
-  <SelectContent insets={contentInsets} className='w-[250px]'>
+  <SelectContent insets={contentInsets} className="w-[250px]">
     <SelectGroup>
       <SelectLabel>Theme</SelectLabel>
-       <SelectItem label='Light' value='Light'>
-            Light
-          </SelectItem>
-          <SelectItem label='Dark' value='Dark'>
-            Dark
-          </SelectItem>
-          
-        </SelectGroup>
+      <SelectItem label="Light" value="Light">
+        Light
+      </SelectItem>
+      <SelectItem label="Dark" value="Dark">
+        Dark
+      </SelectItem>
+    </SelectGroup>
   </SelectContent>
- </Select>
+</Select>
 ```
 

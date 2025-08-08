@@ -7,7 +7,7 @@ export function initProject() {
   console.log("✔ Packages installed successfully!");
   console.log("› Installing 4 other packages using bun");
 
-  execSync("bun add tailwindcss-animate class-variance-authority clsx tailwind-merge", {
+  execSync("bun add tailwindcss-animate class-variance-authority clsx tailwind-merge react-native-svg lucide-react-native", {
     stdio: "inherit",
   });
 

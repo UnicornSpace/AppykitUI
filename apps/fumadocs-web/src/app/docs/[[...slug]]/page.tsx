@@ -22,7 +22,7 @@ export default async function Page(props: {
     <DocsPage toc={page.data.toc} full={page.data.full}>
       <div className="space-y-1">
         <DocsTitle>{page.data.title}</DocsTitle>
-        <DocsDescription>{page.data.description}</DocsDescription>
+        <DocsDescription className="text-[16px]">{page.data.description}</DocsDescription>
       </div>
       <DocsBody>
         <MDXContent
