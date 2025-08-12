@@ -8,7 +8,6 @@ import {
 import { notFound } from "next/navigation";
 import { createRelativeLink } from "fumadocs-ui/mdx";
 import { getMDXComponents } from "@/mdx-components";
-import { Card } from "fumadocs-ui/components/card";
 
 export default async function Page(props: {
   params: Promise<{ slug?: string[] }>;
@@ -47,7 +46,7 @@ export async function generateMetadata(props: {
   const params = await props.params;
   const page = components.getPage(params.slug);
   if (!page) notFound();
-  console.log("Generating metadata for page:", page.data.title);
+  // console.log("Generating metadata for page:", page.data.title);
   const title =
     page.data.title === "Components"
       ? `All Components | AppykitUI`

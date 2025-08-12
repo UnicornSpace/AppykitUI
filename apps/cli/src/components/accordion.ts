@@ -14,8 +14,8 @@ import Animated, {
   useDerivedValue,
   withTiming,
 } from 'react-native-reanimated';
-import { TextClassContext } from '~/components/ui/text';
-import { cn } from '~/lib/utils';
+import { TextClassContext } from '@/components/ui/text';
+import { cn } from '@/lib/utils';
 
 function Accordion({
   children,

@@ -25,7 +25,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "~/components/ui/modal";
+} from "@/components/ui/modal";
 export default function ModalDemo() {
   return (
     <View className="flex-1   gap-6 justify-center items-center bg-background p-5">
@@ -65,7 +65,7 @@ export default function ModalDemo() {
  
   <Tab value="cli">
   ```ts
-npx shadcn@latest add modal
+npx appykit@latest add modal
 ```
   </Tab>
   <Tab value="manual">
@@ -87,8 +87,8 @@ import * as DialogPrimitive from '@rn-primitives/dialog';
 import * as React from 'react';
 import { Platform, StyleSheet, View, type ViewProps } from 'react-native';
 import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
-import { X } from '~/lib/icons/X';
-import { cn } from '~/lib/utils';
+import { X } from '@/lib/icons/X';
+import { cn } from '@/lib/utils';
 
 const Dialog = DialogPrimitive.Root;
 
@@ -279,7 +279,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "~/components/ui/modal";
+} from "@/components/ui/modal";
 ```
 ```tsx
  <Dialog>

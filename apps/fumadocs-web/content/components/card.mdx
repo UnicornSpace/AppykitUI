@@ -21,7 +21,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "~/components/ui/card";
+} from "@/components/ui/card";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Text } from "../ui/text";
@@ -90,7 +90,7 @@ export default CardDemo;
  
   <Tab value="cli">
   ```ts
-npx shadcn@latest add card
+npx appykit@latest add card
 ```
   </Tab>
   <Tab value="manual">
@@ -104,8 +104,8 @@ Create a folder named `ui` under component folder in your project and add the fo
 ```ts
 import * as React from 'react';
 import { Text, type TextProps, View, type ViewProps } from 'react-native';
-import { TextClassContext } from '~/components/ui/text';
-import { cn } from '~/lib/utils';
+import { TextClassContext } from '@/components/ui/text';
+import { cn } from '@/lib/utils';
 
 function Card({
   className,
@@ -218,20 +218,20 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from '~/components/ui/card';
+} from '@/components/ui/card';
 ```
 ```tsx
- <Card className="w-full max-w-sm">
-   <CardHeader>
-     <CardTitle>Card Title</CardTitle>
-      <CardDescription>Card Description</CardDescription>
-   </CardHeader>
-    <CardContent>
-      <Text>Card Content</Text>
-    </CardContent>
-    <CardFooter>
-      <Text>Card Footer</Text>
-    </CardFooter>
- </Card>
+<Card className="w-full max-w-sm">
+  <CardHeader>
+    <CardTitle>Card Title</CardTitle>
+    <CardDescription>Card Description</CardDescription>
+  </CardHeader>
+  <CardContent>
+    <Text>Card Content</Text>
+  </CardContent>
+  <CardFooter>
+    <Text>Card Footer</Text>
+  </CardFooter>
+</Card>
 ```
 `

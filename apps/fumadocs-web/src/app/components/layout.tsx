@@ -3,12 +3,32 @@ import type { ReactNode } from "react";
 import { baseOptions } from "@/app/layout.config";
 import { components } from "@/lib/source";
 
+/*
+e: {name:string, title:string}
+
+
+(e as {url:string}).url
+
+
+*/ 
+
 export default function Layout({ children }: { children: ReactNode }) {
+  const filteredTree = components.pageTree.children.filter((e) => {
+    // console.log((e as {url?:string}).url === "/components");
+    if((e as {url:string}).url !== "/components"){
+      return e;
+    }
+  });
+  // console.log(filteredTree);
   return (
     <DocsLayout
-      tree={components.pageTree}
+      tree={{
+        name: components.pageTree.name,
+        $id: components.pageTree.$id,
+        children: filteredTree
+      }}
       themeSwitch={{
-        enabled: false
+        enabled: false,
       }}
       {...baseOptions}
     >

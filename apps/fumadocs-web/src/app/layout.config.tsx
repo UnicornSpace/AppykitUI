@@ -1,6 +1,5 @@
-import { Badge } from '@/components/ui/badge';
+
 import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
-import { BookIcon } from 'lucide-react';
 // Top nav bar
 /**
  * Shared layout configurations

@@ -1,17 +1,4 @@
-import {
-  Card,
-  CardAction,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 
-import { Button } from "@/components/ui/button";
-import { ArrowRightIcon, Send } from "lucide-react";
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
 import HeroSection from "@/components/hero-section";
 import Image from "next/image";
 import { Metadata } from "next";

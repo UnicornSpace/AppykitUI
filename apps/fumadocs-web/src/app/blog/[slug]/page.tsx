@@ -47,9 +47,10 @@ export default async function Page(props: {
 }
 
 export function generateStaticParams(): { slug: string }[] {
-  return blocks.getPages().map((page) => ({
-    slug: page.slugs[0],
-  }));
+  return blocks.getPages().filter((page) => Array.isArray(page.slugs) && typeof page.slugs[0] === "string")
+    .map((page) => ({
+      slug: page.slugs[0] as string,
+    }));
 }
 
 export async function generateMetadata(props: {

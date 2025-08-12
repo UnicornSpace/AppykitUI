@@ -1,9 +1,7 @@
-import { source, blocks } from "@/lib/source";
+import {  blocks } from "@/lib/source";
 import {
   DocsPage,
   DocsBody,
-  DocsDescription,
-  DocsTitle,
 } from "fumadocs-ui/page";
 import { notFound } from "next/navigation";
 import { createRelativeLink } from "fumadocs-ui/mdx";
@@ -37,7 +35,7 @@ export default async function Page(props: {
 }
 
 export async function generateStaticParams() {
-  return blocks.generateParams();
+  return blocks.generateParams().filter((p)=>Array.isArray(p.slug) && p.slug.every(Boolean));
 }
 
 export async function generateMetadata(props: {

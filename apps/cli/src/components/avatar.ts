@@ -1,7 +1,7 @@
 export const avatarCode = `
 import * as AvatarPrimitive from '@rn-primitives/avatar';
 import * as React from 'react';
-import { cn } from '~/lib/utils';
+import { cn } from '@/lib/utils';
 
 function Avatar({
   className,
@@ -17,14 +17,22 @@ function Avatar({
   );
 }
 
+
 function AvatarImage({
   className,
+  src,
   ...props
 }: AvatarPrimitive.ImageProps & {
   ref?: React.RefObject<AvatarPrimitive.ImageRef>;
 }) {
   return (
-    <AvatarPrimitive.Image className={cn('aspect-square h-full w-full', className)} {...props} />
+    <AvatarPrimitive.Image
+      className={cn("aspect-square h-full w-full", className)}
+      {...props}
+      source={{
+        uri: src,
+      }}
+    />
   );
 }
 

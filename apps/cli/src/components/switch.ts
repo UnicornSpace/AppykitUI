@@ -8,8 +8,8 @@ import Animated, {
   useDerivedValue,
   withTiming,
 } from 'react-native-reanimated';
-import { useColorScheme } from '~/lib/useColorScheme';
-import { cn } from '~/lib/utils';
+import { useColorScheme } from '@/lib/useColorScheme';
+import { cn } from '@/lib/utils';
 
 function SwitchWeb({
   className,

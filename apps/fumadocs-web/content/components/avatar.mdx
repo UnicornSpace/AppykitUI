@@ -8,17 +8,16 @@ description: A circular image used to represent a user profile or identity.
     ![](./preview/avatar.png)
   </Tab>
   <Tab value="code">
-    ```ts
+    ```tsx
     import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Text } from "@/components/ui/text";
 import { View } from "react-native";
 
 export default function AvatarDemo() {
-  const GITHUB_AVATAR_URI = "https://github.com/mrzachnugent.png";
   return (
     <View className="flex-1 flex-row gap-8 justify-center items-center bg-background">
       <Avatar alt="Appykit UI">
-        <AvatarImage source={{ uri: GITHUB_AVATAR_URI }} />
+       <AvatarImage src='https://github.com/likithanagaraj.png' />
         <AvatarFallback>
           <Text>AP</Text>
         </AvatarFallback>
@@ -40,8 +39,8 @@ export default function AvatarDemo() {
 <Tabs items={['cli','manual', ]}>
  
   <Tab value="cli">
-  ```ts
-npx shadcn@latest add avatar
+  ```bash
+npx appykit@latest add avatar
 ```
   </Tab>
   <Tab value="manual">
@@ -50,17 +49,17 @@ npx shadcn@latest add avatar
 
 <Step>
 Install the following dependencies:
-```shell
+```bash
 npx expo install @rn-primitives/avatar react-native-reanimated react-native-svg
 ```
 
 </Step>
 <Step>
 Create a folder named `ui` under component folder in your project and add the following code in a file named `avatar.tsx`:
-```ts
+```tsx
 import * as AvatarPrimitive from '@rn-primitives/avatar';
 import * as React from 'react';
-import { cn } from '~/lib/utils';
+import { cn } from '@/lib/utils';
 
 function Avatar({
 className,
@@ -76,17 +75,24 @@ className={cn('relative flex size-10 shrink-0 overflow-hidden rounded-full ', cl
 );
 }
 
-function AvatarImage({
-className,
-...props
-}: AvatarPrimitive.ImageProps & {
-ref?: React.RefObject<AvatarPrimitive.ImageRef>;
-}) {
-return (
-<AvatarPrimitive.Image className={cn('aspect-square h-full w-full', className)} {...props} />
-);
-}
 
+function AvatarImage({
+  className,
+  src,
+  ...props
+}: AvatarPrimitive.ImageProps & {
+  ref?: React.RefObject<AvatarPrimitive.ImageRef>;
+}) {
+  return (
+    <AvatarPrimitive.Image
+      className={cn("aspect-square h-full w-full", className)}
+      {...props}
+      source={{
+        uri: src,
+      }}
+    />
+  );
+}
 function AvatarFallback({
 className,
 ...props
@@ -131,13 +137,14 @@ Update the import paths to match your project setup.
 
 ## Usage
 
-```tsx
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-````
+
 
 ```tsx
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+```
+```tsx
 <Avatar alt="Appykit UI">
-  <AvatarImage source={{ uri: GITHUB_AVATAR_URI }} />
+  <AvatarImage src='https://github.com/likithanagaraj.png' />
   <AvatarFallback>
     <Text>AP</Text>
   </AvatarFallback>

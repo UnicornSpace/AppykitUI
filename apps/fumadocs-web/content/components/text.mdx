@@ -60,7 +60,7 @@ export default function TextDemo() {
  
   <Tab value="cli">
   ```ts
-npx shadcn@latest add text
+npx appykit@latest add text
 ```
   </Tab>
   <Tab value="manual">
@@ -81,7 +81,7 @@ Create a folder named `ui` under component folder in your project and add the fo
 import * as Slot from '@rn-primitives/slot';
 import * as React from 'react';
 import { Text as RNText } from 'react-native';
-import { cn } from '~/lib/utils';
+import { cn } from '@/lib/utils';
 
 const TextClassContext = React.createContext<string | undefined>(undefined);
 

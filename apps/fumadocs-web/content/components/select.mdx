@@ -23,7 +23,7 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from '~/components/ui/select';
+} from '@/components/ui/select';
 export default function SelectDemo() {
   const insets = useSafeAreaInsets();
   const contentInsets = {
@@ -80,7 +80,7 @@ export default function SelectDemo() {
  
   <Tab value="cli">
   ```ts
-npx shadcn@latest add select
+npx appykit@latest add select
 ```
   </Tab>
   <Tab value="manual">
@@ -105,7 +105,7 @@ import { Check, ChevronDown, ChevronUp } from 'lucide-react-native';
 import * as React from 'react';
 import { Platform, StyleSheet, View } from 'react-native';
 import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
-import { cn } from '~/lib/utils';
+import { cn } from '@/lib/utils';
 
 type Option = SelectPrimitive.Option;
 
@@ -324,7 +324,7 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from '~/components/ui/select';
+} from '@/components/ui/select';
 ```
 ```tsx
 <Select defaultValue={{ value: "Light", label: "Light" }}>

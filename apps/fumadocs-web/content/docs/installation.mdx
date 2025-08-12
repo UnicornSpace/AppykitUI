@@ -33,6 +33,9 @@ You can now start adding components to your project.
 ```bash
 npx appykit@latest add button
 ```
+```bash
+npx appykit@latest add text
+```
 The command above will add the Button component to your project. You can then import it like this:
 
 </Step>
@@ -40,6 +43,7 @@ The command above will add the Button component to your project. You can then im
 <Step>
 ```tsx title="/app/"
 import { Button } from "@/components/ui/button";
+import { Text } from "@/components/ui/text";
 
 <Button>
   <Text>Button</Text>
@@ -74,7 +78,7 @@ npx expo install tailwindcss-animate class-variance-authority clsx tailwind-merg
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "~/*": ["*"]
+      "@/*": ["*"]
     }
   }
 }
@@ -84,7 +88,7 @@ npx expo install tailwindcss-animate class-variance-authority clsx tailwind-merg
 
 <Step>
 **Add a cn helper** \
-Add the following code to the **~/lib/utils.ts file:**
+Add the following code to the **@/lib/utils.ts file:**
 ```bash
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
@@ -153,7 +157,7 @@ export function cn(...inputs: ClassValue[]) {
 </Step>
 
 <Step>
-**Add the following code in the ~/lib/constants.ts file for the navigation theme colors:**
+**Add the following code in the @/lib/constants.ts file for the navigation theme colors:**
 ```ts
 export const NAV_THEME = {
     light: {
@@ -174,7 +178,7 @@ export const NAV_THEME = {
     },
   };
   ```
-  If you changed the colors in the ~/global.css file, update the ~/lib/constants.ts file with the new colors. Each color has a commented css variable name next to it.
+  If you changed the colors in the ~/global.css file, update the @/lib/constants.ts file with the new colors. Each color has a commented css variable name next to it.
   </Step>
 
 <Step>

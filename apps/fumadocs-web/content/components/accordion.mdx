@@ -13,7 +13,7 @@ description: A collapsible section that toggles content visibility when tapped.
   </div>
   </Tab>
   <Tab value="code">
-    ```ts
+    ```tsx
     import React from 'react';
 import { Text, View } from 'react-native';
 import {
@@ -21,7 +21,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from '~/components/ui/accordion';
+} from '@/components/ui/accordion';
 export default function AccordionDemo() {
   return (
     <View className="flex-1  justify-center items-center p-6  bg-white">
@@ -69,8 +69,8 @@ export default function AccordionDemo() {
 <Tabs items={['cli','manual', ]}>
  
   <Tab value="cli">
-  ```ts
-npx shadcn@latest add accordion
+  ```bash
+npx appykit@latest add accordion
 ```
   </Tab>
   <Tab value="manual">
@@ -81,7 +81,7 @@ npx shadcn@latest add accordion
 
 <Step>
 Install the following dependencies:
-```shell
+```bash
 npx expo install @rn-primitives/accordion
 ```
 
@@ -89,7 +89,7 @@ npx expo install @rn-primitives/accordion
 </Step>
 <Step>
 Create a folder named `ui` under component folder in your project and add the following code in a file named `accordion.tsx`:
-```ts
+```tsx
 import * as AccordionPrimitive from '@rn-primitives/accordion';
 import * as React from 'react';
 import { Platform, Pressable, View } from 'react-native';
@@ -104,9 +104,9 @@ import Animated, {
   useDerivedValue,
   withTiming,
 } from 'react-native-reanimated';
-import { TextClassContext } from '~/components/ui/text';
-import { ChevronDown } from '~/lib/icons/ChevronDown';
-import { cn } from '~/lib/utils';
+import { TextClassContext } from '@/components/ui/text';
+import { ChevronDown } from '@/lib/icons/ChevronDown';
+import { cn } from '@/lib/utils';
 
 function Accordion({
   children,
@@ -250,18 +250,18 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "~/components/ui/accordion";
+} from "@/components/ui/accordion";
 ```
 ```tsx
-   <Accordion type="single" collapsible className="w-full">
-      <AccordionItem value="item-1">
-        <AccordionTrigger>
-          <Text>Is it accessible?</Text>
-        </AccordionTrigger>
-        <AccordionContent>
-          <Text>Yes. It adheres to the WAI-ARIA design pattern.</Text>
-        </AccordionContent>
-      </AccordionItem>
-    </Accordion>
+<Accordion type="single" collapsible className="w-full">
+  <AccordionItem value="item-1">
+    <AccordionTrigger>
+      <Text>Is it accessible?</Text>
+    </AccordionTrigger>
+    <AccordionContent>
+      <Text>Yes. It adheres to the WAI-ARIA design pattern.</Text>
+    </AccordionContent>
+  </AccordionItem>
+</Accordion>
 ```
 

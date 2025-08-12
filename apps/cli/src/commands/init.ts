@@ -18,7 +18,7 @@ export function initProject() {
       const tsconfig = JSON.parse(readFileSync(tsconfigPath, "utf8"));
       tsconfig.compilerOptions = tsconfig.compilerOptions || {};
       tsconfig.compilerOptions.paths = tsconfig.compilerOptions.paths || {};
-      tsconfig.compilerOptions.paths["~/*"] = ["./*"];
+      tsconfig.compilerOptions.paths["@/*"] = ["./*"];
       writeFileSync(tsconfigPath, JSON.stringify(tsconfig, null, 2));
       console.log("✅ tsconfig.json updated with ~ alias!");
     } catch (err) {
