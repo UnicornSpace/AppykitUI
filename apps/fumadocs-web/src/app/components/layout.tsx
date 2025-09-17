@@ -3,14 +3,7 @@ import type { ReactNode } from "react";
 import { baseOptions } from "@/app/layout.config";
 import { components } from "@/lib/source";
 
-/*
-e: {name:string, title:string}
 
-
-(e as {url:string}).url
-
-
-*/ 
 
 export default function Layout({ children }: { children: ReactNode }) {
   const filteredTree = components.pageTree.children.filter((e) => {

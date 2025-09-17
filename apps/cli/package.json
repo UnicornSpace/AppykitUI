@@ -1,6 +1,6 @@
 {
   "name": "appykit",
-  "version": "1.0.13",
+  "version": "1.0.15",
   "description": "Simple CLI to add/remove components",
   "bin": {
     "appykit": "./bin/appykit.js"
@@ -24,9 +24,10 @@
     "tsup": "^8.5.0"
   },
   "dependencies": {
-    "@rn-primitives/slot": "^1.2.0",
-    "@rn-primitives/types": "^1.2.0",
+    "ora": "^8.2.0",
     "commander": "^14.0.0",
-    "ora": "^8.2.0"
+    "inquirer": "^9.0.0",
+    "@rn-primitives/slot": "^1.2.0",
+    "@rn-primitives/types": "^1.2.0"
   }
 }

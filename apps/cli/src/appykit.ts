@@ -1,7 +1,10 @@
-#!/usr/bin/env node
+
+
+
 import { initProject } from './commands/init.js';
 import { addComponent } from './commands/add.js';
 import { removeComponent } from './commands/remove.js';
+import { createProject } from './commands/project.js'; // 👈 new import
 import { componentsMap } from './components/index.js';
 
 const command = process.argv[2];
@@ -16,6 +19,7 @@ Usage:
 
 Available commands:
   init                   Initialize your project with Tailwind, NativeWind, and theming
+  project <name>         Create a new project from the starter template
   add <component>        Add a UI component to components/ui
   remove <component>     Remove a UI component from components/ui
   --help, --h            Show this help message
@@ -25,6 +29,7 @@ Available components:
 
 Examples:
   npx appykit init
+  npx appykit project my-app
   npx appykit add avatar
   npx appykit remove avatar
 `);
@@ -33,6 +38,10 @@ Examples:
 switch (command) {
   case 'init':
     initProject();
+    break;
+
+  case 'project': // 👈 new command
+    createProject(target);
     break;
 
   case 'add':

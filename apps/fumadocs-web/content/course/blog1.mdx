@@ -1,0 +1,121 @@
+---
+title: How to Use Custom Fonts in Expo with NativeWind
+description: Learn how to seamlessly integrate and style custom fonts in your Expo app using NativeWind and Tailwind-style utilities.
+author: Likitha N
+date: 2025-06-06
+---
+import { Step, Steps } from 'fumadocs-ui/components/steps';
+import { DynamicCodeBlock } from 'fumadocs-ui/components/dynamic-codeblock';
+
+## How to Use Custom Fonts in Expo with NativeWind
+
+<Steps>
+<Step>
+### Download the font files (in .ttf or .otf format)
+1. Download the font files you want to use in your Expo app. Ensure they are in `.ttf` or `.otf` format.
+2. Place the font files in a directory within your Expo project, such as `assets/fonts/`.
+
+</Step>
+<Step>
+### Load the font 
+1. Go to _layout.tsx_ or _App.tsx_ file in your Expo project.
+2. Use the `useFonts` hook from `expo-font` to load your custom font.
+
+<DynamicCodeBlock
+  lang="ts"
+  code={
+
+    `import { useFonts } from 'expo-font';
+
+// Your font file path
+const SpaceGroteskBold = require("../assets/fonts/SpaceGrotesk-Bold.ttf");
+
+export default function App() {
+   let [fontsLoaded] = useFonts({
+    "SpaceGroteskBold": SpaceGroteskBold,
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
+
+  return (
+    // ... Your app components
+  );
+}`
+  }
+  options={{
+    themes: {
+      light: 'github-light',
+      dark: 'github-dark',
+    },
+    showCopyButton: true,
+    
+  }}
+/>
+</Step>
+<Step>
+### Define the font in tailwind.config.js 
+
+<DynamicCodeBlock
+  lang="ts"
+  code={
+  `
+  /** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    './App.{js,jsx,ts,tsx}',
+    './src/**/*.{js,jsx,ts,tsx}',
+  ],
+  theme: {
+    extend: {
+      fontFamily: {
+         "SpaceGroteskBold": ["SpaceGroteskBold"], // Use the same name as in useFonts
+      },
+    },
+  },
+  plugins: [],
+};
+  `
+  }
+  options={{
+    themes: {
+      light: 'github-light',
+      dark: 'github-dark',
+    },
+    showCopyButton: true,
+    
+  }}
+/>
+</Step>
+<Step>
+###  Apply the font in Nativewind styles 
+<DynamicCodeBlock
+  lang="tsx"
+  code={
+    `
+import React from 'react';
+import { Text, View } from 'react-native';
+
+export default function App() {
+  return (
+    <View className="flex-1 items-center justify-center">
+      <Text className="font-SpaceGroteskBold text-3xl">Hello, Nativewind!</Text>
+    </View>
+  );
+}
+
+`
+  }
+  options={{
+    themes: {
+      light: 'github-light',
+      dark: 'github-dark',
+    },
+    showCopyButton: true,
+    
+  }}
+/>
+
+</Step>
+</Steps>

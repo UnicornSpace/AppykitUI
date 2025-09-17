@@ -22,6 +22,10 @@ export const blockConfig = defineCollections({
   type: "doc",
   dir: "content/blocks",
 })
+export const reactNativeCourseConfig = defineCollections({
+  type: "doc",
+  dir: "content/reactnative",
+})
 
 export const blogConfig = defineCollections({
   type: "doc",
@@ -37,6 +41,7 @@ export const ComponentConfig = defineCollections({
   type: "doc",
   dir: "content/components",
 })
+
 
 
 // export const toolConfig = defineCollections({
