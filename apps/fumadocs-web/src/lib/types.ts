@@ -16,13 +16,13 @@ export type Resource = {
   category:
     | "UI"
     | "Typography"
-    | "resources"
+    | "colors"
     | "tools"
     | "inspiration"
     | "assets"
     | "other"
-    | "nextjs"
-    | "icons";
+    | "icons"
+    | "ui-design"
 
   description: string;
   link: string;
