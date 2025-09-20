@@ -1,5 +1,4 @@
-
-import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
+import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
 // Top nav bar
 /**
  * Shared layout configurations
@@ -9,9 +8,7 @@ import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
  * Docs Layout: app/docs/layout.tsx
  */
 export const baseOptions: BaseLayoutProps = {
-  
   nav: {
-
     title: (
       <>
         <svg
@@ -28,52 +25,67 @@ export const baseOptions: BaseLayoutProps = {
     ),
   },
   // see https://fumadocs.dev/docs/ui/navigation/links
-  
-  githubUrl:"https://github.com/UnicornSpace/AppykitUI",
+
+  githubUrl: "https://github.com/UnicornSpace/AppykitUI",
 
   links: [
-   {
+  
+    {
       // icon: <BookIcon />,
-      text: 'Introduction',
-      url: '/docs',
+      text: "Introduction",
+      url: "/docs",
     },
-   {
+    {
       // icon: <BookIcon />,
-      text: 'Installation',
-      url: '/docs/installation',
-     
+      text: "Installation",
+      url: "/docs/installation",
     },
-   {
+
+    {
       // icon: <BookIcon />,
-      text: 'CLI',
-      url: '/docs/cli',
-     
+      text: "Components",
+      url: "/components",
     },
-   {
+    {
       // icon: <BookIcon />,
-      text: 'Changelog',
-      url: '/docs/changelog',
-     
+      text: "Blocks",
+      url: "/blocks",
     },
-   {
-      // icon: <BookIcon />,
-      text: 'React Native',
-      url: '/reactnative',
-     
-    },
-   
-   {
-      // icon: <BookIcon />,
-      text: 'Components',
-      url: '/components',
-     
-    },
-   {
-      // icon: <BookIcon />,
-      text: 'Blocks',
-      url: '/blocks',
-     
-      
+      {
+      type: "menu",
+      text: "Others",
+      items: [
+        {
+          text: "Getting Started",
+          description: "Learn to use Fumadocs",
+          url: "/docs",
+        },
+        {
+          // icon: <BookIcon />,
+          text: "CLI",
+          url: "/docs/cli",
+        },
+        {
+          // icon: <BookIcon />,
+          text: "Changelog",
+          url: "/docs/changelog",
+        },
+        {
+          // icon: <BookIcon />,
+          text: "Course",
+          url: "/reactnative",
+        },
+        {
+          // icon: <BookIcon />,
+          text: "Blogs",
+          url: "/blogs",
+        },
+        {
+          // icon: <BookIcon />,
+          text: "ReactNative-Resource",
+          url: "/reactnative-resources",
+        },
+      ],
     },
   ],
 };

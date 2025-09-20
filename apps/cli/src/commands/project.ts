@@ -63,7 +63,7 @@ export async function createProject(appName?: string) {
   // Case 1: only expo
   if (!nativewind) {
     console.log("\n🚀 Creating blank Expo TypeScript project...");
-    runCommand(`npx create-expo-app ${finalName} --template blank-typescript`);
+    runCommand(`npx create-expo-app@latest ${finalName} --template blank-typescript`);
   }
 
   // Case 2 + 3: clone starter

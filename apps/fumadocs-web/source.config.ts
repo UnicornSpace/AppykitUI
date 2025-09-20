@@ -29,7 +29,7 @@ export const reactNativeCourseConfig = defineCollections({
 
 export const blogConfig = defineCollections({
   type: "doc",
-  dir: "content/blog",
+  dir: "content/blogs",
 })
 
 export const CourseConfig = defineCollections({

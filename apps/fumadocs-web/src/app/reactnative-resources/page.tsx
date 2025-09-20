@@ -218,6 +218,13 @@ const resourcesData: Resource[] = [
     isFavorite: false,
   },
   {
+    category: "other",
+    description: "craft with AI today",
+    link: "https://21st.dev/home",
+    title: "21st.dev",
+    isFavorite: false,
+  },
+  {
     category: "Typography",
     description: "Free fonts for commercial use",
     link: "https://fonts.google.com/",

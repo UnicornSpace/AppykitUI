@@ -20,7 +20,7 @@ export const reactNativeCourse = loader({
   source: createMDXSource(reactNativeCourseConfig)
 })
 export const blogs = loader({
-  baseUrl: "/blog",
+  baseUrl: "/blogs",
   source: createMDXSource(blogConfig)
 })
 export const course = loader({

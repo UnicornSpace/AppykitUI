@@ -14,9 +14,13 @@ import { Step, Steps } from "fumadocs-ui/components/steps";
 <Step>
 
 ### Prerequisites:
-Make sure you have the following dependencies installed in your project:
-Expo, ReactNative and NativeWind.
+- If you already have a project, simply install NativeWind by following the official installation guide.
 (Follow the installation guide for NativeWind from the [official documentation](https://www.nativewind.dev/docs/getting-started/installation))
+- If you don’t have a React Native project yet, create one:
+```bash
+npx appykit project my-app
+```
+
 </Step>
 <Step>
 ### Initialization of AppykitUI
@@ -60,8 +64,8 @@ import { Text } from "@/components/ui/text";
   <Tab value="manual">
 <Steps>
 <Step>
-**Follow the installation guide for NativeWind from the 
-[official documentation](https://www.nativewind.dev/docs/getting-started/installation)**
+**If you already have a project, simply (Install NativeWind by following the 
+[official documentation](https://www.nativewind.dev/docs/getting-started/installation))**
 </Step>
 <Step>
 **Add dependencies**
@@ -257,6 +261,8 @@ plugins: [require('tailwindcss-animate')],
 
 <Step>
 **Layout.tsx**
+
+- Import the global.css file in your root layout file.
 ```tsx
 import { StatusBar } from 'expo-status-bar';
 import './global.css';
@@ -275,6 +281,11 @@ export default function App() {
 }
 
 ````
+
+</Step>
+
+<Step>
+ [You can now start adding components to your project.](/components)
 
 </Step>
 </Steps>

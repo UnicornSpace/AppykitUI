@@ -19,32 +19,32 @@ import React from "react";
 import { View } from "react-native";
 
 export default function InputDemo() {
-  const [value, setValue] = React.useState("");
+const [value, setValue] = React.useState("");
 
-  const onChangeText = (text: string) => {
-    setValue(text);
-  };
-  return (
-    <View className="flex-1   gap-6 justify-center items-start bg-background p-5">
-      <View className="w-full gap-1">
-        <Text>Username</Text>
-        <Input
-          className=""
-          placeholder="Appykit UI"
-          value={value}
-          onChangeText={onChangeText}
-          aria-labelledby="inputLabel"
-          aria-errormessage="inputError"
-        />
-        <Text className="font-normal text-muted-foreground text-sm">
-          This is your public display name.
-        </Text>
-      </View>
-      <Button>
-        <Text className="">Submit</Text>
-      </Button>
-    </View>
-  );
+const onChangeText = (text: string) => {
+setValue(text);
+};
+return (
+<View className="flex-1   gap-6 justify-center items-start  p-5">
+  <View className="w-full gap-1">
+    <Text className="text-black font-semibold text-[16px]">Username</Text>
+    <Input
+      className="bg-transparent border text-black border-black/50"
+      placeholder="Appykit UI"
+      value={value}
+      onChangeText={onChangeText}
+      aria-labelledby="inputLabel"
+      aria-errormessage="inputError"
+    />
+    <Text className="font-normal text-muted-foreground text-sm">
+      This is your public display name.
+    </Text>
+  </View>
+  <Button className="bg-black">
+    <Text className="text-white">Submit</Text>
+  </Button>
+</View>
+);
 }
 
     ```
@@ -103,11 +103,7 @@ export { Input };
 
 </Step>
 
-<Step>
-This component depends on the `Text` component.
-Please follow the installation guide [here](/components/text) before using the `Input`.
 
-</Step>
 
 
 <Step>
