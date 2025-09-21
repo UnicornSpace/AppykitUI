@@ -1,6 +1,6 @@
 {
   "name": "appykit",
-  "version": "1.0.15",
+  "version": "1.0.17",
   "description": "Simple CLI to add/remove components",
   "bin": {
     "appykit": "./bin/appykit.js"
