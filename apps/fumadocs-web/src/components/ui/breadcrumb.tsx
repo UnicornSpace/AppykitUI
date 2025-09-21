@@ -67,7 +67,7 @@ BreadcrumbPage.displayName = "BreadcrumbPage";
 
 const BreadcrumbSeparator = ({ children, className, ...props }: React.ComponentProps<"li">) => (
   <li role="presentation" aria-hidden="true" className={className} {...props}>
-    {children ?? <ChevronRightIcon size={16} strokeWidth={2} />}
+    {children ?? <ChevronRightIcon className="w-4 h-4" strokeWidth={2} />}
   </li>
 );
 BreadcrumbSeparator.displayName = "BreadcrumbSeparator";
@@ -79,7 +79,7 @@ const BreadcrumbEllipsis = ({ className, ...props }: React.ComponentProps<"span"
     className={cn("flex size-5 items-center justify-center", className)}
     {...props}
   >
-    <DotsHorizontalIcon size={16} strokeWidth={2} />
+    <DotsHorizontalIcon className="w-4 h-4" strokeWidth={2} />
   </span>
 );
 BreadcrumbEllipsis.displayName = "BreadcrumbElipssis";

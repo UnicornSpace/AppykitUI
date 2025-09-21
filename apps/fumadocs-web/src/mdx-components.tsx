@@ -15,7 +15,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     ...defaultMdxComponents,
     ...TabsComponents,
     ...components,
-     img: (props) => <ImageZoom {...(props as any)} />,
+     img: (props: React.ImgHTMLAttributes<HTMLImageElement>) => <ImageZoom {...props} />,
     Steps,
     Step,
     HeroSection,

@@ -1,8 +1,6 @@
 import Link from "next/link";
 import { blogs } from "@/lib/source";
-import { BlogHeader } from "@/components/blog-header";
-import { FeaturedPost } from "@/components/featured-post";
-import { BlogGrid } from "@/components/blog-grid";
+
 
 export default function Home() {
   const posts = blogs.getPages();

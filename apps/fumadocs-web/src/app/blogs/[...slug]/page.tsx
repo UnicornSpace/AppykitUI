@@ -1,17 +1,16 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { InlineTOC } from "fumadocs-ui/components/inline-toc";
 import defaultMdxComponents from "fumadocs-ui/mdx";
 import { blogs } from "@/lib/source";
 import { BsArrowLeft } from "react-icons/bs";
 import { DocsPage } from "fumadocs-ui/page";
 
-import Image from "next/image";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
-
-export default async function Page({ params }: { params: { slug: string } }) {
+export default async function Page(props: {
+  params: Promise<{ slug?: string[] }>;
+}) {
+   const params = await props.params;
   console.log(blogs.getPages());
-  const page = blogs.getPage([params.slug]);
+  const page = blogs.getPage(params.slug);
   console.log(page, "page🙄");
 
   if (!page) notFound();

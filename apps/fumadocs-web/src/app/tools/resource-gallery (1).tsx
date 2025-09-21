@@ -3,7 +3,6 @@
 import { useState, useMemo } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Star } from "lucide-react";
 import ResourceCard from "@/components/resource-card";
 import { SlScreenDesktop } from "react-icons/sl";
 import { AiOutlineFontSize } from "react-icons/ai";
@@ -50,7 +49,7 @@ export default function ResourceGallery({ data }: { data: Resource[] }) {
             size={"sm"}
           >
             <span className="mr-1">
-              {category == "UI" ? <SlScreenDesktop /> : category == "Typography" ? <AiOutlineFontSize /> : category == "assets" ? <AiOutlineFontSize /> : category == "icons" ? <FaIcons /> : category == "tools" ? <BsTools /> : category == "inspiration" ? <FcIdea /> : category == "resources" ? <GrResources /> : ""}
+              {category == "UI" ? <SlScreenDesktop /> : category == "Typography" ? <AiOutlineFontSize /> : category == "assets" ? <AiOutlineFontSize /> : category == "icons" ? <FaIcons /> : category == "tools" ? <BsTools /> : category == "inspiration" ? <FcIdea /> : category == "colors" ? <GrResources /> : category == "other" ? <GrResources /> : category == "ui-design" ? <SlScreenDesktop /> : ""}
             </span>
             {category}
             <Badge variant={selectedCategory === category ? "default" : "outline"} className="px-1.5 ml-1">{data.filter((r) => r.category === category).length}</Badge>
