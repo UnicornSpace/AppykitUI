@@ -231,5 +231,12 @@ const resourcesData: Resource[] = [
     title: "Google Fonts",
     isFavorite: false,
   },
+  {
+    category: "Flutter",
+    description: "To Search, Discover and Share Flutter packages",
+    link: "https://pub.dev/",
+    title: "Pub Dev",
+    isFavorite: false,
+  },
   
 ];

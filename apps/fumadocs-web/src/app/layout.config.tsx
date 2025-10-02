@@ -72,8 +72,13 @@ export const baseOptions: BaseLayoutProps = {
         },
         {
           // icon: <BookIcon />,
-          text: "Course",
+          text: "ReactNative-Course",
           url: "/reactnative",
+        },
+        {
+          // icon: <BookIcon />,
+          text: "Flutter-Course",
+          url: "/flutter",
         },
         {
           // icon: <BookIcon />,
@@ -82,7 +87,7 @@ export const baseOptions: BaseLayoutProps = {
         },
         {
           // icon: <BookIcon />,
-          text: "ReactNative-Resource",
+          text: "Resource",
           url: "/reactnative-resources",
         },
       ],

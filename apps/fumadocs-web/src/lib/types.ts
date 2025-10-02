@@ -23,6 +23,7 @@ export type Resource = {
     | "other"
     | "icons"
     | "ui-design"
+    | "Flutter"
 
   description: string;
   link: string;

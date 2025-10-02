@@ -36,6 +36,10 @@ export const CourseConfig = defineCollections({
   type: "doc",
   dir: "content/course",
 })
+export const FlutterCourseConfig = defineCollections({
+  type: "doc",
+  dir: "content/flutter",
+})
 
 export const ComponentConfig = defineCollections({
   type: "doc",
