@@ -24,6 +24,7 @@ export type Resource = {
     | "icons"
     | "ui-design"
     | "Flutter"
+    | "audio"
 
   description: string;
   link: string;
