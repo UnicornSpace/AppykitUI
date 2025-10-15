@@ -40,6 +40,10 @@ export const FlutterCourseConfig = defineCollections({
   type: "doc",
   dir: "content/flutter",
 })
+export const FlutterBlocksConfig = defineCollections({
+  type: "doc",
+  dir: "content/flutter-blocks",
+})
 
 export const ComponentConfig = defineCollections({
   type: "doc",

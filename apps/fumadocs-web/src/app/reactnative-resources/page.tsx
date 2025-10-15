@@ -148,10 +148,17 @@ const resourcesData: Resource[] = [
     isFavorite: false,
   },
   {
-    category: "assets",
+    category: "icons",
     description: "Icons for  projects",
     link: "https://icons8.com/icons",
     title: "Icons 8 Icons",
+    isFavorite: false,
+  },
+  {
+    category: "icons",
+    description: "Icons for  projects",
+    link: "https://hugeicons.com/",
+    title: "Huge Icons",
     isFavorite: false,
   },
   {

@@ -9,6 +9,7 @@ import ReactNativeThumbnailCard from "./components/react-native-card-cover";
 import { Step, Steps } from "fumadocs-ui/components/steps";
 import { ImageZoom } from "fumadocs-ui/components/image-zoom";
 import { InlineTOC } from 'fumadocs-ui/components/inline-toc';
+import FlutterBlocksHeroSection from "./components/flutter-blocks-hero-section";
 // use this function to get MDX components, you will need it for rendering MDX
 export function getMDXComponents(components?: MDXComponents): MDXComponents {
   return {
@@ -23,6 +24,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     ComponentThumbnailCard,
     ReactNativeThumbnailCard,
     InlineTOC ,
+    FlutterBlocksHeroSection,
     ThemeButton
 
   };

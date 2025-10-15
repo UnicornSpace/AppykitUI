@@ -82,6 +82,11 @@ export const baseOptions: BaseLayoutProps = {
         },
         {
           // icon: <BookIcon />,
+          text: "Flutter-Blocks",
+          url: "/flutter-blocks",
+        },
+        {
+          // icon: <BookIcon />,
           text: "Blogs",
           url: "/blogs",
         },
