@@ -3,6 +3,7 @@
 import { ArrowRight, Clock, DollarSign, ShieldCheck } from "lucide-react";
 import Link from "next/link";
 import { Button } from "./ui/button";
+import { FaFlutter } from "react-icons/fa6";
 
 export default function HeroSection() {
   return (
@@ -20,7 +21,7 @@ export default function HeroSection() {
         <h1 className="text-4xl md:text-7xl font-bold tracking-tight">
           Rethinking UI {" "}
           <br />
-          for react native.
+          for Flutter.
         </h1>
         <h2 className="text-xl text-muted-foreground">
           A growing library of beautifully crafted components
@@ -32,14 +33,21 @@ export default function HeroSection() {
             Get started now
           </Button>
           */}
-          <Link href={"/components"} className="w-full sm:w-auto">
+          {/* TODO: hey add for flutter stuff and other resources */}
+          <Link href={"/flutter"} className="w-full sm:w-auto">
+            <Button variant="secondary" className="h-10 p-0 px-20 rounded-full">
+              Flutter <FaFlutter />
+
+            </Button>
+          </Link>
+          <Link href={"/docs"} className="w-full sm:w-auto">
             <Button variant="default" className="h-10 p-0 px-20 rounded-full">
               Get started now <ArrowRight size={16} />
             </Button>
-            {/* <button className="rounded-full h-10 flex items-center gap-2 border  px-4 dark:bg-white dark:text-black bg-black text-white">
+          </Link>
+          {/* <button className="rounded-full h-10 flex items-center gap-2 border  px-4 dark:bg-white dark:text-black bg-black text-white">
               Discover Components <ArrowRight size={16} />
             </button> */}
-          </Link>
         </div>
       </div>
 

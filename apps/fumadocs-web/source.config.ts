@@ -22,10 +22,6 @@ export const blockConfig = defineCollections({
   type: "doc",
   dir: "content/blocks",
 })
-export const reactNativeCourseConfig = defineCollections({
-  type: "doc",
-  dir: "content/reactnative",
-})
 
 export const blogConfig = defineCollections({
   type: "doc",
@@ -34,15 +30,7 @@ export const blogConfig = defineCollections({
 
 export const CourseConfig = defineCollections({
   type: "doc",
-  dir: "content/course",
-})
-export const FlutterCourseConfig = defineCollections({
-  type: "doc",
-  dir: "content/flutter",
-})
-export const FlutterBlocksConfig = defineCollections({
-  type: "doc",
-  dir: "content/flutter-blocks",
+  dir: "content/courses",
 })
 
 export const ComponentConfig = defineCollections({
@@ -50,6 +38,18 @@ export const ComponentConfig = defineCollections({
   dir: "content/components",
 })
 
+// export const reactNativeCourseConfig = defineCollections({
+//   type: "doc",
+//   dir: "content/reactnative",
+// })
+// export const FlutterCourseConfig = defineCollections({
+//   type: "doc",
+//   dir: "content/flutter",
+// })
+// export const FlutterBlocksConfig = defineCollections({
+//   type: "doc",
+//   dir: "content/flutter-blocks",
+// })
 
 
 // export const toolConfig = defineCollections({
