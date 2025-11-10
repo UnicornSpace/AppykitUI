@@ -27,4 +27,8 @@ export const components = loader({
   baseUrl: "/components",
   source: createMDXSource(ComponentConfig)
 })
+export const flutterBlocks = loader({
+  baseUrl: "/flutter",
+  source: createMDXSource(ComponentConfig)
+})
 
