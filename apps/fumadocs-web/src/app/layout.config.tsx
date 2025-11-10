@@ -29,42 +29,41 @@ export const baseOptions: BaseLayoutProps = {
   githubUrl: "https://github.com/UnicornSpace/AppykitUI",
 
   links: [
-  
     {
       // icon: <BookIcon />,
       text: "Introduction",
       url: "/docs",
     },
-    {
-      // icon: <BookIcon />,
-      text: "Installation",
-      url: "/docs/installation",
-    },
+    // {
+    //   // icon: <BookIcon />,
+    //   text: "Installation",
+    //   url: "/docs/installation",
+    // },
 
-    {
-      // icon: <BookIcon />,
-      text: "Components",
-      url: "/components",
-    },
+    // {
+    //   // icon: <BookIcon />,
+    //   text: "Components",
+    //   url: "/components",
+    // },
     {
       // icon: <BookIcon />,
       text: "Blocks",
-      url: "/blocks",
+      url: "/flutter/blocks",
     },
-      {
+    {
       type: "menu",
       text: "Others",
       items: [
-        {
-          text: "Getting Started",
-          description: "Learn to use Fumadocs",
-          url: "/docs",
-        },
-        {
-          // icon: <BookIcon />,
-          text: "CLI",
-          url: "/docs/cli",
-        },
+        // {
+        //   text: "Getting Started",
+        //   description: "Learn to use Fumadocs",
+        //   url: "/docs",
+        // },
+        // {
+        //   // icon: <BookIcon />,
+        //   text: "CLI",
+        //   url: "/docs/cli",
+        // },
         {
           // icon: <BookIcon />,
           text: "Changelog",
@@ -72,29 +71,20 @@ export const baseOptions: BaseLayoutProps = {
         },
         {
           // icon: <BookIcon />,
-          text: "ReactNative-Course",
+          text: "ReactNative",
           url: "/reactnative",
         },
-        {
-          // icon: <BookIcon />,
-          text: "Flutter-Course",
-          url: "/flutter",
-        },
-        {
-          // icon: <BookIcon />,
-          text: "Flutter-Blocks",
-          url: "/flutter-blocks",
-        },
+
         {
           // icon: <BookIcon />,
           text: "Blogs",
-          url: "/blogs",
+          url: "/blog",
         },
-        {
-          // icon: <BookIcon />,
-          text: "Resource",
-          url: "/reactnative-resources",
-        },
+        // {
+        //   // icon: <BookIcon />,
+        //   text: "Resource",
+        //   url: "/reactnative-resources",
+        // },
       ],
     },
   ],

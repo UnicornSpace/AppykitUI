@@ -18,7 +18,7 @@ export const blogs = loader({
   baseUrl: "/blogs",
   source: createMDXSource(blogConfig)
 })
-export const course = loader({
+export const courses = loader({
   baseUrl: "/course",
   source: createMDXSource(CourseConfig)
 })

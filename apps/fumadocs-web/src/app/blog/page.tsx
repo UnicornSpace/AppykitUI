@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { blogs } from "@/lib/source";
-
+import Image from "next/image";
+import { Badge } from "@/components/ui/badge";
 
 export default function Home() {
   const posts = blogs.getPages();
@@ -32,35 +33,52 @@ export default function Home() {
   // );
 
   return (
-    <main className="grow container mx-auto px-4 py-8 max-w-6xl ">
-       {/* <Link href={`/components`} className="text-sm text-muted-foreground">
+    <main className="grow container mx-auto px-4 py-8 max-w-3xl ">
+      {/* <Link href={`/components`} className="text-sm text-muted-foreground">
               Back
             </Link> */}
-      <h1 className="text-4xl font-bold mb-8">Latest Blog Posts</h1>
+      <h1 className="text-5xl font-semibold mb-8">Blog</h1>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 ">
-        {posts.map((post) => (
+      <section className="bg-secondary rounded-sm mb-8">
+        <Link href={"/"}>
+          <Image
+            src={"/Flutter-appykit-blog-thumbnail.png"}
+            height={1920}
+            width={1080}
+            className="rounded-sm"
+            alt=""
+          />
+        </Link>
+        <div className="py-2 px-4 space-y-2">
+          {/* <p className="text-sm text-gray-500 mb-2">23412</p> */}
+          <div className="flex items-center gap-4">
+            <Badge>Latest</Badge>
+            <h3 className="text-xl font-bold text-gray-900  text-balance">
+              {posts[0].data.title}
+            </h3>
+          </div>
+          <p className="text-gray-600 text-base leading-relaxed">
+            {posts[0].data.description}
+          </p>
+        </div>
+      </section>
+      <div className=" flex flex-col gap-4 ">
+        {posts.slice(1).map((post) => (
           <Link key={post.url} href={post.url} className="">
             <article
               key={post.url}
-              className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300"
+              className="flex   rounded-xl overflow-hidden  p-1 hover:bg-secondary transition-bg duration-200"
             >
-              <div
-                className={`h-48 bg-gradient-to-br from-blue-400 to-cyan-400                   
-                   relative overflow-hidden`}
-              >
-                {/* Decorative elements */}
-                <div className="absolute top-4 right-4 w-2 h-2 bg-white/30 rounded-full" />
-                <div className="absolute bottom-6 left-4 w-3 h-3 bg-white/20 rounded-full" />
+              <Image
+                src={"/Flutter-appykit-blog-thumbnail.png"}
+                height={300}
+                width={300}
+                className="rounded-sm"
+                alt=""
+              />
 
-                {/* Icon */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  {/* {post.icon} */}
-                </div>
-              </div>
-
-              <div className="p-6">
-                <p className="text-sm text-gray-500 mb-2">23412</p>
+              <div className="w-[60%] p-6">
+                {/* <p className="text-sm text-gray-500 mb-2">23412</p> */}
                 <h3 className="text-xl font-bold text-gray-900 mb-3 text-balance">
                   {post.data.title}
                 </h3>
