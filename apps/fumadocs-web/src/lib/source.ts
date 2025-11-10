@@ -1,6 +1,5 @@
-import { blockConfig, blogConfig, ComponentConfig, CourseConfig, docs,reactNativeCourseConfig,FlutterCourseConfig, FlutterBlocksConfig } from '@/.source';
+import { blockConfig, blogConfig, ComponentConfig, CourseConfig, docs } from '@/.source';
 import { loader } from 'fumadocs-core/source';
-// import { blogConfig } from 'source.config';
 import { createMDXSource } from 'fumadocs-mdx';
 
 // See https://fumadocs.vercel.app/docs/headless/source-api for more info
@@ -15,25 +14,13 @@ export const blocks = loader({
   baseUrl: "/blocks",
   source: createMDXSource(blockConfig)
 })
-export const reactNativeCourse = loader({
-  baseUrl: "/reactnative",
-  source: createMDXSource(reactNativeCourseConfig)
-})
 export const blogs = loader({
   baseUrl: "/blogs",
   source: createMDXSource(blogConfig)
 })
-export const course = loader({
+export const courses = loader({
   baseUrl: "/course",
   source: createMDXSource(CourseConfig)
-})
-export const flutter = loader({
-  baseUrl: "/flutter",
-  source: createMDXSource(FlutterCourseConfig)
-})
-export const flutterBlocks = loader({
-  baseUrl: "/flutter-blocks",
-  source: createMDXSource(FlutterBlocksConfig)
 })
 
 export const components = loader({
@@ -41,9 +28,3 @@ export const components = loader({
   source: createMDXSource(ComponentConfig)
 })
 
-
-
-// export const tools = loader({
-//   baseUrl: "/tools",
-//   source: createMDXSource(toolConfig),
-// })

@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "AppykitUI - UI for react native",
+  title: "AppykitUI - UI and Flutter",
   description:
     "A growing library of beautifully crafted components to help developers ship faster and design better.",
 };

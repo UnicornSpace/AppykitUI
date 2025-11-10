@@ -1,23 +1,17 @@
-import Link from 'next/link';
-import { flutter } from '@/lib/source';
+import Link from "next/link";
+import React from "react";
 
-export default function Home() {
-  const posts = flutter.getPages();
+const page = () => {
   return (
-    <main className="grow container mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold mb-8">Flutter Course</h1>
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {posts.map((post) => (
-          <Link
-            key={post.url}
-            href={post.url}
-            className="block bg-fd-secondary rounded-lg shadow-md overflow-hidden p-6"
-          >
-            <h2 className="text-xl font-semibold mb-2">{post.data.title}</h2>
-            <p className="mb-4">{post.data.description}</p>
-          </Link>
-        ))}
+    <div className="flex flex-col items-center justify-center gap-4 min-h-[70dvh]">
+      <h1 className="font-medium text-2xl">Flutter</h1>
+      <div className="space-x-5 text-blue-600">
+        <Link href={"/course/flutter"}>Course</Link>
+        <Link href={"/flutter/blocks"}>Blocks</Link>
+        <Link href={"/flutter/resources"}>Resources</Link>
       </div>
-    </main>
+    </div>
   );
-}
+};
+
+export default page;
