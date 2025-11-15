@@ -2,7 +2,7 @@ import { BrainCircuit } from "lucide-react";
 
 export const coursesRegistry = [
     {
-        title: 'Flutter',
+        title: 'Introduction to Flutter ',
         description: `This is a hands-on course where you'll learn to build apps using GenAI APIs with OpenAI, Claude Anthropic. We’ll explore how to use prompts, manage context, build chatbots, and connect LLMs to your own data using tools like LangChain, LangGraph, Mem0, Qdrant, Neo4j, MongoDB. No AI background required — just basic Python and curiosity.`,
         slug: 'flutter',
         isPublished: true,

@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import type { BaseLayoutProps } from "fumadocs-ui/layouts/shared";
 // Top nav bar
 /**
@@ -50,15 +51,21 @@ export const baseOptions: BaseLayoutProps = {
       text: "Blogs",
       url: "/blog",
     },
-    {
-      // icon: <BookIcon />,
-      text: "Flutter blocks",
-      url: "/flutter/blocks",
-    },
+    // {
+    //   // icon: <BookIcon />,
+    //   text: "Flutter blocks",
+    //   url: "/flutter/blocks",
+    // },
     {
       // icon: <BookIcon />,
       text: "Flutter course",
       url: "/course/flutter",
+      label: "choclate",
+    },
+    {
+      type: "custom",
+      children: <Button>Login</Button>,
+      secondary: true,
     },
     {
       type: "menu",

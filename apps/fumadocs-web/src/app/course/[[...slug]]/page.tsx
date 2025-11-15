@@ -25,8 +25,10 @@ import { createRelativeLink } from "fumadocs-ui/mdx";
 import { getMDXComponents } from "@/mdx-components";
 import { components } from "@/lib/source";
 import { FaAngleLeft } from "react-icons/fa";
-import { MoveRight } from "lucide-react";
-
+import { BookTextIcon, MoveRight, Star } from "lucide-react";
+import { TbGraphFilled } from "react-icons/tb";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import Image from "next/image";
 const page = async (props: { params: Params }) => {
   const { slug: courseSlug } = await props.params;
 
@@ -75,22 +77,84 @@ const page = async (props: { params: Params }) => {
       (c) => c.slug.toLowerCase() == courseSlug[0].toLowerCase()
     );
     return (
-      <div className="xl:ml-20">
-        <div className="max-w-3xl ml-6 py-4 mb-16 max-sm:text-center mt-10 ">
+      <div className="xl:ml-20 mx-auto  ">
+        <div className="max-w-4xl  ml-6 py-4 mb-6 max-sm:text-center mt-10 ">
           <div className="space-x-4 flex items-baseline">
-            <h1 className="capitalize font-heading text-foreground mb-2 text-4xl/[1.1] font-bold tracking-tight md:text-5xl/[1.1]">
-              {courseSlug[0]}
+            <h1 className="capitalize font-heading text-foreground mb-6 text-4xl/[1.1] font-bold tracking-tight md:text-5xl/[1.1]">
+              {courseRegItem?.title}
             </h1>
-            {courseRegItem?.icon && <courseRegItem.icon className="size-9" />}
+            {/* {courseRegItem?.icon && <courseRegItem.icon className="size-9" />} */}
           </div>
+          {/* <AspectRatio ratio={16 / 9}> */}
+          <Image
+            // src={"/flutter-thumbnail-temp.png"}
+            src={"/image.png"}
+            width={1080}
+            height={250}
+            alt="Image"
+            className="rounded-md object-cover mb-4"
+          />
+          {/* </AspectRatio> */}
+
+          <section className="flex flex-row-reverse2 items-center justify-between mb-4">
+            <section className="flex items-center gap-2">
+              <div className="*:data-[slot=avatar]:ring-background flex -space-x-2 *:data-[slot=avatar]:ring-2 *:data-[slot=avatar]:grayscale">
+                <Avatar>
+                  <AvatarImage
+                    src="https://github.com/shadcn.png"
+                    alt="@shadcn"
+                  />
+                  <AvatarFallback>CN</AvatarFallback>
+                </Avatar>
+                <Avatar>
+                  <AvatarImage
+                    src="https://github.com/maxleiter.png"
+                    alt="@maxleiter"
+                  />
+                  <AvatarFallback>LR</AvatarFallback>
+                </Avatar>
+                <Avatar>
+                  <AvatarImage
+                    src="https://github.com/evilrabbit.png"
+                    alt="@evilrabbit"
+                  />
+                  <AvatarFallback>ER</AvatarFallback>
+                </Avatar>
+              </div>
+              <p className="flex items-center">
+                <Star className="fill-amber-200 text-amber-200" />
+                <Star className="fill-amber-200 text-amber-200" />
+                <Star className="fill-amber-200 text-amber-200" />
+                <Star className="fill-amber-200 text-amber-200" />
+                <Star className="fill-amber-200 text-amber-200" />
+                Top rated
+              </p>
+            </section>
+            <section className="flex items-center">
+              <div className="flex items-center gap-1 px-4 py-1 border w-32 rounded-l-2xl">
+                <BookTextIcon />
+                <div>
+                  <p className="font-light -mb-1 text-xs">LESSONS</p>
+                  <p className="font-medium ">12</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-1 px-4 py-1 border w-32 rounded-r-2xl">
+                <TbGraphFilled />
+                <div>
+                  <p className="font-light -mb-1 text-xs">DIFFICULTY</p>
+                  <p className="font-medium ">Easy</p>
+                </div>
+              </div>
+            </section>
+          </section>
           <p className="text-muted-foreground  mb-8 text-lg">
             {coursesRegistry.find(
               (c) => c.slug.toLowerCase() == courseSlug[0].toLowerCase()
             )?.description || ""}
           </p>
-          <Button className="rounded-full">
+          {/* <Button className="rounded-full">
             Enroll now <MoveRight />
-          </Button>
+          </Button> */}
         </div>
 
         <section className="mx-auto max-w-6xl  px-4 pb-10 md:pb-20 grid grid-flow-row grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -292,7 +356,13 @@ function IndexPage() {
               <CardHeader className="bg-primary dark:text-black text-white h-[50%] p-0">
                 <div className="">
                   <AspectRatio ratio={16 / 9}>
-                    {/* <Image src={"/images/guides/Authjs part 1.png"} width={450} height={250} alt="Image" className="rounded-md object-cover" /> */}
+                    <Image
+                      src={"/flutter-thumbnail-temp.png"}
+                      width={450}
+                      height={250}
+                      alt="Image"
+                      className="rounded-md object-cover"
+                    />
                   </AspectRatio>
                 </div>
               </CardHeader>
