@@ -3,14 +3,16 @@
 import { ArrowRight, Clock, DollarSign, ShieldCheck } from "lucide-react";
 import Link from "next/link";
 import { Button } from "./ui/button";
-import { FaFlutter } from "react-icons/fa6";
+import { FaDartLang } from "react-icons/fa6";
 import { Badge } from "./ui/badge";
 
 export default function HeroSection() {
   return (
-    <section className="w-full max-w-7xl mx-auto px-4 py-24 ">
-      <div className="absolute top-0  z-[-2] h-screen w-screen bg-white bg-[radial-gradient(100%_50%_at_50%_0%,rgba(0,163,255,0.13)_0,rgba(0,163,255,0)_50%,rgba(0,163,255,0)_100%)]"></div>
-      <div className="text-center space-y-6 mb-16">
+    <section className="w-full  px-4 py-24 overflow-x-hidden max-w-screen ">
+      <div className="max-w-[90dvh] overflow-hidden">
+        <div className="absolute top-0  z-[-2] h-full overflow-x-hidden w-full bg-white bg-[radial-gradient(100%_50%_at_50%_0%,rgba(0,163,255,0.13)_0,rgba(0,163,255,0)_50%,rgba(0,163,255,0)_100%)]"></div>
+      </div>
+      <div className="text-center space-y-6 mb-16 max-w-7xl mx-auto">
         <div className="flex items-center justify-center gap-2 mb-4">
           <Badge variant={"secondary"}>
             Built for the community
@@ -32,9 +34,9 @@ export default function HeroSection() {
           </Button>
           */}
           {/* TODO: hey add for flutter stuff and other resources */}
-          <Link href={"/course/flutter"} className="w-full sm:w-auto">
+          <Link href={"/course/dart"} className="w-full sm:w-auto">
             <Button variant="default" className=" rounded-full" size={"xl"}>
-              Flutter course <FaFlutter />
+              Dart 3 course <FaDartLang />
             </Button>
           </Link>
           <Link href={"/blog"} className="w-full sm:w-auto">

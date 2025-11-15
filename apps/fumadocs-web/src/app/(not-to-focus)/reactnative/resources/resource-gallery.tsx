@@ -17,12 +17,12 @@ export default function ResourceGallery({ data }: { data: Resource[] }) {
 
   const categories = useMemo(() => {
     return Array.from(new Set(data.map((resource) => resource.category)));
-  }, []);
+  }, [data]);
 
   const filteredResources = useMemo(() => {
     if (!selectedCategory) return data;
     return data.filter((resource) => resource.category === selectedCategory);
-  }, [selectedCategory]);
+  }, [selectedCategory, data]);
 
   return (
     <div className="container mx-auto p-4">

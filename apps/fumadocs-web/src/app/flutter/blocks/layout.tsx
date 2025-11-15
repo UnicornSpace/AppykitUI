@@ -9,10 +9,13 @@ export default function Layout({ children }: { children: ReactNode }) {
         name: "Flutter-Blocks",
         children:[]
       }}
+
    
       
       {...baseOptions}
-      nav={baseOptions.nav}
+      nav={{
+        enabled: false
+      }}
     >
       {children}
     </DocsLayout>
