@@ -4,44 +4,41 @@ import { ArrowRight, Clock, DollarSign, ShieldCheck } from "lucide-react";
 import Link from "next/link";
 import { Button } from "./ui/button";
 import { FaFlutter } from "react-icons/fa6";
+import { Badge } from "./ui/badge";
 
 export default function HeroSection() {
   return (
     <section className="w-full max-w-7xl mx-auto px-4 py-24 ">
+      <div className="absolute top-0  z-[-2] h-screen w-screen bg-white bg-[radial-gradient(100%_50%_at_50%_0%,rgba(0,163,255,0.13)_0,rgba(0,163,255,0)_50%,rgba(0,163,255,0)_100%)]"></div>
       <div className="text-center space-y-6 mb-16">
-        <div className="flex items-center justify-center gap-2 mb-8">
-          {/* <Badge variant="outline" className="rounded-full">
-            New
-          </Badge> */}
-          <span className="text-sm inline-flex items-center">
+        <div className="flex items-center justify-center gap-2 mb-4">
+          <Badge variant={"secondary"}>
             Built for the community
             {/* <ArrowRight className="w-4 h-4 ml-1" /> */}
-          </span>
+          </Badge>
         </div>
-        <h1 className="text-4xl md:text-7xl font-bold tracking-tight">
-          Rethinking UI {" "}
-          <br />
-          for Flutter.
+        <h1 className="text-5xl md:text-7xl font-bold tracking-tight">
+          Rethinking UI <br />
+          for Flutter<span className="text-primary">*</span>
         </h1>
-        <h2 className="text-xl text-muted-foreground">
+        <h2 className="text-xl text-muted-foreground max-w-xl mx-auto">
           A growing library of beautifully crafted components
-          <br />
+          {/* <br /> */}
           to help developers ship faster and design better.
         </h2>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
+        <div className="flex flex-col sm:flex-row gap-2 justify-center pt-8">
           {/* <Button size="lg" className=" rounded-full h-12">
             Get started now
           </Button>
           */}
           {/* TODO: hey add for flutter stuff and other resources */}
-          <Link href={"/flutter"} className="w-full sm:w-auto">
-            <Button variant="secondary" className="h-10 p-0 px-20 rounded-full">
-              Flutter <FaFlutter />
-
+          <Link href={"/course/flutter"} className="w-full sm:w-auto">
+            <Button variant="default" className=" rounded-full" size={"xl"}>
+              Flutter course <FaFlutter />
             </Button>
           </Link>
-          <Link href={"/docs"} className="w-full sm:w-auto">
-            <Button variant="default" className="h-10 p-0 px-20 rounded-full">
+          <Link href={"/blog"} className="w-full sm:w-auto">
+            <Button variant="secondary" className=" rounded-full" size={"xl"}>
               Get started now <ArrowRight size={16} />
             </Button>
           </Link>

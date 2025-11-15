@@ -14,7 +14,6 @@ import { courses } from "@/lib/source";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import Image from "next/image";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import {
   DocsPage,
@@ -27,7 +26,6 @@ import { getMDXComponents } from "@/mdx-components";
 import { components } from "@/lib/source";
 import { FaAngleLeft } from "react-icons/fa";
 import { MoveRight } from "lucide-react";
-import { notFound } from "next/navigation";
 
 const page = async (props: { params: Params }) => {
   const { slug: courseSlug } = await props.params;
@@ -169,9 +167,9 @@ const page = async (props: { params: Params }) => {
     });
 
     // get previous chapter slug, basically like above get the slug of the chapter from course object, when it matches then return the previous chapter
-    const previousChapterSlug = allCourseChapters
-      .map((c) => c.slugs[1])
-      .find((slug) => {});
+    // const previousChapterSlug = allCourseChapters
+    //   .map((c) => c.slugs[1])
+    //   .find((slug) => {});
 
     // const chapter = allCourseChapters.filter((item) => {
 
@@ -255,12 +253,11 @@ const page = async (props: { params: Params }) => {
   return (
     <div className="max-w-6xl mx-auto">
       hi {courseSlug}
-      {allCourses.map((c) => (
-        <p>
+      {allCourses.map((c, i) => (
+        <p key={i}>
           {String(c.data.title)} - {c.data.slug}
         </p>
       ))}
-      {/* */}
     </div>
   );
 };
@@ -335,7 +332,7 @@ export async function generateMetadata(props: {
   params: Promise<{ slug: string[] }>;
 }) {
   const params = await props.params;
-  const page = courses.getPage(params.slug);
+  // const page = courses.getPage(params.slug);
   console.log(params, params.slug?.length);
 
   const allCourses = courses.getPages();

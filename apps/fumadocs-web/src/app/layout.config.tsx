@@ -29,11 +29,11 @@ export const baseOptions: BaseLayoutProps = {
   githubUrl: "https://github.com/UnicornSpace/AppykitUI",
 
   links: [
-    {
-      // icon: <BookIcon />,
-      text: "Introduction",
-      url: "/docs",
-    },
+    // {
+    //   // icon: <BookIcon />,
+    //   text: "Introduction",
+    //   url: "/docs",
+    // },
     // {
     //   // icon: <BookIcon />,
     //   text: "Installation",
@@ -47,8 +47,18 @@ export const baseOptions: BaseLayoutProps = {
     // },
     {
       // icon: <BookIcon />,
-      text: "Blocks",
+      text: "Blogs",
+      url: "/blog",
+    },
+    {
+      // icon: <BookIcon />,
+      text: "Flutter blocks",
       url: "/flutter/blocks",
+    },
+    {
+      // icon: <BookIcon />,
+      text: "Flutter course",
+      url: "/course/flutter",
     },
     {
       type: "menu",
@@ -75,11 +85,6 @@ export const baseOptions: BaseLayoutProps = {
           url: "/reactnative",
         },
 
-        {
-          // icon: <BookIcon />,
-          text: "Blogs",
-          url: "/blog",
-        },
         // {
         //   // icon: <BookIcon />,
         //   text: "Resource",

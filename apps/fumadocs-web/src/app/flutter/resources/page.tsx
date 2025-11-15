@@ -1,6 +1,6 @@
 // Todo: Think
 
-import ResourceGallery from "@/app/reactnative/resources/resource-gallery";
+import ResourceGallery from "@/app/(not-to-focus)/reactnative/resources/resource-gallery";
 import { Resource } from "@/lib/types";
 import { Metadata } from "next";
 
