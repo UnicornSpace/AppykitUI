@@ -3,7 +3,7 @@
 import { ArrowRight, Clock, DollarSign, ShieldCheck } from "lucide-react";
 import Link from "next/link";
 import { Button } from "./ui/button";
-import { FaDartLang } from "react-icons/fa6";
+import { FaDartLang, FaFlutter } from "react-icons/fa6";
 import { Badge } from "./ui/badge";
 
 export default function HeroSection() {
@@ -34,14 +34,14 @@ export default function HeroSection() {
           </Button>
           */}
           {/* TODO: hey add for flutter stuff and other resources */}
-          <Link href={"/course/dart"} className="w-full sm:w-auto">
-            <Button variant="default" className=" rounded-full" size={"xl"}>
-              Dart 3 course <FaDartLang />
-            </Button>
-          </Link>
           <Link href={"/blog"} className="w-full sm:w-auto">
             <Button variant="secondary" className=" rounded-full" size={"xl"}>
-              Get started now <ArrowRight size={16} />
+              Resources <ArrowRight size={16} />
+            </Button>
+          </Link>
+          <Link href={"/course/flutter"} className="w-full sm:w-auto">
+            <Button variant="default" className=" rounded-full" size={"xl"}>
+              Flutter course <FaFlutter />
             </Button>
           </Link>
           {/* <button className="rounded-full h-10 flex items-center gap-2 border  px-4 dark:bg-white dark:text-black bg-black text-white">

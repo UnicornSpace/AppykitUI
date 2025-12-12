@@ -46,11 +46,11 @@ export const baseOptions: BaseLayoutProps = {
     //   text: "Components",
     //   url: "/components",
     // },
-    {
-      // icon: <BookIcon />,
-      text: "Blogs",
-      url: "/blog",
-    },
+    // {
+    //   // icon: <BookIcon />,
+    //   text: "Blogs",
+    //   url: "/blog",
+    // },
     // {
     //   // icon: <BookIcon />,
     //   text: "Flutter blocks",
@@ -60,13 +60,19 @@ export const baseOptions: BaseLayoutProps = {
       // icon: <BookIcon />,
       text: "Flutter course",
       url: "/course/flutter",
-      label: "choclate",
+      label: "Flutter and dart course",
     },
     {
-      type: "custom",
-      children: <Button>Login</Button>,
-      secondary: true,
+      // icon: <BookIcon />,
+      text: "Flutter resources",
+      url: "/flutter/resources",
+      label: "Flutter and dart course",
     },
+    // {
+    //   type: "custom",
+    //   children: <Button>Get Started</Button>,
+    //   secondary: true,
+    // },
     {
       type: "menu",
       text: "Others",

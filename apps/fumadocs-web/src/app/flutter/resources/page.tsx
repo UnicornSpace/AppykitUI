@@ -52,9 +52,37 @@ const resourcesData: Resource[] = [
   {
     category: "UI",
     description:
-      "UI components for React Native + templates + informative blog",
+      "Responsive Flutter UI Kit for iOS and Android - 200+ pre-designed screens",
     link: "https://appykit-ui.vercel.app/",
     title: "AppyKit UI",
+    isFavorite: true,
+  },
+   {
+    category: "assets",
+    description:"The internet’s source for visuals.",
+    link: "https://unsplash.com/",
+    title: "Unsplash",
+    isFavorite: true,
+  },
+   {
+    category: "icons",
+    description:"Illustrations for  projects",
+    link: "https://icons8.com/illustrations",
+    title: "Icons 8 Illustrations",
+    isFavorite: true,
+  },
+   {
+    category: "assets",
+    description:"Free vector icons in SVG, PNG, CSH and AI format for web and mobile projects",
+    link: "https://www.vecteezy.com/?utm_source=google&utm_medium=cpc&utm_campaign=brand-search-global&utm_term=vecteezy&utm_content=global&gad_source=1&gad_campaignid=19998070923&gbraid=0AAAAADlH8EWowLWEkk0D1V7FjqeTHwAy0&gclid=Cj0KCQiA9OnJBhD-ARIsAPV51xO3fHFEjSRJlL3yX7DlhZHmFYeP73Bf17hx3F7rDROsrPS5kBid5UsaAr5PEALw_wcB",
+    title: "Vecteezy",
+    isFavorite: true,
+  },
+   {
+    category: "Flutter",
+    description:"To Generate App Icons for Flutter projects",
+    link: "https://www.appicon.co/",
+    title: "App Icon Generator",
     isFavorite: true,
   },
 ];
