@@ -3,6 +3,7 @@ import { RootProvider } from "fumadocs-ui/provider";
 import { Inter } from "next/font/google";
 import type { ReactNode } from "react";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import MainFooter from "@/components/footer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -22,6 +23,7 @@ export default function Layout({ children }: { children: ReactNode }) {
         >
           {children}
         </RootProvider>
+        <MainFooter />
       </body>
       <GoogleAnalytics gaId={process.env.GOOGLE_ANALYTICS_CODE!} />
     </html>
