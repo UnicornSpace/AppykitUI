@@ -29,6 +29,7 @@ import { BookTextIcon, MoveRight, Star } from "lucide-react";
 import { TbGraphFilled } from "react-icons/tb";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Image from "next/image";
+
 const page = async (props: { params: Params }) => {
   const { slug: courseSlug } = await props.params;
 
@@ -51,7 +52,8 @@ const page = async (props: { params: Params }) => {
   if (courseSlug.length === 1) {
     console.log(
       courseSlug[0],
-      allCourses.map((c) => c.file.dirname.toLowerCase())
+      // allCourses.map((c) => c.file.dirname.toLowerCase())
+      allCourses.map((c) => c.slugs)
     );
 
     const course = allCourses
@@ -77,8 +79,8 @@ const page = async (props: { params: Params }) => {
       (c) => c.slug.toLowerCase() == courseSlug[0].toLowerCase()
     );
     return (
-      <div className="xl:ml-20 mx-auto  ">
-        <div className="max-w-4xl  ml-6 py-4 mb-6 max-sm:text-center mt-10 ">
+      <div className="mx-auto  max-w-5xl  w-full   ">
+        <div className="max-w-5xl  mx-auto  bg-red-4002  py-4 mb-6 max-sm:text-center mt-10 ">
           <div className="space-x-4 flex items-baseline">
             <h1 className="capitalize font-heading text-foreground mb-6 text-4xl/[1.1] font-bold tracking-tight md:text-5xl/[1.1]">
               {courseRegItem?.title}
@@ -88,7 +90,7 @@ const page = async (props: { params: Params }) => {
           {/* <AspectRatio ratio={16 / 9}> */}
           <Image
             // src={"/flutter-thumbnail-temp.png"}
-            src={"/image.png"}
+            src={"/flutter-dart-banner.png"}
             width={1080}
             height={250}
             alt="Image"
@@ -157,7 +159,8 @@ const page = async (props: { params: Params }) => {
           </Button> */}
         </div>
 
-        <section className="mx-auto max-w-6xl  px-4 pb-10 md:pb-20 grid grid-flow-row grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <section className="mx-auto max-w-5xl bg-amber-2002  pb-10 md:pb-20 grid grid-flow-row grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+          
           {course.map((chapter, i) => (
             <Link
               key={i}
@@ -268,7 +271,7 @@ const page = async (props: { params: Params }) => {
     const MDXContent = page.data.body;
 
     return (
-      <DocsPage toc={page.data.toc} full={page.data.full}>
+      <DocsPage toc={page.data.toc} full={page.data.full} >
         <Link
           href={`/course/${page.slugs[0]}`}
           className="mb-4 justify-end flex"
@@ -339,7 +342,7 @@ function IndexPage() {
           code.
         </p>
       </div>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 max-w-6xl  px-4 pb-10 md:pb-20">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 max-w-6xl   pb-10 md:pb-20">
         {coursesRegistry.map((course) => (
           <Link
             href={course.isPublished ? `/course/${course.slug}` : "#"}
