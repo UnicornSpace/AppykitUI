@@ -1,0 +1,184 @@
+---
+title: Tools - AISDK 
+description: tools
+author: FaizanBuilds
+date: 2025-11-18
+isContentReady: false
+---
+
+## Why tools?
+While LLM's are incredible at generative capabilities, they struggle with discrete tasks (e.g. mathematics) and interacting with the outside world (e.g. getting the weather).
+
+Tools are actions that an LLM can invoke. The results of these actions can be reported back to the LLM to be considered in the next response.
+
+For example, when you ask an LLM for the "weather in London", and there is a weather tool available, it could call a tool with London as the argument. The tool would then fetch the weather data and return it to the LLM. The LLM can then use this information in its response.
+
+### Tool
+A tool is an object the model can call to perform a task (e.g., fetch weather, run a function).
+A tool consists of three properties:
+
+1. description — helps the model decide when to use the tool.
+2. inputSchema — Zod/JSON schema that validates inputs.
+3. execute — async function that performs the action and returns a result.
+
+```ts title="syntax"
+export const myTool = {
+  description: 'A helpful tool',
+  inputSchema: z.object({
+    // input schema definition
+    query: z.string(),
+  }),
+  execute: async ({ query }) => {
+    // tool logic here
+    return result;
+  },
+};
+```
+Below is an example of a simple tool execution with a schema:
+(Schemas are used to define the parameters for tools and to validate the tool calls.)
+```ts
+import { z } from 'zod';
+import { generateText, tool } from 'ai';
+
+const result = await generateText({
+  model: 'openai/gpt-4o',
+  tools: {
+    weather: tool({
+      description: 'Get the weather in a location',
+      inputSchema: z.object({
+        location: z.string().describe('The location to get the weather for'),
+      }),
+      execute: async ({ location }) => ({
+        
+        location,
+        temperature: 72 + Math.floor(Math.random() * 21) - 10,
+      }),
+    }),
+  },
+  prompt: 'What is the weather in San Francisco?',
+});
+```
+
+
+```ts
+import { openai } from "@ai-sdk/openai"
+import { z } from 'zod';
+import { generateText, tool, stepCountIs } from 'ai';
+
+const { text, steps } = await generateText({
+  model: openai('gpt-4o'),
+  tools: {
+    weather: tool({
+      description: 'Get the weather in a location',
+      inputSchema: z.object({
+        location: z.string().describe('The location to get the weather for'),
+      }),
+      execute: async ({ location }) => ({
+        location,
+        temperature: 72 + Math.floor(Math.random() * 21) - 10,
+      }),
+    }),
+  },
+  stopWhen: stepCountIs(5), // stop after a maximum of 5 steps if tools were called
+  prompt: 'What is the weather in San Francisco?',
+});
+```
+
+
+
+```ts
+import { openai } from "@ai-sdk/openai"
+import { z } from 'zod';
+import { generateText, tool, stepCountIs } from 'ai';
+
+const { text, steps } = await generateText({
+  model: openai('gpt-4o'),
+    model: openai('gpt-5.1'),
+    messages: convertToModelMessages(messages),
+    stopWhen: stepCountIs(3),
+    tools: {
+        weather: tool({
+            description: "this fetches the tool",
+            inputSchema: z.object({
+                location: z.string().describe('The location to get the weather for'),
+            }),
+            execute: async ({ location }) => {
+                const temperature = Math.round(Math.random() * (90 - 32) + 32);
+                return {
+                    location,
+                    temperature,
+                };
+            },
+        }),
+        convertFahrenheitToCelsius: tool({
+            description: 'Convert a temperature in fahrenheit to celsius',
+            inputSchema: z.object({
+                temperature: z
+                    .number()
+                    .describe('The temperature in fahrenheit to convert'),
+            }),
+            execute: async ({ temperature }) => {
+                const celsius = Math.round((temperature - 32) * (5 / 9));
+                return {
+                    celsius,
+                };
+            },
+        }),
+    }
+});
+
+
+```
+
+final
+```
+import { openai } from "@ai-sdk/openai"
+import { z } from 'zod';
+import { generateText, stepCountIs, tool } from 'ai';
+
+const response = await generateText({
+  model: openai('gpt-5.1'),
+  tools: {
+    weather: tool({
+      description: 'Get the weather in a location',
+      inputSchema: z.object({
+        location: z.string().describe('The location to get the weather for'),
+      }),
+      execute: async ({ location }) => ({
+        location,
+        temperature: 72 + Math.floor(Math.random() * 21) - 10,
+      }),
+    }),
+    convertFahrenheitToCelsius: tool({
+      description: 'Convert a temperature in fahrenheit to celsius',
+      inputSchema: z.object({
+          temperature: z
+              .number()
+              .describe('The temperature in fahrenheit to convert'),
+      }),
+      execute: async ({ temperature }) => {
+          const celsius = Math.round((temperature - 32) * (5 / 9));
+          return {
+              celsius,
+          };
+      },
+  }),
+  },
+  stopWhen: stepCountIs(5),
+  prompt: 'What is the weather in San Francisco to celsius?',
+});
+
+
+console.log(response.text)
+console.log(response.steps.flatMap(step => step.toolCalls))
+
+```
+
+
+Other topics
+* Multistep tool calling -> Basically when you have many tools specified you let the LLM decide which tool to pick and execute and also you're giving the LLM option to futher use the previous tool execution and run next tool call
+https://ai-sdk.dev/docs/ai-sdk-core/tools-and-tool-calling#multi-step-calls
+* tool packages, you can use others developed tools also and also you can develop and distribute your own tools 
+https://ai-sdk.dev/docs/foundations/tools#tool-packages
+Community made tools -> https://ai-sdk.dev/docs/foundations/tools#ready-to-use-tool-packages
+

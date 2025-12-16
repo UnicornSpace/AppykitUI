@@ -1,9 +1,10 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import defaultMdxComponents from "fumadocs-ui/mdx";
-import { blogs } from "@/lib/source";
+import { blogs, components } from "@/lib/source";
 import { BsArrowLeft } from "react-icons/bs";
-import { DocsPage } from "fumadocs-ui/page";
+import { DocsPage, DocsBody } from "fumadocs-ui/page";
+import { getMDXComponents } from "@/mdx-components";
+import { createRelativeLink } from "fumadocs-ui/mdx";
 
 export default async function Page(props: {
   params: Promise<{ slug?: string[] }>;
@@ -14,7 +15,7 @@ export default async function Page(props: {
   console.log(page, "page🙄");
 
   if (!page) notFound();
-  const Mdx = page.data.body;
+  const MDXContent = page.data.body;
 
   // return (<div>hi2</div>)
   // console.log(page.data.toc[0].title.props.children, "toc🙄");
@@ -46,10 +47,17 @@ export default async function Page(props: {
         </div>
      
         <article className="container flex flex-col px-4 py-8">
-          <div className="prose min-w-0">
-            {/* <InlineTOC items={page.data.toc} /> */}
-            <Mdx components={defaultMdxComponents} />
-          </div>
+          <DocsBody>
+            <div className="prose min-w-0">
+              {/* <InlineTOC items={page.data.toc} /> */}
+              <MDXContent
+                components={getMDXComponents({
+                  // this allows you to link to other pages with relative file paths
+                  a: createRelativeLink(components, page),
+                })}
+              />
+            </div>
+          </DocsBody>
           {/* <div className="flex flex-col gap-4 text-sm">
           <div>
             <p className="mb-1 text-fd-muted-foreground">Written by</p>

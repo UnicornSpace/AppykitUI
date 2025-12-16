@@ -17,16 +17,17 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     ...defaultMdxComponents,
     ...TabsComponents,
     ...components,
-     img: (props: ImageProps) => <ImageZoom {...props} />,
+    img: (props) => <ImageZoom {...(props as any)} />,
     Steps,
     Step,
     HeroSection,
     BlocksHeroSection,
     ComponentThumbnailCard,
     ReactNativeThumbnailCard,
-    InlineTOC ,
+    InlineTOC,
     FlutterBlocksHeroSection,
-    ThemeButton
+    ThemeButton,
+    // Mermaid
 
   };
 }

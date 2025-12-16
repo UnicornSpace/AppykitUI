@@ -1,0 +1,140 @@
+---
+title: Functions in Dart
+description: We will about how to structure our code using Functions in Dart
+author: Likitha N
+date: 2025-10-02
+isContentReady: false
+---
+
+## What are Functions?
+- Functions is a block of code that does some task given to it and can be reused multiple times throughout the program.
+### Use of Functions
+1. Avoid code repetition by reusing the same function multiple times.
+2. Orgainize code into smaller, manageable pieces.
+3. Make code easier to understand and maintain.
+4. Perform specific tasks.
+
+## Syntax of Functions
+- A function in Dart is defined using the `returnType` , `functionName` and `parameters` (optional) followed by the function body enclosed in curly braces `{}`.
+```dart
+void main(){
+  // Function call
+  String result = takeFive(10);
+  print(result);
+}
+
+// Function definition
+String takeFive(int number) {
+  // Function body
+  return 'Number is $number';
+}
+```
+Note: parameters : placeholders when function is defined, arguments : actual values passed when function is called.
+
+### 1. Function without Return Type and without Parameters
+```dart
+void greet() {
+  print('Hello, Welcome to Dart Functions!');
+}
+void main() {
+  greet(); // Function call
+}
+```
+### 2. Function with Return Type and without Parameters
+```dart
+int getRandomNumber() {
+  return 42; // Returning a random number
+}
+void main() {
+  int number = getRandomNumber(); // Function call
+  print('Random Number: $number');
+}
+```
+### 3. Function with Return Type and with Parameters
+```dart
+String greetUser(String name) {
+  return 'Hello, $name! Welcome to Dart Functions.';
+}
+void main() {
+  String message = greetUser('Alice'); // Function call with argument
+  print(message);
+}
+```
+### 4. Function with Optional Parameters
+- In Dart, you can define optional parameters using square brackets `[]`. These parameters can be omitted when calling the function.
+```dart
+void displayInfo(String name, [int? age]) {
+  if (age != null) {
+    print('Name: $name, Age: $age');
+  } else {
+    print('Name: $name, Age: Not provided');
+  }
+}
+void main() {
+  displayInfo('Bob', 25); // Calling with both parameters
+  displayInfo('Charlie'); // Calling with only name
+}
+```
+### 5. Function with Named Parameters - In Dart, you can define named parameters using curly braces `{}`. When calling the function, you need to specify the parameter names.
+```dart
+void displayDetails({required String name, int? age}) {
+  if (age != null) {
+    print('Name: $name, Age: $age');
+  } else {
+    print('Name: $name, Age: Not provided');
+  }
+}
+void main() {
+  displayDetails(name: 'David', age: 30); // Calling with named parameters
+  displayDetails(name: 'Eve'); // Calling with only name
+}
+```
+### 6. Default Parameter Values
+- You can provide default values for optional parameters. If the caller does not provide a value, the default value will be used.
+```dart
+void greetUser(String name, {String greeting = 'Hello'}) {
+  print('$greeting, $name!');
+}
+void main() {
+  greetUser('Frank'); // Uses default greeting
+  greetUser('Grace',
+      greeting: 'Welcome'); // Uses custom greeting
+}
+```
+### 7. Callback Functions
+- Functions can be passed as arguments to other functions. These are called callback functions.
+```dart
+void performOperation(int a, int b, Function operation) {
+  int result = operation(a, b);
+  print('Result: $result');
+}
+int add(int x, int y) {
+  return x + y;
+}
+void main() {
+  performOperation(5, 3, add); // Passing add function as a callback
+}
+```
+### 8. Function as Variables
+- In Dart, functions are first-class citizens, which means you can assign them to variables.
+```dart
+void main() {
+  // Assigning function to a variable
+  Function multiply = (int x, int y) {
+    return x * y;
+  };
+
+  // Calling the function using the variable
+  int result = multiply(4, 5);
+  print('Multiplication Result: $result');
+}
+```
+## Rescources to Learn Dart
+- Courses and Tutorials: Dart And Flutter Series on Youtube ("https://youtube.com/playlist?list=PL9eMLfd38heN2BbPEng6W9qBLl3oJAtwD&si=w_gsoYnIUSzFBLeR")
+- Official Dart Documentation: The official Dart website (https://dart.dev) provides comprehensive documentation, tutorials, and guides to help you get started with Dart programming.
+- DartPad: An online Dart editor (https://dartpad.dev) that allows you to write, run, and share Dart code directly in your web browser without any setup.
+- Flutter Documentation: Since Dart is primarily used with Flutter, the official Flutter documentation (https://flutter.dev/docs) is an excellent resource for learning how to build apps using Dart and Flutter together.
+
+
+## What's Next?
+- In the Next Lesson, we will explore Lists And Maps in Dart. See you there! ([Next: Lists And Maps in Dart](list_and_maps) )

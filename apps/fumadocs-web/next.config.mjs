@@ -1,6 +1,5 @@
 import { createMDX } from "fumadocs-mdx/next";
 
-const withMDX = createMDX();
 
 /** @type {import('next').NextConfig} */
 const config = {
@@ -10,10 +9,13 @@ const config = {
       {
         protocol: "https",
         hostname: "**",
-       
+
       },
     ],
   },
 };
-
+const withMDX = createMDX({
+  // customise the config file path
+  // configPath: "source.config.ts"
+});
 export default withMDX(config);

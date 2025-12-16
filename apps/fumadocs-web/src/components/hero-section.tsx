@@ -8,7 +8,7 @@ import { Badge } from "./ui/badge";
 
 export default function HeroSection() {
   return (
-    <section className="w-full  px-4 py-24 overflow-x-hidden max-w-screen ">
+    <section className="w-full   px-4 py-24 overflow-x-hidden max-w-screen ">
       <div className="max-w-[90dvh] overflow-hidden">
         <div className="absolute top-0  z-[-2] h-full overflow-x-hidden w-full bg-white bg-[radial-gradient(100%_50%_at_50%_0%,rgba(0,163,255,0.13)_0,rgba(0,163,255,0)_50%,rgba(0,163,255,0)_100%)]"></div>
       </div>
@@ -19,7 +19,7 @@ export default function HeroSection() {
             {/* <ArrowRight className="w-4 h-4 ml-1" /> */}
           </Badge>
         </div>
-        <h1 className="text-5xl md:text-7xl font-bold tracking-tight">
+        <h1 className="text-5xl font- md:text-7xl font-bold tracking-tight">
           Rethinking UI <br />
           for Flutter<span className="text-primary">*</span>
         </h1>
