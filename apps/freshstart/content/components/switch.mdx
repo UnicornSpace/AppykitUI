@@ -1,0 +1,135 @@
+---
+title: Switch
+description: A toggle control for switching between two states, like on/off.
+---
+
+<Tabs items={["preview", "code"]}>
+  <Tab value="preview">![](./preview/switch.png)</Tab>
+  <Tab value="code">
+    ```ts
+   import { Switch } from '@/components/ui/switch';
+import React from 'react';
+import { Text, View } from 'react-native';
+
+export default function SwitchDemo() {
+  const [checked, setChecked] = React.useState(false);
+  return (
+    <View className="flex-1 justify-center items-center p-6 gap-12">
+  <View className="flex-row items-center gap-2">
+    <Switch
+      checked={checked}
+      onCheckedChange={setChecked}
+      nativeID="airplane-mode"
+    />
+    <Text
+      nativeID="airplane-mode"
+      onPress={() => {
+        setChecked((prev) => !prev);
+      }}
+    >
+      Airplane Mode
+    </Text>
+  </View>
+</View>
+  );
+}
+
+    ```
+  </Tab>
+</Tabs>
+
+## Installation
+
+<Tabs items={['cli','manual', ]}>
+ 
+  <Tab value="cli">
+  ```ts
+npx shadcn@latest add switch
+```
+  </Tab>
+  <Tab value="manual">
+   
+<Steps>
+
+<Step>
+Install the following dependencies:
+```shell
+npx expo install @rn-primitives/switch
+```
+
+</Step>
+<Step>
+Create a folder named `ui` under component folder in your project and add the following code in a file named `switch.tsx`:
+```ts
+import { cn } from '@/lib/utils';
+import * as SwitchPrimitives from '@rn-primitives/switch';
+import { Platform } from 'react-native';
+ 
+function Switch({
+  className,
+  ...props
+}: SwitchPrimitives.RootProps & React.RefAttributes<SwitchPrimitives.RootRef>) {
+  return (
+    <SwitchPrimitives.Root
+      className={cn(
+        'flex h-[1.15rem] w-8 shrink-0 flex-row items-center rounded-full border border-transparent shadow-sm shadow-black/5',
+        Platform.select({
+          web: 'focus-visible:border-ring focus-visible:ring-ring/50 peer inline-flex outline-none transition-all focus-visible:ring-[3px] disabled:cursor-not-allowed',
+        }),
+        props.checked ? 'bg-primary' : 'bg-input dark:bg-input/80',
+        props.disabled && 'opacity-50',
+        className
+      )}
+      {...props}>
+      <SwitchPrimitives.Thumb
+        className={cn(
+          'bg-background size-4 rounded-full transition-transform',
+          Platform.select({
+            web: 'pointer-events-none block ring-0',
+          }),
+          props.checked
+            ? 'dark:bg-primary-foreground translate-x-3.5'
+            : 'dark:bg-foreground translate-x-0'
+        )}
+      />
+    </SwitchPrimitives.Root>
+  );
+}
+ 
+export { Switch };
+
+
+````
+
+</Step>
+
+<Step>
+This component depends on the `Text` component.
+Please follow the installation guide [here](/components/text) before using the `Switch`.
+
+</Step>
+
+
+<Step>
+Update the import paths to match your project setup.
+</Step>
+
+</Steps>
+  
+  </Tab>
+
+</Tabs>
+
+## Usage
+
+```tsx
+import { Switch } from "@/components/ui/switch";
+```
+
+```tsx
+<Switch
+  checked={checked}
+  onCheckedChange={setChecked}
+  nativeID="airplane-mode"
+/>
+```

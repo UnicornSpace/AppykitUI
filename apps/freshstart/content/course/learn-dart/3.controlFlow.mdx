@@ -1,0 +1,140 @@
+---
+title: Control Flow in Dart
+description: Lets learn how can we control the flow of our Dart programs
+author: Likitha N
+date: 2025-10-02
+isContentReady: false
+---
+
+## What is Control Flow?
+- Control Flow in programming refers to the order in which individual statements, instructions or function calls are executed or evaluated.
+- Loops and conditional statements are used to control the flow of execution in a program.
+
+## Conditional Statements
+- Conditional Statements are instructions that let your program to make decisions based on certain conditions.
+- The code runs ony if the condition is true.
+
+### `if` Statement
+- The `if` statement is used to execute a block of code if a specified condition is true.
+
+```dart
+void main() {
+  int number = 10;
+
+  if (number > 0) {
+    print('$number is a positive number.');
+  }
+}
+```
+### `if-else` Statement
+- The `if-else` statement is used to execute one block of code if a condition is true, and another block if the condition is false.
+
+```dart
+void main() {
+  int number = -5;
+
+  if (number > 0) {
+    print('$number is a positive number.');
+  } else {
+    print('$number is not a positive number.');
+  }
+}
+```
+### `else if` Statement
+- The `else if` statement is used to specify a new condition to test, if the first condition is false.
+
+```dart  
+void main() {
+  int number = 0;
+
+  if (number > 0) {
+    print('$number is a positive number.');
+  } else if (number < 0) {
+    print('$number is a negative number.');
+  } else {
+    print('$number is zero.');
+  }
+}
+```
+
+## Loops 
+- Loops are used to execute a block of code repeatedly as long as a specified condition is true.
+
+### `for` Loop
+- The `for` loop is used to iterate over a range of values or a collection.
+
+```dart
+void main() {
+  for (int i = 1; i <= 5; i++) {
+    print('Iteration $i');
+  }
+}
+```
+### `while` Loop
+- The `while` loop is used to execute a block of code as long as a specified
+  condition is true.
+  
+```dart
+void main(){
+  int count = 1
+
+  while (count < 5) {
+    print('Count: $count');
+    count++;
+  }
+}
+```
+### `do-while` Loop
+- The `do-while` loop is similar to the `while` loop, but it
+  guarantees that the block of code will be executed at least once before checking the condition.
+
+```dart 
+void main() {
+  int count = 1;
+
+  do {
+    print('Count: $count');
+    count++;
+  } while (count <= 5);
+}
+```
+- `break` and  `continue` Statements can also be used within loops to control the flow of execution.
+```dart
+void main() {
+  for (int i = 1; i <= 10; i++) {
+    if (i == 5) {
+      break; // Exit the loop when i is 5
+    }
+    if (i % 2 == 0) {
+      continue; // Skip even numbers
+    }
+    print('Number: $i');
+  }
+}
+```
+
+## Assert Statement
+- Its a function,that takes a condition as an argument and throws an error if the condition is false and if its true, the program continues executing normally.
+- Its mainly used during development to catch bugs and validate assumptions in the code.
+
+```dart
+void main() {
+  int age = 25;
+
+  // Assert that age is greater than 0
+  assert(age > 0, 'Age must be a positive number.');
+
+  print('Age is valid: $age');
+}
+```
+
+
+## Rescources to Learn Dart
+- Courses and Tutorials: Dart And Flutter Series on Youtube ("https://youtube.com/playlist?list=PL9eMLfd38heN2BbPEng6W9qBLl3oJAtwD&si=w_gsoYnIUSzFBLeR")
+- Official Dart Documentation: The official Dart website (https://dart.dev) provides comprehensive documentation, tutorials, and guides to help you get started with Dart programming.
+- DartPad: An online Dart editor (https://dartpad.dev) that allows you to write, run, and share Dart code directly in your web browser without any setup.
+- Flutter Documentation: Since Dart is primarily used with Flutter, the official Flutter documentation (https://flutter.dev/docs) is an excellent resource for learning how to build apps using Dart and Flutter together.
+
+
+## What's Next?
+- In the Next Lesson, we will explore Operators in Dart. See you there! ([Next: Operators in Dart](operators) )

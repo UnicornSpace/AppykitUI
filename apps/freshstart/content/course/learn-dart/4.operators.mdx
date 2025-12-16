@@ -1,0 +1,153 @@
+---
+title: Operators in Dart
+description: We will learn how to use Operators in Dart
+author: Likitha N
+date: 2025-10-02
+isContentReady: false
+---
+
+## What are Operators?
+- Operators are symbols that helps you to do some simple calculations and few of them were :
+1. Arithmetic Operators
+2. Logical Operators
+3. Assignment Operators
+4. Ternary Operators
+5. CasCade Operators
+6. TypeCast Operators
+
+{/* TODO : Iamge of this Operator */}
+
+## Arithmetic Operators
+- Used for simple math calculations like addition,subtraction,multiplication,division etc.
+### Example
+```dart
+void main() {
+  int a = 10;
+  int b = 5;
+
+  print('Addition: ${a + b}'); // 15
+  print('Subtraction: ${a - b}'); // 5
+  print('Multiplication: ${a * b}'); // 50
+  print('Division: ${a / b}'); // 2.0
+  print('Modulus: ${a % b}'); // 0
+}
+```
+Note: Try this code in DartPad to see the output.
+
+## Logical Operators
+- Helps to combine multiple boolean expressions and return a boolean result.
+1. `&&` operator (AND) - Returns true if both operands are true.
+2. `||` operator (OR) - Returns true if at least one operand is true.
+3. `!` operator (NOT) - Returns the opposite boolean value of the operand.
+
+### Example
+```dart
+void main() {
+  bool x = true;
+  bool y = false;
+
+  print('AND: ${x && y}'); // false
+  print('OR: ${x || y}'); // true
+  print('NOT: ${!x}'); // false
+}
+```
+Note: Try this code in DartPad to see the output.
+
+## Assignment Operators
+- Used to assign values to variables.
+### Example
+```dart 
+void main() {
+  int a = 10; // Assignment
+  a += 5; // a = a + 5
+  print('a after += : $a'); // 15
+
+  a -= 3; // a = a - 3
+  print('a after -= : $a'); // 12
+
+  a *= 2; // a = a * 2
+  print('a after *= : $a'); // 24
+
+  a ~/= 4; // a = a / 4
+  print('a after ~/= : $a'); // 6
+}
+```
+Note: Try this code in DartPad to see the output.
+## Null Aware Assignment Operator
+- Used to assign a value to a variable only if that variable is currently null.
+  ### Example
+  - Lets say userName is null and we want to assign a default value.
+```dart
+void main() {
+  String? userName; // userName is null
+
+  userName ??= 'Guest'; // Assign 'Guest' only if userName is null
+  print('User Name: $userName'); // Output: User Name: Guest
+}
+```
+
+## Ternary Operator
+- A shorthand way of writing an `if-else` statement.
+`if = "?" else = ":"  `
+`(condition) ? expressionIfTrue : expressionIfFalse`
+### Example
+```dart
+void main() {
+  int age = 20;
+
+  String eligibility = (age >= 18) ? 'Eligible to vote' : 'Not eligible to vote';
+  print(eligibility); // Output: Eligible to vote
+}
+```
+## Cascade Operator
+- Used to perform multiple operations on the same object without rewriting name again and again.
+### Example
+```dart
+class Person {
+  String name = '';
+  int age = 0;
+
+  void displayInfo() {
+    print('Name: $name, Age: $age');
+  }
+}
+void main() {
+  Person person = Person()
+    ..name = 'Alice'
+    ..age = 30
+    ..displayInfo();
+}
+```
+- If your not familiar with classes, don't worry we will cover it in upcoming sections.
+Note: Try this code in DartPad to see the output.
+
+
+### Type Cast Operator
+- Its either to check the type of an object or to cast an object to a different type.
+1. `is` operator - Used to check if an object is of a specific type.
+2. `as` operator - Used to cast an object to a specific type.
+### Example
+```dart
+void main() {
+  dynamic value = 'Hello, Dart!';
+
+  // Using 'is' operator
+  if (value is String) {
+    print('Value is a String with length: ${value.length}');
+  }
+
+  // Using 'as' operator
+  String strValue = value as String;
+  print('Casted Value: $strValue');
+}
+```
+
+## Rescources to Learn Dart
+- Courses and Tutorials: Dart And Flutter Series on Youtube ("https://youtube.com/playlist?list=PL9eMLfd38heN2BbPEng6W9qBLl3oJAtwD&si=w_gsoYnIUSzFBLeR")
+- Official Dart Documentation: The official Dart website (https://dart.dev) provides comprehensive documentation, tutorials, and guides to help you get started with Dart programming.
+- DartPad: An online Dart editor (https://dartpad.dev) that allows you to write, run, and share Dart code directly in your web browser without any setup.
+- Flutter Documentation: Since Dart is primarily used with Flutter, the official Flutter documentation (https://flutter.dev/docs) is an excellent resource for learning how to build apps using Dart and Flutter together.
+
+
+## What's Next?
+- In the Next Lesson, we will explore Function in Dart. See you there! ([Next: Function in Dart](functions) )
