@@ -5,4 +5,8 @@ export const blogs = defineDocs({
 });
 
 
-export default defineConfig();
+export const learn = defineDocs({
+  dir: 'content/learn',
+});
+
+export default defineConfig(); 

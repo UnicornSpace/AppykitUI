@@ -1,5 +1,5 @@
-import { blogs as blogsSource } from 'fumadocs-mdx:collections/server';
-import { loader} from 'fumadocs-core/source';
+import { blogs as blogsSource, learn as learnSource } from 'fumadocs-mdx:collections/server';
+import { loader } from 'fumadocs-core/source';
 import { toFumadocsSource } from 'fumadocs-mdx/runtime/server';
 
 
@@ -9,4 +9,9 @@ export const blogs = loader({
 });
 
 
+export const learn = loader({
+  baseUrl: '/learn',
+  source: learnSource.toFumadocsSource()
+  // source: await create.sourceAsync(learn.doc, learn.meta),
 
+});

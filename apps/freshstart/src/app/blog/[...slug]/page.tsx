@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { blogs } from "@/lib/source";
@@ -9,10 +10,12 @@ import { createRelativeLink } from "fumadocs-ui/mdx";
 export default async function Page(props: {
   params: Promise<{ slug?: string[] }>;
 }) {
-   const params = await props.params;
+  const params = await props.params;
   // console.log(blogs.getPages());
+  console.log("💯💯", params.slug);
+
   const page = blogs.getPage(params.slug);
-  console.log(page, "page🙄");
+  // console.log(page, "page🙄");
 
   // return <div>hi</div>
 
@@ -22,7 +25,7 @@ export default async function Page(props: {
   // return (<div>hi2</div>)
   // console.log(page.data.toc[0].title.props.children, "toc🙄");
   // console.log(page.data.toc[0].title,"toc")
-  console.log(page.data.thumbnail, "data🙄");
+  // console.log(page.data.thumbnail, "data🙄");
 
   return (
     <DocsPage toc={page.data.toc}>
@@ -38,7 +41,7 @@ export default async function Page(props: {
           <p className="mb-4 text-fd-muted-foreground">
             {page.data.description}
           </p>
-             {/* <AspectRatio ratio={16 / 9} className="bg-muted rounded-lg">
+          {/* <AspectRatio ratio={16 / 9} className="bg-muted rounded-lg">
           <Image
             src="https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=800&dpr=2&q=80"
             alt="Photo by Drew Beamer"
@@ -47,7 +50,7 @@ export default async function Page(props: {
           />
         </AspectRatio> */}
         </div>
-     
+
         <article className="container flex flex-col px-4 py-8">
           <DocsBody>
             <div className="prose min-w-0">
@@ -77,7 +80,3 @@ export default async function Page(props: {
     </DocsPage>
   );
 }
-
-
-
-

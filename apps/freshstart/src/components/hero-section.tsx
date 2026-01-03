@@ -1,5 +1,3 @@
-// import { Button } from "@/components/ui/button";
-// import { Badge } from "@/components/ui/badge";
 import {
   LuArrowRight,
   LuClock,
@@ -16,7 +14,7 @@ import { IoPhonePortraitOutline } from "react-icons/io5";
 
 export default function HeroSection() {
   return (
-    <section className="w-full  py-24 overflow-x-hidden max-w-screen ">
+    <section className="w-full py-16 md:py-24 overflow-x-hidden max-w-screen ">
       <div className="max-w-[90dvh] overflow-hidden">
         <div className="absolute top-0  z-[-2] h-full overflow-x-hidden w-full  bg-[radial-gradient(100%_50%_at_50%_0%,rgba(0,163,255,0.13)_0,rgba(0,163,255,0)_50%,rgba(0,163,255,0)_100%)]"></div>
       </div>
@@ -27,11 +25,12 @@ export default function HeroSection() {
             {/* <ArrowRight className="w-4 h-4 ml-1" /> */}
           </Badge>
         </div>
-        <h1 className="text-5xl font-bbh  md:text-9xl  tracking-tight leading-24">
-          Rethinking App dev  <br />
+        <h1 className="text-7xl font-bbh  md:text-8xl xl:text-9xl bg-red-400 sm:bg-green-400 md:bg-yellow-400 lg:bg-blue-400 xl:bg-purple-400  tracking-tight leading-16 md:leading-20 !bg-transparent lg:leading-24">
+          Rethinking <br className="sm:hidden block" /> App dev{" "}
+          <br className="block " />
           and design<span className="text-primary">*</span>
         </h1>
-        <h2 className="text-xl text-muted-foreground max-w-xl mx-auto font-poppins">
+        <h2 className="text-xl text-muted-foreground max-w-xl mx-auto font-poppins px-2">
           A growing library of beautifully crafted components
           {/* <br /> */}
           to help developers ship faster and design better.
@@ -42,14 +41,17 @@ export default function HeroSection() {
           </Button>
           */}
           {/* TODO: hey add for flutter stuff and other resources */}
-          <Link href={"/blog"} className="w-full sm:w-auto">
+          <Link href={"/resources"} className="w-full sm:w-auto">
             <Button variant="secondary" className=" rounded-full" size={"xl"}>
-              Resources <LuArrowRight size={16} />
+              Resources <LuArrowRight size={16} className="ml-1" />
             </Button>
           </Link>
-          <Link href={"/course/flutter"} className="w-full sm:w-auto">
+          <Link
+            href={"/learn/flutter-development"}
+            className="w-full sm:w-auto"
+          >
             <Button variant="default" className=" rounded-full" size={"xl"}>
-              Flutter course <FaFlutter />
+              Learn Flutter <FaFlutter className="ml-2" />
             </Button>
           </Link>
           {/* <button className="rounded-full h-10 flex items-center gap-2 border  px-4 dark:bg-white dark:text-black bg-black text-white">
@@ -65,7 +67,7 @@ export default function HeroSection() {
             text: "App developement",
           },
           {
-            icon: MdDesignServices             ,
+            icon: MdDesignServices,
             text: "Design",
           },
           {

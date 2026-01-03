@@ -1,0 +1,6 @@
+{
+    "title": "Display Name",
+    "icon": "MyIcon",
+    "pages": ["index", "getting-started"],
+    "defaultOpen": true
+  }
