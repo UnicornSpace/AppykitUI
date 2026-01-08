@@ -1,5 +1,5 @@
 import React from "react";
-type Params = Promise<{ slug: string }>;
+import { Metadata } from "next";
 import {
   Card,
   CardContent,
@@ -31,6 +31,46 @@ import { getMDXComponents } from "@/components/mdx-components";
 import { notFound } from "next/navigation";
 import { HomeLayout } from "fumadocs-ui/layouts/home";
 import { baseOptions, linkItems } from "@/lib/layout.shared";
+import { CourseJsonLd } from "@/components/json-ld";
+
+type Params = Promise<{ slug: string }>;
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Params;
+}): Promise<Metadata> {
+  const { slug: courseSlug } = await params;
+  const course = coursesRegistry.find(
+    (c) => c.slug.toLowerCase() === courseSlug.toLowerCase()
+  );
+
+  if (!course) {
+    return { title: "Course Not Found" };
+  }
+
+  const url = `https://appykit-ui.com/learn/${course.slug}`;
+
+  return {
+    title: course.title,
+    description: course.description,
+    openGraph: {
+      title: `${course.title} | AppykitUI`,
+      description: course.description,
+      url,
+      type: "website",
+      images: course.thumbnail ? [{ url: course.thumbnail }] : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: course.title,
+      description: course.description,
+    },
+    alternates: {
+      canonical: url,
+    },
+  };
+}
 
 const page = async (props: { params: Params }) => {
   const { slug: courseSlug } = await props.params;
@@ -44,8 +84,6 @@ const page = async (props: { params: Params }) => {
   if (!courseRegistryItem) {
     return notFound();
   }
-
-  console.log(courseRegistryItem);
 
   const allCoursePages = learn.getPages();
   // console.log(allCoursePages);
