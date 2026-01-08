@@ -50,7 +50,8 @@ const page = async (props: { params: Params }) => {
   const allCoursePages = learn.getPages();
   // console.log(allCoursePages);
   const currentCoursePages = allCoursePages.filter((c) => {
-    if (c.slugs[0] == courseSlug) return c;
+    // Only show pages that belong to this course AND are published
+    if (c.slugs[0] === courseSlug && (c.data as any).isPublished === true) return c;
   });
   // console.log("😂😂", currentCoursePages.length, currentCoursePages);
   const codeEnv = process.env.NODE_ENV;
@@ -152,15 +153,11 @@ const page = async (props: { params: Params }) => {
                 key={i}
               >
                 <CardHeader className="flex flex-row items-center gap-2">
-                  {/* {codeEnv === "development" && (
-                  <div className="absolute top-2 right-2 z-10">
-                    {chapter.data ? (
-                      <Badge className="bg-green-500 text-white">Ready</Badge>
-                    ) : (
-                      <Badge className="bg-red-500 text-white">Not Ready</Badge>
-                    )}
-                  </div>
-                )} */}
+                  {codeEnv === "development" && (chapter.data as any).isContentReady === false && (
+                    <div className="absolute top-2 right-2 z-10">
+                      <Badge className="bg-amber-500 text-white text-xs">Content pending</Badge>
+                    </div>
+                  )}
                   <div className="mr-2 flex h-8 w-8 flex-none flex-shrink-0 items-center justify-center rounded-full bg-blue-300 text-sm font-bold text-blue-700 group-hover:bg-black group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-black">
                     <p className="group-hover:hidden">{i}</p>
                     <svg

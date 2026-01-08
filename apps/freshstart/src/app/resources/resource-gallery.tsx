@@ -1,6 +1,5 @@
-"use client";
-
-import { useState, useMemo } from "react";
+import { useMemo } from "react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { SlScreenDesktop } from "react-icons/sl";
@@ -11,18 +10,25 @@ import { FaIcons } from "react-icons/fa";
 import { GrResources } from "react-icons/gr";
 import ResourceCard from "@/components/resource-card";
 import { Resource } from "@/lib/types";
+import { getCategorySlug } from "@/data/resources";
 
-export default function ResourceGallery({ data }: { data: Resource[] }) {
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+type ResourceGalleryProps = {
+  data: Resource[];
+  allData?: Resource[];
+  activeCategory?: string | null;
+};
+
+export default function ResourceGallery({
+  data,
+  allData,
+  activeCategory = null,
+}: ResourceGalleryProps) {
+  // Use allData for category list if provided, otherwise use data
+  const sourceData = allData || data;
 
   const categories = useMemo(() => {
-    return Array.from(new Set(data.map((resource) => resource.category)));
-  }, [data]);
-
-  const filteredResources = useMemo(() => {
-    if (!selectedCategory) return data;
-    return data.filter((resource) => resource.category === selectedCategory);
-  }, [selectedCategory, data]);
+    return Array.from(new Set(sourceData.map((resource) => resource.category)));
+  }, [sourceData]);
 
   return (
     <div className="container mx-auto ">
@@ -31,55 +37,56 @@ export default function ResourceGallery({ data }: { data: Resource[] }) {
       </div>
 
       <div className="flex flex-wrap gap-x-2 gap-y-1 mb-6">
-        <Button
-          variant={selectedCategory === null ? "default" : "outline"}
-          onClick={() => setSelectedCategory(null)}
-          size={"sm"}
-        >
-          All
-        </Button>
-        {categories.map((category) => (
+        <Link href="/resources">
           <Button
-            key={category}
-            variant={selectedCategory === category ? "default" : "outline"}
-            onClick={() => setSelectedCategory(category)}
+            variant={activeCategory === null ? "default" : "outline"}
             size={"sm"}
           >
-            <span className="mr-1">
-              {category == "UI" ? (
-                <SlScreenDesktop />
-              ) : category == "Typography" ? (
-                <AiOutlineFontSize />
-              ) : category == "assets" ? (
-                <AiOutlineFontSize />
-              ) : category == "icons" ? (
-                <FaIcons />
-              ) : category == "tools" ? (
-                <BsTools />
-              ) : category == "inspiration" ? (
-                <FcIdea />
-              ) : category == "colors" ? (
-                <GrResources />
-              ) : category == "other" ? (
-                <GrResources />
-              ) : category == "ui-design" ? (
-                <SlScreenDesktop />
-              ) : (
-                ""
-              )}
-            </span>
-            {category}
-            <Badge
-              variant={selectedCategory === category ? "default" : "outline"}
-              className="px-1.5 ml-1"
-            >
-              {data.filter((r) => r.category === category).length}
-            </Badge>
+            All
           </Button>
+        </Link>
+        {categories.map((category) => (
+          <Link key={category} href={`/resources/${getCategorySlug(category)}`}>
+            <Button
+              variant={activeCategory === category ? "default" : "outline"}
+              size={"sm"}
+            >
+              <span className="mr-1">
+                {category == "UI" ? (
+                  <SlScreenDesktop />
+                ) : category == "Typography" ? (
+                  <AiOutlineFontSize />
+                ) : category == "assets" ? (
+                  <AiOutlineFontSize />
+                ) : category == "icons" ? (
+                  <FaIcons />
+                ) : category == "tools" ? (
+                  <BsTools />
+                ) : category == "inspiration" ? (
+                  <FcIdea />
+                ) : category == "colors" ? (
+                  <GrResources />
+                ) : category == "other" ? (
+                  <GrResources />
+                ) : category == "ui-design" ? (
+                  <SlScreenDesktop />
+                ) : (
+                  ""
+                )}
+              </span>
+              {category}
+              <Badge
+                variant={activeCategory === category ? "default" : "outline"}
+                className="px-1.5 ml-1"
+              >
+                {sourceData.filter((r) => r.category === category).length}
+              </Badge>
+            </Button>
+          </Link>
         ))}
       </div>
       <main className="grid grid-cols-1 gap-2 max-w-[61rem]  sm:grid-cols-1 md:grid-cols-2 xl:grid-cols-3 xl:gap-4 ">
-        {filteredResources.map((resource, i) => (
+        {data.map((resource, i) => (
           <ResourceCard
             key={i}
             category={resource.category}
