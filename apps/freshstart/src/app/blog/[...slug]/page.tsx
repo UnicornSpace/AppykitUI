@@ -6,26 +6,55 @@ import { BsArrowLeft } from "react-icons/bs";
 import { DocsPage, DocsBody } from "fumadocs-ui/page";
 import { getMDXComponents } from "@/components/mdx-components";
 import { createRelativeLink } from "fumadocs-ui/mdx";
+import { Metadata } from "next";
+import { ArticleJsonLd } from "@/components/json-ld";
 
-export default async function Page(props: {
+type Props = {
   params: Promise<{ slug?: string[] }>;
-}) {
+};
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const page = blogs.getPage(slug);
+
+  if (!page) {
+    return {
+      title: "Post Not Found",
+    };
+  }
+
+  const title = page.data.title || "Blog Post";
+  const description = page.data.description || "Read this article on AppykitUI";
+  const url = `https://appykit-ui.com${page.url}`;
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      url,
+      type: "article",
+      publishedTime: page.data.date ? new Date(page.data.date).toISOString() : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
+    alternates: {
+      canonical: url,
+    },
+  };
+}
+
+export default async function Page(props: Props) {
   const params = await props.params;
-  // console.log(blogs.getPages());
-  console.log("💯💯", params.slug);
-
   const page = blogs.getPage(params.slug);
-  // console.log(page, "page🙄");
-
-  // return <div>hi</div>
 
   if (!page) notFound();
-  const MDXContent = page.data.body;
 
-  // return (<div>hi2</div>)
-  // console.log(page.data.toc[0].title.props.children, "toc🙄");
-  // console.log(page.data.toc[0].title,"toc")
-  // console.log(page.data.thumbnail, "data🙄");
+  const MDXContent = page.data.body;
 
   return (
     <DocsPage toc={page.data.toc}>

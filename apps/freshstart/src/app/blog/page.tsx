@@ -8,6 +8,23 @@ import {
   DocsTitle,
   DocsBody,
 } from "fumadocs-ui/layouts/docs/page";
+import { Metadata } from "next";
+import { ItemListJsonLd } from "@/components/json-ld";
+
+export const metadata: Metadata = {
+  title: "Blog",
+  description:
+    "Read the latest articles about Flutter development, mobile app design, and UI/UX best practices from the AppykitUI team.",
+  openGraph: {
+    title: "Blog | AppykitUI",
+    description:
+      "Latest articles on Flutter development and mobile app design.",
+    url: "https://appykit-ui.com/blog",
+  },
+  alternates: {
+    canonical: "https://appykit-ui.com/blog",
+  },
+};
 
 export default function Home() {
   const allBlogs = blogs.getPages();
