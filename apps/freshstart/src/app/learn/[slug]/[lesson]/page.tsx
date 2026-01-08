@@ -1,78 +1,85 @@
 import { learn } from "@/lib/source";
-import { coursesRegistry } from "content/learn/course-registry";
 import { notFound } from "next/navigation";
 import {
   DocsPage,
-  DocsDescription,
-  DocsTitle,
   DocsBody,
+  DocsTitle,
+  DocsDescription,
 } from "fumadocs-ui/layouts/docs/page";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { FaAngleLeft } from "react-icons/fa6";
 
-type Params = Promise<{ lesson: string; slug: string }>;
+interface PageParams {
+  slug: string;
+  lesson: string;
+}
 
-const page = async (props: {
-  params: Promise<{ slug?: string[]; lesson?: string[] }>;
+// Regex to match numeric prefix like "1." or "2." at the start
+const numericPrefixRegex = /^\d+\./;
+
+// Helper to strip numeric prefix from a slug
+function stripNumericPrefix(slug: string): string {
+  return slug.replace(numericPrefixRegex, "");
+}
+
+const Page = async (props: {
+  params: Promise<PageParams>;
 }) => {
-  const { lesson: singleLessonSlug, slug } = await props.params;
-  const params = await props.params;
+  const { slug, lesson } = await props.params;
 
-  console.log(learn.getPages());
+  // Get all pages and find the one matching our course slug and lesson
+  const allPages = learn.getPages();
 
-  const f = [slug, singleLessonSlug];
-  //   console.log(f)
-  // @ts-ignore
-  const page = learn.getPage(f);
-  //   const page = learn.getPage([
-  //     "flutter-development",
-  //     "working_with_images_in_flutter",
-  //   ]);
-  console.log(f, "---");
-  console.log(singleLessonSlug, "👍👍👍course slug", slug); // "flutter"
-  console.log("🔄️", page, "🔄️");
+  // Find the page where:
+  // 1. slugs[0] matches the course slug
+  // 2. slugs[1] matches the lesson (with or without numeric prefix)
+  const page = allPages.find((p) => {
+    if (p.slugs.length !== 2) return false;
+    if (p.slugs[0] !== slug) return false;
 
-  //   console.log(page, "page🙄");
+    // Match lesson slug directly or after stripping numeric prefix
+    const pageLesson = p.slugs[1];
+    return pageLesson === lesson || stripNumericPrefix(pageLesson) === lesson;
+  });
 
-  //   // return <div>hi</div>
+  if (!page) {
+    notFound();
+  }
 
-  //   if (!page) notFound();
-  //   const MDXContent = page.data.body;
-
-  //   // TODO: check whether the course slug coming from param does it exist kya, if only exist, do continue, else show "course not found"
-  //   const courseRegistryItem = coursesRegistry.find(
-  //     (c) => c.slug.toLowerCase() == singleLessonSlug.toLowerCase()
-  //   );
+  const MDXContent = (page.data as any).body;
 
   return (
-    <DocsPage
-    // toc={page.data.toc} full={page.data.full}
-    >
+    <DocsPage>
       <Link
-        href={"/learn"}
-        //   href={`/course/${page.slugs[0]}`}
+        href={`/learn/${slug}`}
         className="mb-4 justify-end flex"
       >
-        <Button>
-          <FaAngleLeft />
-          lessons
+        <Button variant="outline" size="sm">
+          <FaAngleLeft className="mr-2 h-4 w-4" />
+          Back to Course
         </Button>
       </Link>
       <div>
-        {/* <DocsTitle className="mb-2">{page.data.title}</DocsTitle>
-        <DocsDescription>{page.data.description}</DocsDescription> */}
+        <DocsTitle className="mb-2">{page.data.title}</DocsTitle>
+        <DocsDescription>{page.data.description}</DocsDescription>
       </div>
       <DocsBody>
-        {/* <MDXContent
-          components={getMDXComponents({
-            // this allows you to link to other pages with relative file paths
-            a: createRelativeLink(components, page),
-          })}
-        /> */}
+        <MDXContent />
       </DocsBody>
     </DocsPage>
   );
 };
 
-export default page;
+export default Page;
+
+export function generateStaticParams() {
+  return learn
+    .getPages()
+    .filter((page) => page.slugs.length === 2 && page.slugs[0] && page.slugs[1])
+    .map((page) => ({
+      slug: page.slugs[0],
+      // Strip numeric prefix for the URL
+      lesson: stripNumericPrefix(page.slugs[1]),
+    }));
+}
