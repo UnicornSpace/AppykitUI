@@ -1,0 +1,177 @@
+---
+title: Variables and Null Safety in Dart
+description: Lets learn Basics of Variables and Null Safety in Dart
+author: Likitha N
+date: 2025-10-02
+isPublished: true
+isContentReady: false
+---
+
+## How to Get Started?
+- See We have a browser based Dart Editor called DartPad (https://dartpad.dev/) where you can write and run Dart code directly in your browser without any setup.
+{/* TODO: Add a screenshot or GIF of DartPad interface */}
+
+- NOTE: The main function is the entry point of every Dart application. When you run a Dart program, the execution starts from the main function.
+
+
+
+## What are Variables in Dart?
+- As in every programming language, Variables are used to store data values that can be used and manipulated throughout the program.
+- Its like a container that used to store values and reuse them later.
+
+{/* TODO: ScreenShort of container */}
+
+### How to Declare Variables in Dart?
+- It startes with the data type followed by the variable name and which is assigned to a value using the assignment operator (=).
+
+{/* TODO:  Image of Syntax */}
+
+### Example
+```dart
+void main() {
+  // Declaring variables
+  int age = 25; // Integer variable
+  double height = 5.9; // Double variable
+  String name = 'John'; // String variable
+  bool isStudent = true; // Boolean variable
+
+  // Printing variables
+  print('Name: $name');
+  print('Age: $age');
+  print('Height: $height');
+  print('Is Student: $isStudent');
+}
+```
+Note: This is called as **Statically Typed Variables**: Where we explicitly specify the data type of the variable during declaration.
+Try this code in DartPad to see the output.
+
+
+- **Dynamically Typed Variables**: In Dart, we can also declare variables without specifying the data type explicitly using the `var` ,`const`,`dynamic` and `const` keyword. 
+
+{/* TODO: Image that says diff btw var & dynamic and const & final */}
+
+####  Using `var` keyword - Used when you want to redefine the variable later.
+```dart
+void main() {
+  var city = 'New York'; // Implicitly typed as String
+  print('City: $city');
+
+  city = 'Los Angeles'; // Reassigning a new value
+  print('Updated City: $city');
+}
+```
+####  Using `dynamic` keyword - It is similar to `var` but it can hold values of any data type and can be changed at runtime.
+
+```dart
+void main() {
+  dynamic data = 42; // Initially an integer
+  print('Data: $data');
+
+  data = 'Hello'; // Now a string
+  print('Updated Data: $data');
+
+  data = true; // Now a boolean
+  print('Final Data: $data');
+}
+```
+####  Using `const` keyword - The value assigned to a `const` variable cannot be changed later.
+
+```dart
+void main() {
+  const pi = 3.14; // Constant variable
+  print('Value of pi: $pi');
+
+  // pi = 3.14159; // This will cause a compile-time error
+}
+```
+
+#### Using `final` keyword - Its similar to `const`, but the value can be assigned only once and can be determined at runtime.
+
+```dart
+void main() {
+  final currentTime = DateTime.now(); // Final variable
+  print('Current Time: $currentTime');
+
+  // currentTime = DateTime.now(); // This will cause a compile-time error
+}
+```
+
+
+## What is Null Safety in Dart?
+- Its nothing but a Variables cannot be null by default unless we explicitly allow it.
+Example:
+```dart
+void main() {
+  int age = null; // This will cause a compile-time error
+}
+```
+
+- Sometimes we may need to allow a variable to hold null values during certain scenarios like when fetching data from an API where some fields may be missing.
+- To allow a variable to be null, we can use the `?` operator after the data type.
+Example:
+```dart
+void main() {
+  int? age = null; // This is allowed
+  print('Age: $age');
+}
+```
+
+### What are the Benefits of Null Safety?
+1. Reduce Runtime Errors: By catching null-related errors at compile-time, it helps to prevent unexpected crashes during program execution.
+2. Eliminate the need for null checks: With null safety, we can avoid writing excessive null checks in our code, leading to cleaner and more readable code.
+
+## Scenario 1 :
+```dart
+void main() {
+  int? age; // Nullable variable
+  print('Age: $age'); // Output: Age: null
+  int validAge = age; // Compile-time error: It cannot assign null value to non-nullable variable
+}
+``` 
+- In above example, we trying to assign a nullable variable `age` to a non-nullable variable `validAge`, which results in a compile-time error.
+- To fix this, we need to tell that `validAge` will not be null using the null assertion operator `!`.
+
+```dart
+void main() {
+  int? age; // Nullable variable
+  print('Age: $age'); // Output: Age: null
+  int validAge = age!; // Using null assertion operator
+  print('Valid Age: $validAge'); // This will throw a runtime error if age is null
+}
+``` 
+
+### Bonus:
+1. #### String Interpolation 
+- Lets say if we want to print a variable value inside a string, we can use String Interpolation using `$` sign before the variable name.
+
+```dart
+void main() {
+  String name = 'Alice';
+  print('Hello, $name!');
+}
+```
+2. #### Check the data type of a variable using `runtimeType` property.
+
+```dart
+void main() {
+  var number = 42;
+  print('Data type of number: ${number.runtimeType}'); // Output: Data type of number: int
+}
+```
+or
+```dart
+void main() {
+  dynamic data = 'Hello';
+  print('Data type of data (${data is String}) '); // Output: Data type of data: String
+}
+```
+
+## Rescources to Learn Dart
+- Courses and Tutorials: Dart And Flutter Series on Youtube ("https://youtube.com/playlist?list=PL9eMLfd38heN2BbPEng6W9qBLl3oJAtwD&si=w_gsoYnIUSzFBLeR")
+- Official Dart Documentation: The official Dart website (https://dart.dev) provides comprehensive documentation, tutorials, and guides to help you get started with Dart programming.
+- DartPad: An online Dart editor (https://dartpad.dev) that allows you to write, run, and share Dart code directly in your web browser without any setup.
+- Flutter Documentation: Since Dart is primarily used with Flutter, the official Flutter documentation (https://flutter.dev/docs) is an excellent resource for learning how to build apps using Dart and Flutter together.
+
+
+## What's Next?
+- In the Next Lesson, we will explore Control Flow in Dart. See you there! ([Next: Control Flow in Dart](controlFlow) )

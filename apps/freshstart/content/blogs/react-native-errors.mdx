@@ -1,0 +1,29 @@
+---
+title: React Native Errors and Warnings
+description: Learn how to handle errors and warnings in your React Native application.
+author: Likitha N
+date: 2025-06-06
+isPublished: true
+isContentReady: true
+---
+
+## 1. SDK Error
+
+![](./thumbnails/sdk-error.png)
+
+- **Cause**: This error occurs when your project is outdated with the latest React Native SDK.
+- **Solution**: Update your project to the latest React Native SDK version. You can do this by running
+  ```bash
+  npm install expo@^54.0.0
+  ```
+  or by following the [official upgrade guide](https://docs.expo.dev/workflow/upgrading-expo-sdk-walkthrough/).
+
+## 2. Cannot find module 'react-native-reanimated'
+
+![](./thumbnails/reanimated-module-error.jpg)
+
+- **Cause**: This error occurs when the `react-native-reanimated` package is not installed in your project.
+  - **Solution**: Install the `react-native-reanimated` package by running the following command:
+    ```bash
+    expo install react-native-reanimated
+    ```
