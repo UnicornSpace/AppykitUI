@@ -23,6 +23,23 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Button } from "@/components/ui/button";
 import { HomeLayout } from "fumadocs-ui/layouts/home";
 import { baseOptions, linkItems } from "@/lib/layout.shared";
+import { Metadata } from "next";
+import { ItemListJsonLd } from "@/components/json-ld";
+
+export const metadata: Metadata = {
+  title: "Courses",
+  description:
+    "Learn Flutter development with our comprehensive courses. From basics to advanced topics, master mobile app development.",
+  openGraph: {
+    title: "Courses | AppykitUI",
+    description:
+      "Comprehensive Flutter development courses - from basics to advanced topics.",
+    url: "https://appykit-ui.com/learn",
+  },
+  alternates: {
+    canonical: "https://appykit-ui.com/learn",
+  },
+};
 
 export default function Home() {
   const allBlogs = learn.getPages();

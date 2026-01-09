@@ -7,7 +7,16 @@ import { resourcesData } from "@/data/resources";
 export const metadata: Metadata = {
   title: "Free Resources",
   description:
-    "A free collection of web development resources, tools, and utilities to boost your development process. Simple to use and open-source.",
+    "A free collection of Flutter development resources, tools, and utilities to boost your development process. Simple to use and open-source.",
+  openGraph: {
+    title: "Free Resources | AppykitUI",
+    description:
+      "Curated Flutter development resources, tools, and utilities for mobile developers.",
+    url: "https://appykit-ui.com/resources",
+  },
+  alternates: {
+    canonical: "https://appykit-ui.com/resources",
+  },
 };
 
 const page = () => {

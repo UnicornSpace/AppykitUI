@@ -32,9 +32,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         };
     }
 
+    const url = `https://appykit-ui.com/resources/${getCategorySlug(category)}`;
+
     return {
-        title: `${category} Resources - Free Development Resources`,
-        description: `Browse our curated collection of ${category} resources for Flutter and mobile development.`,
+        title: `${category} Resources`,
+        description: `Browse our curated collection of ${category} resources for Flutter and mobile development. Free tools, libraries, and utilities.`,
+        openGraph: {
+            title: `${category} Resources | AppykitUI`,
+            description: `Curated ${category} resources for Flutter and mobile development.`,
+            url,
+        },
+        alternates: {
+            canonical: url,
+        },
     };
 }
 
