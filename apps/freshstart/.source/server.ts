@@ -1,13 +1,14 @@
 // @ts-nocheck
-import * as __fd_glob_20 from "../content/learn/dart-programming/7.classes_object_interface.mdx?collection=learn"
-import * as __fd_glob_19 from "../content/learn/dart-programming/6.list_and_maps.mdx?collection=learn"
-import * as __fd_glob_18 from "../content/learn/dart-programming/5.functions.mdx?collection=learn"
-import * as __fd_glob_17 from "../content/learn/dart-programming/4.operators.mdx?collection=learn"
-import * as __fd_glob_16 from "../content/learn/dart-programming/3.controlFlow.mdx?collection=learn"
-import * as __fd_glob_15 from "../content/learn/dart-programming/2.variables_nullSafety.mdx?collection=learn"
-import * as __fd_glob_14 from "../content/learn/dart-programming/1.intro.mdx?collection=learn"
-import * as __fd_glob_13 from "../content/learn/flutter-development/2.working_with_images_in_flutter.mdx?collection=learn"
-import * as __fd_glob_12 from "../content/learn/flutter-development/1.basics.mdx?collection=learn"
+import * as __fd_glob_21 from "../content/learn/flutter-development/2.working_with_images_in_flutter.mdx?collection=learn"
+import * as __fd_glob_20 from "../content/learn/flutter-development/1.basics.mdx?collection=learn"
+import * as __fd_glob_19 from "../content/learn/dart-programming/8.mixins.mdx?collection=learn"
+import * as __fd_glob_18 from "../content/learn/dart-programming/7.classes_object_interface copy.mdx?collection=learn"
+import * as __fd_glob_17 from "../content/learn/dart-programming/6.list_and_maps.mdx?collection=learn"
+import * as __fd_glob_16 from "../content/learn/dart-programming/5.functions.mdx?collection=learn"
+import * as __fd_glob_15 from "../content/learn/dart-programming/4.operators.mdx?collection=learn"
+import * as __fd_glob_14 from "../content/learn/dart-programming/3.controlFlow.mdx?collection=learn"
+import * as __fd_glob_13 from "../content/learn/dart-programming/2.variables_nullSafety.mdx?collection=learn"
+import * as __fd_glob_12 from "../content/learn/dart-programming/1.intro.mdx?collection=learn"
 import * as __fd_glob_11 from "../content/learn/index.mdx?collection=learn"
 import { default as __fd_glob_10 } from "../content/learn/dart-programming/meta.json?collection=learn"
 import * as __fd_glob_9 from "../content/blogs/work-with-Assests-in-flutter.mdx?collection=blogs"
@@ -30,4 +31,4 @@ const create = server<typeof Config, import("fumadocs-mdx/runtime/types").Intern
 
 export const blogs = await create.docs("blogs", "content\blogs", {}, {"design-foundations.mdx": __fd_glob_0, "how-to-publish-app-in-playstore.mdx": __fd_glob_1, "how-to-run-flutter-apps-on-physicalDevice.mdx": __fd_glob_2, "how-to-set-app-icon-in-flutter.mdx": __fd_glob_3, "how-to-use-custom-fonts-in-expo-with-nativewind.mdx": __fd_glob_4, "programming-foundations.mdx": __fd_glob_5, "react-native-errors.mdx": __fd_glob_6, "rn-to-flutter.mdx": __fd_glob_7, "what-is-bad-in-reactnative.mdx": __fd_glob_8, "work-with-Assests-in-flutter.mdx": __fd_glob_9, });
 
-export const learn = await create.docs("learn", "content\learn", {"dart-programming/meta.json": __fd_glob_10, }, {"index.mdx": __fd_glob_11, "flutter-development/1.basics.mdx": __fd_glob_12, "flutter-development/2.working_with_images_in_flutter.mdx": __fd_glob_13, "dart-programming/1.intro.mdx": __fd_glob_14, "dart-programming/2.variables_nullSafety.mdx": __fd_glob_15, "dart-programming/3.controlFlow.mdx": __fd_glob_16, "dart-programming/4.operators.mdx": __fd_glob_17, "dart-programming/5.functions.mdx": __fd_glob_18, "dart-programming/6.list_and_maps.mdx": __fd_glob_19, "dart-programming/7.classes_object_interface.mdx": __fd_glob_20, });
+export const learn = await create.docs("learn", "content\learn", {"dart-programming/meta.json": __fd_glob_10, }, {"index.mdx": __fd_glob_11, "dart-programming/1.intro.mdx": __fd_glob_12, "dart-programming/2.variables_nullSafety.mdx": __fd_glob_13, "dart-programming/3.controlFlow.mdx": __fd_glob_14, "dart-programming/4.operators.mdx": __fd_glob_15, "dart-programming/5.functions.mdx": __fd_glob_16, "dart-programming/6.list_and_maps.mdx": __fd_glob_17, "dart-programming/7.classes_object_interface copy.mdx": __fd_glob_18, "dart-programming/8.mixins.mdx": __fd_glob_19, "flutter-development/1.basics.mdx": __fd_glob_20, "flutter-development/2.working_with_images_in_flutter.mdx": __fd_glob_21, });

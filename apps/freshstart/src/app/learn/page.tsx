@@ -1,13 +1,6 @@
 import Link from "next/link";
 import { learn } from "@/lib/source";
 import Image from "next/image";
-import { Badge } from "@/components/ui/badge";
-import {
-  DocsPage,
-  DocsDescription,
-  DocsTitle,
-  DocsBody,
-} from "fumadocs-ui/layouts/docs/page";
 
 import {
   Card,
@@ -57,12 +50,12 @@ export default function Home() {
       <div className="max-w-6xl w-full mx-auto">
         {/* <h1 className="text-5xl font-bold text-center my-8">Courses</h1> */}
         <div className="max-w-3xl max-sm:text-center mt-10 ">
-          <h1 className="font-heading text-foreground mb-4 text-4xl/[1.1] font-bold tracking-tight md:text-5xl/[1.1]">
-            Courses.
+          <h1 className="font-heading text-foreground mb-0 text-4xl/[1.1] font-bold tracking-tight md:text-5xl/[1.1]">
+            Learn.
           </h1>
           <p className="text-muted-foreground mb-8 text-lg">
-            A collection of courses crafted for quick learning with examples and
-            code.
+            Learn Flutter development with our comprehensive courses. From basics
+            to advanced topics, master mobile app development.
           </p>
         </div>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 max-w-6xl   pb-10 md:pb-20">
@@ -106,9 +99,9 @@ export default function Home() {
                     {course.description}
                   </CardDescription>
                 </CardContent>
-                <CardFooter>
+                {/* <CardFooter>
                   <Button className="w-full">View Course</Button>
-                </CardFooter>
+                </CardFooter> */}
               </Card>
             </Link>
           ))}

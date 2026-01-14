@@ -1,3 +1,4 @@
+"use client"
 import { Card, CardContent } from "@/components/ui/card";
 import Link from "next/link";
 import { IconArrowMoveRightFilled } from "@tabler/icons-react";
@@ -11,6 +12,7 @@ import { GrResources } from "react-icons/gr";
 import { cn } from "@/lib/utils";
 import { Badge } from "./ui/badge";
 import { Icons } from "./icons";
+import { Coolshape } from "coolshapes-react";
 
 type ResourceCardType = {
   title: string;
@@ -107,6 +109,7 @@ function ResourceCard({
             */}
           {/* <CustomBtn1 /> */}
         </CardContent>
+        {/* <Coolshape type="star" random={true} index={0} size={48} noise={true} color="" className="text-red-500! absolute  -left-5 -bottom-5 opacity-50" /> */}
         <p className="text-8xl absolute -bottom-5 opacity-50 -right-5 font-bold text-transparent [text-shadow:0_0_#000,0_0_#000,0_0_#000,0_0_#000] [-webkit-text-stroke:1px_black]">
           {title[0]}
         </p>

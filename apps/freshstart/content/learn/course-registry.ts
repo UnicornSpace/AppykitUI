@@ -15,8 +15,8 @@ export const coursesRegistry = [
         thumbnail: "/flutter-thumnail1.png"
     },
     {
-        title: 'Learn Dart Programming — Beginner to Advanced Guide',
-        description: `This is a hands-on course where you'll learn to build apps using GenAI APIs with OpenAI, Claude Anthropic. We’ll explore how to use prompts, manage context, build chatbots, and connect LLMs to your own data using tools like LangChain, LangGraph, Mem0, Qdrant, Neo4j, MongoDB. No AI background required — just basic Python and curiosity.`,
+        title: 'Learn Dart Programming ',
+        description: `Beginner to Advanced Guide — This is a hands-on course where you'll learn to build apps using GenAI APIs with OpenAI, Claude Anthropic. We’ll explore how to use prompts, manage context, build chatbots, and connect LLMs to your own data using tools like LangChain, LangGraph, Mem0, Qdrant, Neo4j, MongoDB. No AI background required — just basic Python and curiosity.`,
         seo: {
             description: "Learn Dart programming from scratch with structured, written guides. Covers fundamentals, async, OOP, and real-world Dart usage for beginners."
         },

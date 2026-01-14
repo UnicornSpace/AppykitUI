@@ -32,6 +32,8 @@ import { notFound } from "next/navigation";
 import { HomeLayout } from "fumadocs-ui/layouts/home";
 import { baseOptions, linkItems } from "@/lib/layout.shared";
 import { CourseJsonLd } from "@/components/json-ld";
+import { Coolshape } from "coolshapes-react";
+import RandomShape from "./randomShape";
 
 type Params = Promise<{ slug: string }>;
 
@@ -105,36 +107,43 @@ const page = async (props: { params: Params }) => {
     >
       <div className="mx-auto  max-w-5xl  w-full">
         <div className="max-w-5xl  mx-auto  bg-red-4002  py-4 mb-6 max-sm:text-center mt-10 ">
-          <div className="space-x-4 flex items-baseline">
-            <h1 className="capitalize font-heading text-foreground mb-6 text-4xl/[1.1] font-bold tracking-tight md:text-5xl/[1.1]">
+          <div className="flex flex-col items-baseline">
+            <h1 className="capitalize font-bbh font-heading text-foreground mb-1 text-4xl/[1.1]  tracking-wide md:text-6xl/[1.1]">
               {courseRegistryItem?.title}
             </h1>
             {/* {courseRegItem?.icon && <courseRegItem.icon className="size-9" />} */}
           </div>
-          <Image
-            src={"/flutter-dart-banner.png"}
-            width={1080}
-            height={250}
-            alt="Image"
-            className="rounded-md object-cover mb-4"
-          />
-
+          <section className="relative">
+            <Image
+              src={"/flutter-dart-banner.png"}
+              width={1080}
+              height={250}
+              alt="Image"
+              className="rounded-md object-cover mb-4 card-shine-effect"
+            />
+            <div className="absolute top-0 right-0 z-50 w-full h-full">
+              <span className="relative flex size-3">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky-400 opacity-75"></span>
+                <span className="relative inline-flex size-3 rounded-full bg-sky-500"></span>
+              </span>
+            </div>
+          </section>
           <section className="flex flex-row-reverse2 items-center justify-between mb-4">
             <section className="flex items-center gap-2">
               <div className="*:data-[slot=avatar]:ring-background flex -space-x-2 *:data-[slot=avatar]:ring-2 *:data-[slot=avatar]:grayscale">
                 <Avatar>
                   <AvatarImage
-                    src="https://github.com/shadcn.png"
-                    alt="@shadcn"
+                    src="https://github.com/mohdfaizan5.png"
+                    alt="@mohdfaizan5"
                   />
-                  <AvatarFallback>CN</AvatarFallback>
+                  <AvatarFallback>MF</AvatarFallback>
                 </Avatar>
                 <Avatar>
                   <AvatarImage
-                    src="https://github.com/maxleiter.png"
-                    alt="@maxleiter"
+                    src="https://github.com/likithanagaraj.png"
+                    alt="@likithanagaraj"
                   />
-                  <AvatarFallback>LR</AvatarFallback>
+                  <AvatarFallback>LN</AvatarFallback>
                 </Avatar>
                 <Avatar>
                   <AvatarImage
@@ -144,37 +153,38 @@ const page = async (props: { params: Params }) => {
                   <AvatarFallback>ER</AvatarFallback>
                 </Avatar>
               </div>
-              <p className="flex items-center">
-                <LuStar className="fill-amber-200 text-amber-200" />
-                <LuStar className="fill-amber-200 text-amber-200" />
-                <LuStar className="fill-amber-200 text-amber-200" />
-                <LuStar className="fill-amber-200 text-amber-200" />
-                <LuStar className="fill-amber-200 text-amber-200" />
-                Top rated
-              </p>
+              <section className="flex flex-col">
+                <div className="flex items-center -space-x-1 ">
+                  <LuStar className="fill-amber-200 text-amber-200" />
+                  <LuStar className="fill-amber-200 text-amber-200" />
+                  <LuStar className="fill-amber-200 text-amber-200" />
+                  <LuStar className="fill-amber-200 text-amber-200" />
+                  <LuStar className="fill-amber-200 text-amber-200" />
+                </div>
+                <p className="text-xs text-muted-foreground">
+                  Top rated
+                </p>
+              </section>
             </section>
-            <section className="flex items-center">
-              <div className="flex items-center gap-1 px-4 py-1 border w-32 rounded-l-2xl">
-                <LuBookText />
+            <section className="flex items-center ">
+              <div className="bg-card overflow-hidden flex items-center gap-1 px-4 py-1 border w-32 rounded-l-2xl">
+                <LuBookText className="size-6" />
                 <div>
                   <p className="font-light -mb-1 text-xs">LESSONS</p>
-                  <p className="font-medium ">{currentCoursePages.length}</p>
+                  <p className="font-medium text-sm">{currentCoursePages.length}</p>
                 </div>
               </div>
-              <div className="flex items-center gap-1 px-4 py-1 border w-32 rounded-r-2xl">
-                <TbGraphFilled />
+              <div className="bg-card overflow-hidden flex items-center gap-1 px-4 py-1 border w-32 rounded-r-2xl">
+                <TbGraphFilled className="size-8" />
                 <div>
                   <p className="font-light -mb-1 text-xs">DIFFICULTY</p>
-                  <p className="font-medium ">Easy</p>
+                  <p className="font-medium text-sm">Easy</p>
                 </div>
               </div>
             </section>
           </section>
-          <p className="text-muted-foreground  mb-8 text-lg">
-            {coursesRegistry.find(
-              (c) => c.slug.toLowerCase() == courseSlug[0].toLowerCase()
-            )?.description || ""}
-          </p>
+          <p className="text-muted-foreground mb-4 text-left">{courseRegistryItem.description}</p>
+
           {/* <Button className="rounded-full">
             Enroll now <MoveRight />
           </Button> */}
@@ -187,7 +197,7 @@ const page = async (props: { params: Params }) => {
               className="group"
             >
               <Card
-                className="gap-2 bg-secondary/90  group h-full rounded-[12px] shadow-sm transition-all hover:shadow-lg relative"
+                className="relative gap-2 bg-secondary/90  group h-full rounded-[12px] shadow-sm transition-all hover:shadow-lg relative"
                 key={i}
               >
                 <CardHeader className="flex flex-row items-center gap-2">
@@ -225,6 +235,7 @@ const page = async (props: { params: Params }) => {
                     {chapter.data.description}
                   </p>
                 </CardContent>
+                <RandomShape className="-right-10 -bottom-10 opacity-30 " />
               </Card>
             </Link>
           ))}
