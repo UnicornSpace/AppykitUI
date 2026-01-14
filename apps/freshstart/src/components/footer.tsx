@@ -44,23 +44,23 @@ function MainFooter() {
               </Button>
             </Link>
           </div>
-          <nav className="mb-4 flex flex-wrap justify-center gap-4">
+          {/* <nav className="mb-4 flex flex-wrap justify-center gap-4">
             <Link href="#" className="hover:text-primary">
               Home
             </Link>
             <Link href="#" className="hover:text-primary">
               About
             </Link>
-            {/* <Link  href="#" className="hover:text-primary">
+            <Link  href="#" className="hover:text-primary">
               Services
-            </Link> */}
-            {/* <Link  href="#" className="hover:text-primary">
+            </Link>
+            <Link  href="#" className="hover:text-primary">
               Products
-            </Link> */}
+            </Link>
             <Link href="#" className="hover:text-primary">
               Contact
             </Link>
-          </nav>
+          </nav> */}
 
           <div className="mb-8 w-full max-w-md">
             <form className="flex space-x-2">
@@ -82,7 +82,7 @@ function MainFooter() {
           </div>
           <div className="text-center">
             <p className="text-sm text-muted-foreground">
-              © 2024 Your Company. All rights reserved.
+              © 2026 Appykit. All rights reserved.
             </p>
           </div>
         </div>

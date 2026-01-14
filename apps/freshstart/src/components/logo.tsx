@@ -43,20 +43,15 @@ const Logo = ({
   else
     return (
       <div
-        className={cn("flex flex-col items-center justify-center", className)}
+        className={cn("flex items-center text-xl font-light font-bbh", className)}
       >
         <Image
-          src={"/assets/logo-base-256x256.png"}
-          width={width}
-          height={height}
+          src={"/appykitUI temp logo.png"}
+          width={30}
+          height={30}
           alt="logo"
         />
-        {full && <h2 className="font-medium text-2xl">FreelanceFlow</h2>}
-        {isBeta && (
-          <Badge variant={"secondary"} className="scale-[80%]">
-            Beta
-          </Badge>
-        )}
+        {full && <span className={cn("-ml-1", textClassName)}>ppykitUI</span>}
       </div>
     );
 };

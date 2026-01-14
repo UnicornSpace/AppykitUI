@@ -8,7 +8,9 @@ var blogs = defineDocs({
       isPublished: z.boolean().default(false),
       isContentReady: z.boolean().default(false),
       author: z.string().optional(),
-      date: z.coerce.date().optional()
+      authorLink: z.string().url().optional(),
+      date: z.coerce.date().optional(),
+      tags: z.array(z.string()).default([])
     })
   }
 });
@@ -19,7 +21,8 @@ var learn = defineDocs({
       isPublished: z.boolean().default(false),
       isContentReady: z.boolean().default(false),
       author: z.string().optional(),
-      date: z.coerce.date().optional()
+      date: z.coerce.date().optional(),
+      tags: z.array(z.string()).default([])
     })
   }
 });

@@ -11,6 +11,7 @@ import { GrResources } from "react-icons/gr";
 import ResourceCard from "@/components/resource-card";
 import { Resource } from "@/lib/types";
 import { getCategorySlug } from "@/data/resources";
+import { Coolshape } from "coolshapes-react";
 
 type ResourceGalleryProps = {
   data: Resource[];

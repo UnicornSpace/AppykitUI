@@ -1,49 +1,290 @@
 ---
-title: how-to-publish-app-in-playstore
-description: Learn how to seamlessly integrate and style custom fonts in your Expo app using NativeWind and Tailwind-style utilities.
+title: How to Publish Your App on Google Play Store
+description: A complete step-by-step guide to publishing your Android app on the Google Play Store, from creating a developer account to launching your app.
 author: Likitha N
+authorLink: https://twitter.com/likitha
 date: 2025-06-06
+tags: [android, app, google play store]
 isPublished: true
 isContentReady: true
 ---
 
-# Appykit-Blogs
+Publishing your app on the Google Play Store is an exciting milestone! This guide walks you through the entire process from start to finish.
 
-## Typography
+<Callout type="info">
+Before you begin, make sure your app is fully tested and ready for production. You'll also need a Google account and a one-time $25 registration fee.
+</Callout>
 
-- Its for hierarchy / Differentiation
-- Difference Btw Fonts and Typefaces
+## Prerequisites
 
-         - Typeface → The collection of one Particular font Eg : The Typeface for the Project is Inter
+Before publishing, ensure you have:
 
-         - Font → Detailed descprption of font properties Eg  :  The Font for the Project is Inter Bold 18px
+- A completed Android app (APK or AAB file)
+- A Google account
+- $25 USD for the developer registration fee
+- App screenshots and promotional graphics
+- A privacy policy URL (required for most apps)
 
-- Types of font Familiy
+---
 
-1. Serif (with stroke)
-2. Sans - Serif (Sans=No stroke)
+## Step-by-Step Publishing Guide
 
-Font properties
+<Steps>
 
-1. Font Weight
-2. Leading - height of line or the gap btw two lines
-3. Tracking - The gap between the letter
-4. Kearning - Its similar to Tracking but can explicty set the spacing btw any letter
-5. Ligatures - When two or more letter combine to form a glyph
-6. Measure - The width of text/paragraph -> It should be 10 -14 words , more than 14 words can't be proceessed by the user
-7. Rag - Its the shape that formed due the either left or right alignment
-8. Widows - The one / two left out words at the end of paragraph
-9. Orphans - The one or two seprated words ,at  the begining of the sentence
-10. Typography Scale - Its very important to maintain the consitence regard to sizes of font, Usually it will be 2x of the normal font
-Refernce ->font-scale.com
-11. Timeless Fonts
-12. // Hard Fast Rule
-1. Justify Left 
-2. use either one font or pair of diff category font
-3. Choose typescale and maintain it
+<Step>
 
+### Create a Google Play Developer Account
 
+1. Go to the [Google Play Console](https://play.google.com/console)
+2. Sign in with your Google account
+3. Accept the Developer Distribution Agreement
+4. Pay the one-time $25 registration fee
+5. Complete your account details
 
-Tips to improve
-1. Try to practice the Typography with one Font
-2. See and compare the useCases of Good and Bad typography
+<Callout type="warn">
+Account approval can take up to 48 hours. Plan accordingly before your launch date!
+</Callout>
+
+</Step>
+
+<Step>
+
+### Create Your App in Play Console
+
+1. Click **"Create app"** in the Play Console
+2. Enter your app details:
+   - App name
+   - Default language
+   - App or Game category
+   - Free or Paid
+
+```bash
+# Make sure your app is signed with a release key
+./gradlew bundleRelease
+```
+
+</Step>
+
+<Step>
+
+### Set Up Your Store Listing
+
+Your store listing is what users see on the Play Store. Make it compelling!
+
+<Tabs items={['App Details', 'Graphics', 'Categorization']}>
+
+<Tab value="App Details">
+
+**Required Information:**
+- **Short description** (80 characters max)
+- **Full description** (4000 characters max)
+- **App icon** (512 x 512 PNG)
+- **Feature graphic** (1024 x 500 PNG)
+
+</Tab>
+
+<Tab value="Graphics">
+
+**Screenshots Required:**
+- Phone screenshots (2-8 images)
+- 7-inch tablet screenshots (optional but recommended)
+- 10-inch tablet screenshots (optional but recommended)
+
+**Recommended dimensions:** 
+- Minimum: 320px
+- Maximum: 3840px
+- Aspect ratio: 16:9 or 9:16
+
+</Tab>
+
+<Tab value="Categorization">
+
+Choose the right category for your app:
+- **Application type:** App or Game
+- **Category:** Select from available options
+- **Tags:** Add up to 5 relevant tags
+
+</Tab>
+
+</Tabs>
+
+</Step>
+
+<Step>
+
+### Complete Content Rating Questionnaire
+
+Google requires all apps to have a content rating. This helps users understand if your app is appropriate for them.
+
+1. Go to **Policy** → **App content**
+2. Click **"Start questionnaire"**
+3. Answer questions about your app's content
+4. Submit to receive ratings from various boards (ESRB, PEGI, etc.)
+
+</Step>
+
+<Step>
+
+### Set Up Pricing & Distribution
+
+Configure where and how your app will be available:
+
+<Accordions type="single">
+
+<Accordion title="Pricing">
+
+- Choose **Free** or **Paid**
+- If paid, set your price (Google takes a 15-30% commission)
+- Free apps cannot be converted to paid later
+
+</Accordion>
+
+<Accordion title="Countries">
+
+- Select which countries to distribute to
+- Consider starting with specific markets for testing
+- Expand globally after initial feedback
+
+</Accordion>
+
+<Accordion title="Device Compatibility">
+
+- Android TV
+- Wear OS
+- Android Auto
+- Chrome OS
+
+</Accordion>
+
+</Accordions>
+
+</Step>
+
+<Step>
+
+### Upload Your App Bundle
+
+Upload your signed release build:
+
+```bash
+# Generate a signed Android App Bundle (recommended)
+./gradlew bundleRelease
+
+# Or generate a signed APK
+./gradlew assembleRelease
+```
+
+<Callout type="info">
+Google recommends using Android App Bundle (AAB) format instead of APK. AABs result in smaller downloads for users.
+</Callout>
+
+**Upload location:** Production → Releases → Create new release
+
+</Step>
+
+<Step>
+
+### Review and Publish
+
+Before publishing, complete the final checklist:
+
+- [ ] Store listing is complete
+- [ ] Content rating questionnaire submitted
+- [ ] Pricing and distribution configured
+- [ ] Privacy policy URL added
+- [ ] App bundle uploaded
+- [ ] Target API level meets requirements
+
+Click **"Review release"** and then **"Start rollout to Production"**
+
+</Step>
+
+</Steps>
+
+---
+
+## After Publishing
+
+<Accordions type="single">
+
+<Accordion title="Review Timeline">
+
+Google reviews new apps before they go live. This typically takes:
+- **New apps:** 1-3 days (can be up to 7 days)
+- **Updates:** Usually within 24 hours
+
+</Accordion>
+
+<Accordion title="Monitoring Performance">
+
+Use the Play Console to track:
+- Download statistics
+- User ratings and reviews
+- Crash reports and ANRs
+- Revenue (for paid apps)
+
+</Accordion>
+
+<Accordion title="Responding to Reviews">
+
+Engage with your users:
+- Reply to reviews professionally
+- Address bugs and issues promptly
+- Thank users for positive feedback
+
+</Accordion>
+
+</Accordions>
+
+---
+
+## Common Issues & Solutions
+
+<Accordions type="single">
+
+<Accordion title="App Rejected">
+
+Common reasons for rejection:
+- Policy violations
+- Incomplete store listing
+- Bugs or crashes
+- Inappropriate content
+
+**Solution:** Review the rejection reason in Play Console and address each issue.
+
+</Accordion>
+
+<Accordion title="Signing Issues">
+
+If you're having trouble with app signing:
+
+```bash
+# Check your keystore
+keytool -list -v -keystore your-key.jks
+```
+
+Make sure you're using the same signing key for updates.
+
+</Accordion>
+
+<Accordion title="API Level Requirements">
+
+Google requires apps to target recent API levels:
+- **New apps:** Must target Android 14 (API 34) or higher
+- **Updates:** Must target Android 14 (API 34) or higher
+
+</Accordion>
+
+</Accordions>
+
+---
+
+## Conclusion
+
+Publishing on the Google Play Store opens your app to billions of potential users. Follow this guide carefully, and you'll have your app live in no time!
+
+<Callout type="tip">
+**Pro tip:** Start with a soft launch in a few countries to gather feedback before going global. This helps you identify and fix issues with a smaller user base.
+</Callout>
+
+Need help with your app development? Check out our other guides on building production-ready Android apps!

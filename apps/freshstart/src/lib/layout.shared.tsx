@@ -132,7 +132,7 @@ export const linkItems: LinkItemType[] = [
 export function baseOptions(): BaseLayoutProps {
   return {
     nav: {
-      title: <Logo full height={200} width={200} />,
+      title: <Logo full link={false} height={200} width={200} />,
     },
   };
 }

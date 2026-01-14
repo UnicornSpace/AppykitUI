@@ -8,7 +8,9 @@ export const blogs = defineDocs({
       isPublished: z.boolean().default(false),
       isContentReady: z.boolean().default(false),
       author: z.string().optional(),
+      authorLink: z.string().url().optional(),
       date: z.coerce.date().optional(),
+      tags: z.array(z.string()).default([]),
     }),
   },
 });
@@ -22,6 +24,7 @@ export const learn = defineDocs({
       isContentReady: z.boolean().default(false),
       author: z.string().optional(),
       date: z.coerce.date().optional(),
+      tags: z.array(z.string()).default([]),
     }),
   },
 });
