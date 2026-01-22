@@ -12,6 +12,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       {...baseOptions()}
       links={linkItems}
       searchToggle={{}}
+      
       themeSwitch={{ enabled: false }}
     >
 
