@@ -38,6 +38,41 @@ export const resourcesData: Resource[] = [
         title: "App Icon Generator",
         isFavorite: true,
     },
+    {
+        category: "icons",
+        description: "A collection of icons for Flutter apps.",
+        link: "https://hugeicons.com/",
+        title: "HugeIcons",
+        isFavorite: true,
+    },
+    {
+        category: "assets",
+        description: "Open-source illustrations for any idea you can imagine and create.",
+        link: "https://undraw.co/search",
+        title: "Undraw",
+        isFavorite: true,
+    },
+    {
+        category: "assets",
+        description: "Free illustrations for any idea you can imagine and create.",
+        link: "https://popsy.co/illustrations",
+        title: "Popsy",
+        isFavorite: true,
+    },
+    {
+        category: "icons",
+        description: "Open-source handcrafted gestures & symbols to re-imagine your work",
+        link: "https://handcrafts.undraw.co/app",
+        title: "Handcrafts by unDraw",
+        isFavorite: true,
+    },
+    {
+        category: "Flutter",
+        description: "An online Dart editor with support for console and Flutter apps.",
+        link: "https://dartpad.dev/",
+        title: "DartPad",
+        isFavorite: false,
+    },
 ];
 
 // Helper to get all unique categories
