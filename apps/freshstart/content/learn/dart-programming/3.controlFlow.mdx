@@ -2,18 +2,35 @@
 title: Control Flow in Dart
 description: Lets learn how can we control the flow of our Dart programs
 author: Likitha N
-date: 2025-10-02
-isPublished: false
-isContentReady: false
+date: 2026-01-24
+tags: [dart, if-else, loops, beginner]
+isPublished: true
+isContentReady: true
 ---
+
+<iframe
+  width="100%" 
+  height="400"
+  src="https://www.youtube.com/embed/RzXvrsBlNyM"
+  title="Understanding Hive in Flutter"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+/>
+<Callout type="info">
+Before we start, open **[DartPad](https://dartpad.dev/)** - it's a browser-based Dart editor where you can run all the code examples!
+</Callout>
 
 ## What is Control Flow?
 - Control Flow in programming refers to the order in which individual statements, instructions or function calls are executed or evaluated.
-- Loops and conditional statements are used to control the flow of execution in a program.
+- Loops and conditional statements help control which code runs and how many times it runs.
 
-## Conditional Statements
+---
+
+## Conditional Statements 
+
 - Conditional Statements are instructions that let your program to make decisions based on certain conditions.
-- The code runs ony if the condition is true.
+- The code runs only when the condition evaluates to true.
 
 ### `if` Statement
 - The `if` statement is used to execute a block of code if a specified condition is true.
@@ -27,6 +44,7 @@ void main() {
   }
 }
 ```
+---
 ### `if-else` Statement
 - The `if-else` statement is used to execute one block of code if a condition is true, and another block if the condition is false.
 
@@ -41,6 +59,7 @@ void main() {
   }
 }
 ```
+---
 ### `else if` Statement
 - The `else if` statement is used to specify a new condition to test, if the first condition is false.
 
@@ -58,7 +77,9 @@ void main() {
 }
 ```
 
-## Loops 
+---
+
+## Loops
 - Loops are used to execute a block of code repeatedly as long as a specified condition is true.
 
 ### `for` Loop
@@ -71,13 +92,14 @@ void main() {
   }
 }
 ```
+--- 
 ### `while` Loop
 - The `while` loop is used to execute a block of code as long as a specified
   condition is true.
   
 ```dart
 void main(){
-  int count = 1
+  int count = 1;
 
   while (count < 5) {
     print('Count: $count');
@@ -85,6 +107,7 @@ void main(){
   }
 }
 ```
+---
 ### `do-while` Loop
 - The `do-while` loop is similar to the `while` loop, but it
   guarantees that the block of code will be executed at least once before checking the condition.
@@ -114,6 +137,7 @@ void main() {
 }
 ```
 
+---
 ## Assert Statement
 - Its a function,that takes a condition as an argument and throws an error if the condition is false and if its true, the program continues executing normally.
 - Its mainly used during development to catch bugs and validate assumptions in the code.
@@ -128,14 +152,37 @@ void main() {
   print('Age is valid: $age');
 }
 ```
+<Callout type="info" >
+Assert statements are ignored in production (release) mode.
+</Callout>
 
 
-## Rescources to Learn Dart
-- Courses and Tutorials: Dart And Flutter Series on Youtube ("https://youtube.com/playlist?list=PL9eMLfd38heN2BbPEng6W9qBLl3oJAtwD&si=w_gsoYnIUSzFBLeR")
-- Official Dart Documentation: The official Dart website (https://dart.dev) provides comprehensive documentation, tutorials, and guides to help you get started with Dart programming.
-- DartPad: An online Dart editor (https://dartpad.dev) that allows you to write, run, and share Dart code directly in your web browser without any setup.
-- Flutter Documentation: Since Dart is primarily used with Flutter, the official Flutter documentation (https://flutter.dev/docs) is an excellent resource for learning how to build apps using Dart and Flutter together.
 
+---
+## Resources to Learn Dart
+![Test](../assets/dartpad.png)
 
-## What's Next?
-- In the Next Lesson, we will explore Operators in Dart. See you there! ([Next: Operators in Dart](operators) )
+<Tabs items={['Official Resources', 'Online Tools', 'Video Courses']}>
+
+<Tab value="Official Resources">
+
+- **[dart.dev](https://dart.dev)** - Official Dart documentation with tutorials and API references
+- **[flutter.dev](https://flutter.dev/docs)** - Flutter documentation (works hand-in-hand with Dart)
+
+</Tab>
+
+<Tab value="Online Tools">
+
+- **[DartPad](https://dartpad.dev)** - Write, run, and share Dart code directly in your browser
+- No installation required - perfect for learning and experimenting!
+</Tab>
+
+<Tab value="Video Courses">
+
+- **[Dart And Flutter Series on YouTube](https://youtube.com/playlist?list=PL9eMLfd38heN2BbPEng6W9qBLl3oJAtwD&si=w_gsoYnIUSzFBLeR)** - Comprehensive video tutorials
+
+</Tab>
+
+</Tabs>
+
+---
