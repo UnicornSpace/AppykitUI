@@ -1,14 +1,14 @@
 import { Resource } from "@/lib/types";
 
 export const resourcesData: Resource[] = [
-    {
-        category: "UI",
-        description:
-            "Responsive Flutter UI Kit for iOS and Android - 200+ pre-designed screens",
-        link: "https://appykit-ui.vercel.app/",
-        title: "AppyKit UI",
-        isFavorite: true,
-    },
+    // {
+    //     category: "UI",
+    //     description:
+    //         "Responsive Flutter UI Kit for iOS and Android - 200+ pre-designed screens",
+    //     link: "https://appykit-ui.vercel.app/",
+    //     title: "AppyKit UI",
+    //     isFavorite: true,
+    // },
     {
         category: "assets",
         description: "The internet's source for visuals.",
@@ -71,6 +71,34 @@ export const resourcesData: Resource[] = [
         description: "An online Dart editor with support for console and Flutter apps.",
         link: "https://dartpad.dev/",
         title: "DartPad",
+        isFavorite: false,
+    },
+    {
+        category: "Flutter",
+        description: "RCollection of the best designed mobile app screens.",
+        link: "https://mobbin.com/discover/apps/ios/latest",
+        title: "Mobbin",
+        isFavorite: true,
+    },
+    {
+        category: "ui-design",
+        description: "Helps to Create Flowcharts, Wireframes, Mind Maps, and more.",
+        link: "https://whimsical.com/",
+        title: "Whimsical",
+        isFavorite: false,
+    },
+    {
+        category: "inspiration",
+        description: "Discover the best design inspiration, illustrations, and graphic resources.",
+        link: "https://dribbble.com/",
+        title: "Dribbble",
+        isFavorite: false,
+    },
+    {
+        category: "ui-design",
+        description: "No-code prototyping tool for digital products.",
+        link: "https://dribbble.com/",
+        title: "ProtoPie",
         isFavorite: false,
     },
 ];
