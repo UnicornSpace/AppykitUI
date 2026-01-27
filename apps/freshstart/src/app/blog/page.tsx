@@ -32,6 +32,7 @@ export default function BlogPage() {
         isContentReady: (blog.data as any).isContentReady,
         date: (blog.data as any).date?.toISOString(),
         tags: (blog.data as any).tags || [],
+        thumbnail: (blog.data as any).thumbnail ,
       },
     }));
 

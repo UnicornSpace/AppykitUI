@@ -18,8 +18,10 @@ interface BlogData {
         isContentReady?: boolean;
         date?: string;
         tags?: string[];
+        thumbnail: string;
     };
 }
+
 
 interface BlogPageClientProps {
     publishedBlogs: BlogData[];
@@ -43,7 +45,6 @@ export function BlogPageClient({ publishedBlogs }: BlogPageClientProps) {
 
     // Get blogs for display (excluding featured when not searching)
     const displayBlogs = searchQuery ? filteredBlogs : filteredBlogs.slice(1);
-
     return (
         <main className="max-w-6xl mx-auto px-4 py-8">
             {/* Header */}
@@ -104,7 +105,7 @@ export function BlogPageClient({ publishedBlogs }: BlogPageClientProps) {
                                     <div className="grid md:grid-cols-2 gap-6">
                                         <div className="aspect-video md:aspect-auto relative overflow-hidden">
                                             <Image
-                                                src="/Flutter-appykit-blog-thumbnail.png"
+                                                src={publishedBlogs[0].data.thumbnail }
                                                 fill
                                                 className="object-cover group-hover:scale-105 transition-transform duration-500"
                                                 alt={publishedBlogs[0].data.title || "Featured blog"}
@@ -238,6 +239,12 @@ export function BlogPageClient({ publishedBlogs }: BlogPageClientProps) {
 }
 
 function BlogCard({ blog, codeEnv }: { blog: BlogData; codeEnv?: string }) {
+    
+   console.log(
+        "BlogCard thumbnail:✅",
+        JSON.stringify(blog.data.thumbnail),
+        typeof blog.data.thumbnail
+    );
     return (
         <Link href={blog.url} className="group block">
             <article className="relative overflow-hidden rounded-xl border border-fd-border bg-fd-card hover:border-fd-primary/30 hover:shadow-lg transition-all duration-300 h-full">
@@ -246,7 +253,7 @@ function BlogCard({ blog, codeEnv }: { blog: BlogData; codeEnv?: string }) {
                 )}
                 <div className="aspect-video relative overflow-hidden">
                     <Image
-                        src="/Flutter-appykit-blog-thumbnail.png"
+                        src={blog.data.thumbnail }
                         fill
                         className="object-cover group-hover:scale-105 transition-transform duration-500"
                         alt={blog.data.title || "Blog thumbnail"}

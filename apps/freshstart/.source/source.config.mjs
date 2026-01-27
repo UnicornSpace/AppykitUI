@@ -10,7 +10,8 @@ var blogs = defineDocs({
       author: z.string().optional(),
       authorLink: z.string().url().optional(),
       date: z.coerce.date().optional(),
-      tags: z.array(z.string()).default([])
+      tags: z.array(z.string()).default([]),
+      thumbnail: z.string().default("/Flutter-appykit-blog-thumbnail.png")
     })
   }
 });

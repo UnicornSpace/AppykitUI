@@ -1,5 +1,6 @@
 import { defineDocs, defineConfig, defineCollections, frontmatterSchema } from 'fumadocs-mdx/config';
 import { z } from 'zod';
+import { th } from 'zod/v4/locales';
 
 export const blogs = defineDocs({
   dir: 'content/blogs',
@@ -11,6 +12,7 @@ export const blogs = defineDocs({
       authorLink: z.string().url().optional(),
       date: z.coerce.date().optional(),
       tags: z.array(z.string()).default([]),
+      thumbnail: z.string().default('/Flutter-appykit-blog-thumbnail.png'),
     }),
   },
 });
