@@ -2,14 +2,31 @@
 title: Classes, Object and Interfaces in Dart
 description: We will learn about how to use Classes, Objects and Interfaces in Dart
 author: Likitha N
-date: 2025-10-02
+date: 2026-01-28
+tags: [dart, classes, objects, interfaces, programming, beginner]
 isPublished: false
 isContentReady: false
 ---
+<iframe
+  width="100%" 
+  height="400"
+  src="https://www.youtube.com/embed/TERHZrLOTpQ"
+  title="Understanding Classes and Interfaces in Flutter"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+/>
+<Callout type="info">
+Before we start, open **[DartPad](https://dartpad.dev/)** - it's a browser-based Dart editor where you can run all the code examples!
+</Callout>
 
 ## What are Classes in Dart?
 - A class is a blueprint for creating objects. It defines the properties and behaviors (methods) that the objects created from the class will have.
-Example : Lets say your desgning a car, whats the common things we see in all cars , like windows, wheels, engine etc and whats the common actions like driving, braking, accelerating. So we can create a class Car which will have all these common properties and behaviors. 
+- Example : Lets say your desgning a car, whats the common things we see in all cars , like windows, wheels, engine etc and whats the common actions like driving, braking, accelerating. So we can create a class Car which will have all these common properties and behaviors. 
+
+<Steps>
+
+<Step>
 ### How to Declare a Class in Dart?
 - In Dart, you can declare a class using the `class` keyword followed by the class name and a pair of curly braces `{}` to define the body of the class.
 ```dart
@@ -24,10 +41,14 @@ class Car {
   }
 }
 ```
+</Step>
+
+
+<Step>
 ### What are Objects in Dart?
 - An object is an instance of a class. 
 - If Class is considered as a blueprint, then object is the actual thing created using that blueprint.
-- Continuation of the previous example, once we have the Car class defined, we can create objects (instances) of that class representing specific added features like ai r conditioning, sunroof etc. to the existing car class.
+- Continuation of the previous example, once we have the Car class defined, we can create objects (instances) of that class representing specific added features like air conditioning, sunroof etc. to the existing car class.
 ### How to Create an Object in Dart?
 - You can create an object of a class using the `new` keyword followed by the class name and parentheses `()`. However, using `new` is optional in Dart.
 ```dart
@@ -43,7 +64,9 @@ void main() {
   myCar.drive(); // Output: The Red Toyota is driving.
 }
 ```
+</Step>
 
+<Step>
 ### What is Contructor in Dart?
 - A constructor is default method that is called when an object of a class is created.- It is used to initialize the properties of the object.
 - In Dart, a constructor has the same name as the class and does not have a return
@@ -55,7 +78,7 @@ class Car {
   String model;
   
   // Constructor
-  Car(this.color, this.model);
+  Car({required this.color, required this.model});
   
   // Method
   void drive() {
@@ -64,14 +87,17 @@ class Car {
 }
 void main() {
   // Creating an object of the Car class using constructor
-  Car myCar = Car('Blue', 'Honda');
+  Car myCar = Car(color: 'Blue', model: 'Honda');
   
   // Calling method
   myCar.drive(); // Output: The Blue Honda is driving.
 }
 
 ```
+</Step>
 
+
+<Step>
 ### What is Static variable and method in Dart?
 - Static variables and methods belong to the class itself rather than to any specific instance (object) of the class.
 - You can access static members using the class name without creating an object of the class.
@@ -105,7 +131,9 @@ class Car {
 
 
 ```
+</Step>
 
+<Step>
 ### Optional Positional Parameters in Dart Constructor
 - In Dart, you can define optional positional parameters (we use them when we want to make some parameters optional) in a constructor by enclosing them in square brackets `[]`.
 ```dart
@@ -129,6 +157,9 @@ void main() {
   car2.displayInfo(); // Output: Car Color: White, Model: DefaultModel
 }
 ```
+</Step>
+
+<Step>
 
 ### Named Parameters in Dart Constructor
 - In Dart, you can define named parameters (its use to give a name to the parameters) in a constructor by enclosing them in curly braces `{}`. Named parameters are optional by default, but you can make them required using the `required` keyword.
@@ -153,6 +184,9 @@ void main() {
   car2.displayInfo(); // Output: Car Color: Blue, Model: DefaultModel
 }
 ```
+</Step>
+
+<Step>
 ### Named Constructor in Dart
 - A named constructor allows you to create multiple constructors for a class with different names.
 ```dart
@@ -182,25 +216,47 @@ void main() {
   car2.displayInfo(); // Output: Car Color: Red, Model: DefaultModel
 }
 ```
+</Step>
 
+<Step>
 ## What are Interfaces in Dart?
 -  Its a list of rules that class must implement.
 - Its says "Any class that implements this interface must provide implementations for all the methods defined in the interface."
 - Every class automatically defines an interface, which other classes can implement.
 - In Interface there are main two things:
-  1. Public things
-  2. Private things
+  1. `Public things`
+  2. `Private things`
 - Only public things are available to the other classes that implement the interface.
 - Private things are not available to the other classes that implement the interface and these are denoted by underscore (_) before the name.
+</Step>
 
+</Steps>
+---
 
+## Resources to Learn Dart
+![Test](../assets/dartpad.png)
 
-## Rescources to Learn Dart
-- Courses and Tutorials: Dart And Flutter Series on Youtube ("https://youtube.com/playlist?list=PL9eMLfd38heN2BbPEng6W9qBLl3oJAtwD&si=w_gsoYnIUSzFBLeR")
-- Official Dart Documentation: The official Dart website (https://dart.dev) provides comprehensive documentation, tutorials, and guides to help you get started with Dart programming.
-- DartPad: An online Dart editor (https://dartpad.dev) that allows you to write, run, and share Dart code directly in your web browser without any setup.
-- Flutter Documentation: Since Dart is primarily used with Flutter, the official Flutter documentation (https://flutter.dev/docs) is an excellent resource for learning how to build apps using Dart and Flutter together.
+<Tabs items={['Official Resources', 'Online Tools', 'Video Courses']}>
 
+<Tab value="Official Resources">
 
-{/* ## What's Next?
-- In the Next Lesson, we will explore Classes,Objects and Interfaces in Dart. See you there! ([Next: Classes  in Dart](Classes) ) */}
+- **[dart.dev](https://dart.dev)** - Official Dart documentation with tutorials and API references
+- **[flutter.dev](https://flutter.dev/docs)** - Flutter documentation (works hand-in-hand with Dart)
+
+</Tab>
+
+<Tab value="Online Tools">
+
+- **[DartPad](https://dartpad.dev)** - Write, run, and share Dart code directly in your browser
+- No installation required - perfect for learning and experimenting!
+</Tab>
+
+<Tab value="Video Courses">
+
+- **[Dart And Flutter Series on YouTube](https://youtube.com/playlist?list=PL9eMLfd38heN2BbPEng6W9qBLl3oJAtwD&si=w_gsoYnIUSzFBLeR)** - Comprehensive video tutorials
+
+</Tab>
+
+</Tabs>
+
+---

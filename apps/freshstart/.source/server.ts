@@ -1,7 +1,8 @@
 // @ts-nocheck
-import * as __fd_glob_25 from "../content/learn/flutter-development/2.working_with_images_in_flutter.mdx?collection=learn"
-import * as __fd_glob_24 from "../content/learn/flutter-development/1.basics.mdx?collection=learn"
-import * as __fd_glob_23 from "../content/learn/dart-programming/8.mixins.mdx?collection=learn"
+import * as __fd_glob_26 from "../content/learn/flutter-development/2.working_with_images_in_flutter.mdx?collection=learn"
+import * as __fd_glob_25 from "../content/learn/flutter-development/1.basics.mdx?collection=learn"
+import * as __fd_glob_24 from "../content/learn/dart-programming/9.mixins.mdx?collection=learn"
+import * as __fd_glob_23 from "../content/learn/dart-programming/8.enums.mdx?collection=learn"
 import * as __fd_glob_22 from "../content/learn/dart-programming/7.classes_object_interface copy.mdx?collection=learn"
 import * as __fd_glob_21 from "../content/learn/dart-programming/6.list_and_maps.mdx?collection=learn"
 import * as __fd_glob_20 from "../content/learn/dart-programming/5.functions.mdx?collection=learn"
@@ -35,4 +36,4 @@ const create = server<typeof Config, import("fumadocs-mdx/runtime/types").Intern
 
 export const blogs = await create.docs("blogs", "content\blogs", {}, {"design-foundations.mdx": __fd_glob_0, "fonts_broke_in_release.mdx": __fd_glob_1, "homeScreen_widget.mdx": __fd_glob_2, "how-to-publish-app-in-playstore.mdx": __fd_glob_3, "how-to-run-flutter-apps-on-physicalDevice.mdx": __fd_glob_4, "how-to-set-app-icon-in-flutter.mdx": __fd_glob_5, "how-to-use-custom-fonts-in-expo-with-nativewind.mdx": __fd_glob_6, "how_to_use_animations_package.mdx": __fd_glob_7, "how_to_use_hive.mdx": __fd_glob_8, "programming-foundations.mdx": __fd_glob_9, "react-native-errors.mdx": __fd_glob_10, "rn-to-flutter.mdx": __fd_glob_11, "what-is-bad-in-reactnative.mdx": __fd_glob_12, "work-with-Assests-in-flutter.mdx": __fd_glob_13, });
 
-export const learn = await create.docs("learn", "content\learn", {"dart-programming/meta.json": __fd_glob_14, }, {"index.mdx": __fd_glob_15, "dart-programming/1.intro.mdx": __fd_glob_16, "dart-programming/2.variables_nullSafety.mdx": __fd_glob_17, "dart-programming/3.controlFlow.mdx": __fd_glob_18, "dart-programming/4.operators.mdx": __fd_glob_19, "dart-programming/5.functions.mdx": __fd_glob_20, "dart-programming/6.list_and_maps.mdx": __fd_glob_21, "dart-programming/7.classes_object_interface copy.mdx": __fd_glob_22, "dart-programming/8.mixins.mdx": __fd_glob_23, "flutter-development/1.basics.mdx": __fd_glob_24, "flutter-development/2.working_with_images_in_flutter.mdx": __fd_glob_25, });
+export const learn = await create.docs("learn", "content\learn", {"dart-programming/meta.json": __fd_glob_14, }, {"index.mdx": __fd_glob_15, "dart-programming/1.intro.mdx": __fd_glob_16, "dart-programming/2.variables_nullSafety.mdx": __fd_glob_17, "dart-programming/3.controlFlow.mdx": __fd_glob_18, "dart-programming/4.operators.mdx": __fd_glob_19, "dart-programming/5.functions.mdx": __fd_glob_20, "dart-programming/6.list_and_maps.mdx": __fd_glob_21, "dart-programming/7.classes_object_interface copy.mdx": __fd_glob_22, "dart-programming/8.enums.mdx": __fd_glob_23, "dart-programming/9.mixins.mdx": __fd_glob_24, "flutter-development/1.basics.mdx": __fd_glob_25, "flutter-development/2.working_with_images_in_flutter.mdx": __fd_glob_26, });

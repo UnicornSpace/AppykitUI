@@ -1,22 +1,42 @@
 ---
 title: Functions in Dart
-description: We will about how to structure our code using Functions in Dart
+description: Learn about Functions in the  Dart programming language
 author: Likitha N
-date: 2025-10-02
-isPublished: false
-isContentReady: false
+date: 2026-01-27
+tags: [dart, functions, programming, beginner]
+isPublished: true
+isContentReady: true
 ---
+<iframe
+  width="100%" 
+  height="400"
+  src="https://www.youtube.com/embed/tdk7J8uMn7g"
+  title="Understanding Functions in Flutter"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+/>
+<Callout type="info">
+Before we start, open **[DartPad](https://dartpad.dev/)** - it's a browser-based Dart editor where you can run all the code examples!
+</Callout>
 
 ## What are Functions?
-- Functions is a block of code that does some task given to it and can be reused multiple times throughout the program.
-### Use of Functions
-1. Avoid code repetition by reusing the same function multiple times.
-2. Orgainize code into smaller, manageable pieces.
-3. Make code easier to understand and maintain.
-4. Perform specific tasks.
+- A function is a block of code that performs a specific task and can be reused multiple times throughout a program.
 
-## Syntax of Functions
-- A function in Dart is defined using the `returnType` , `functionName` and `parameters` (optional) followed by the function body enclosed in curly braces `{}`.
+
+
+<Accordions type="single">
+
+<Accordion title="Use of Functions">
+-  Avoid code repetition by reusing the same function multiple times.
+- Organize  code into smaller, manageable pieces.
+- Make code easier to understand and maintain.
+- Perform specific tasks.
+</Accordion>
+
+
+<Accordion title="Syntax of Functions">
+A function in Dart is defined using a `returnType`, `functionName`, and optional `parameters`(optional) followed by the function body enclosed in curly braces `{}`.
 ```dart
 void main(){
   // Function call
@@ -30,9 +50,23 @@ String takeFive(int number) {
   return 'Number is $number';
 }
 ```
-Note: parameters : placeholders when function is defined, arguments : actual values passed when function is called.
+![Function Syntax](../assets/define_the_function.png)
 
-### 1. Function without Return Type and without Parameters
+<Callout type="info">
+Note: parameters are placeholders when a function is defined, and arguments are the actual values passed when the function is called.
+</Callout>
+</Accordion>
+
+</Accordions>
+
+
+---
+
+## Types of Functions in Dart
+<Steps>
+
+<Step >
+### Function without Return Type and without Parameters
 ```dart
 void greet() {
   print('Hello, Welcome to Dart Functions!');
@@ -41,17 +75,23 @@ void main() {
   greet(); // Function call
 }
 ```
-### 2. Function with Return Type and without Parameters
+</Step>
+
+<Step>
+###  Function with Return Type and without Parameters
 ```dart
 int getRandomNumber() {
-  return 42; // Returning a random number
+  return 42; //  Returning a fixed number
 }
 void main() {
   int number = getRandomNumber(); // Function call
   print('Random Number: $number');
 }
 ```
-### 3. Function with Return Type and with Parameters
+</Step>
+
+<Step>
+### Function with Return Type and with Parameters
 ```dart
 String greetUser(String name) {
   return 'Hello, $name! Welcome to Dart Functions.';
@@ -61,8 +101,11 @@ void main() {
   print(message);
 }
 ```
-### 4. Function with Optional Parameters
-- In Dart, you can define optional parameters using square brackets `[]`. These parameters can be omitted when calling the function.
+</Step>
+
+<Step>
+###  Function with Optional Parameters
+In Dart, you can define optional parameters using square brackets `[]`. These parameters can be omitted when calling the function.
 ```dart
 void displayInfo(String name, [int? age]) {
   if (age != null) {
@@ -76,7 +119,11 @@ void main() {
   displayInfo('Charlie'); // Calling with only name
 }
 ```
-### 5. Function with Named Parameters - In Dart, you can define named parameters using curly braces `{}`. When calling the function, you need to specify the parameter names.
+</Step>
+
+<Step>
+###  Function with Named Parameters 
+In Dart, you can define named parameters using curly braces `{}`. When calling the function, you need to specify the parameter names.
 ```dart
 void displayDetails({required String name, int? age}) {
   if (age != null) {
@@ -90,20 +137,26 @@ void main() {
   displayDetails(name: 'Eve'); // Calling with only name
 }
 ```
+</Step>
+
+<Step>
 ### 6. Default Parameter Values
-- You can provide default values for optional parameters. If the caller does not provide a value, the default value will be used.
+You can provide default values for optional parameters. If the caller does not provide a value, the default value will be used.
 ```dart
 void greetUser(String name, {String greeting = 'Hello'}) {
   print('$greeting, $name!');
 }
 void main() {
   greetUser('Frank'); // Uses default greeting
-  greetUser('Grace',
-      greeting: 'Welcome'); // Uses custom greeting
+  greetUser('Grace',greeting: 'Welcome'); // Uses custom greeting
 }
 ```
+</Step>
+
+
+<Step>
 ### 7. Callback Functions
-- Functions can be passed as arguments to other functions. These are called callback functions.
+Functions can be passed as arguments to other functions. These are called callback functions.
 ```dart
 void performOperation(int a, int b, Function operation) {
   int result = operation(a, b);
@@ -116,8 +169,11 @@ void main() {
   performOperation(5, 3, add); // Passing add function as a callback
 }
 ```
+</Step>
+
+<Step>
 ### 8. Function as Variables
-- In Dart, functions are first-class citizens, which means you can assign them to variables.
+In Dart, functions are first-class citizens, which means you can assign them to variables.
 ```dart
 void main() {
   // Assigning function to a variable
@@ -130,12 +186,53 @@ void main() {
   print('Multiplication Result: $result');
 }
 ```
-## Rescources to Learn Dart
-- Courses and Tutorials: Dart And Flutter Series on Youtube ("https://youtube.com/playlist?list=PL9eMLfd38heN2BbPEng6W9qBLl3oJAtwD&si=w_gsoYnIUSzFBLeR")
-- Official Dart Documentation: The official Dart website (https://dart.dev) provides comprehensive documentation, tutorials, and guides to help you get started with Dart programming.
-- DartPad: An online Dart editor (https://dartpad.dev) that allows you to write, run, and share Dart code directly in your web browser without any setup.
-- Flutter Documentation: Since Dart is primarily used with Flutter, the official Flutter documentation (https://flutter.dev/docs) is an excellent resource for learning how to build apps using Dart and Flutter together.
+</Step>
 
 
-## What's Next?
-- In the Next Lesson, we will explore Lists And Maps in Dart. See you there! ([Next: Lists And Maps in Dart](list_and_maps) )
+<Step>
+### 8. Arrow Functions
+- Arrow functions provide a shorthand syntax for defining functions that contain a single expression. They use the `=>` syntax.
+```dart
+void main() {
+  // Arrow function
+  Function multiply = (int x, int y) => x * y;
+
+  int result = multiply(4, 5);
+  print('Multiplication Result: $result');
+}
+```
+</Step>
+
+</Steps>
+
+---
+
+## Resources to Learn Dart
+![Test](../assets/dartpad.png)
+
+<Tabs items={['Official Resources', 'Online Tools', 'Video Courses']}>
+
+<Tab value="Official Resources">
+
+- **[dart.dev](https://dart.dev)** - Official Dart documentation with tutorials and API references
+- **[flutter.dev](https://flutter.dev/docs)** - Flutter documentation (works hand-in-hand with Dart)
+
+</Tab>
+
+<Tab value="Online Tools">
+
+- **[DartPad](https://dartpad.dev)** - Write, run, and share Dart code directly in your browser
+- No installation required - perfect for learning and experimenting!
+</Tab>
+
+<Tab value="Video Courses">
+
+- **[Dart And Flutter Series on YouTube](https://youtube.com/playlist?list=PL9eMLfd38heN2BbPEng6W9qBLl3oJAtwD&si=w_gsoYnIUSzFBLeR)** - Comprehensive video tutorials
+
+</Tab>
+
+</Tabs>
+
+---
+
+

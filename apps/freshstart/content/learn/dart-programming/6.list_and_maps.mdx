@@ -2,21 +2,37 @@
 title: Lists and Maps in Dart
 description: We will learn about how to use Lists and Maps in Dart
 author: Likitha N
-date: 2025-10-02
-isPublished: false
-isContentReady: false
+date: 2026-01-27
+tags: [dart, lists, maps, programming, beginner]
+isPublished: true
+isContentReady: true
 ---
+<iframe
+  width="100%" 
+  height="400"
+  src="https://www.youtube.com/embed/S7B-MG6nFSI"
+  title="Understanding Lists and Maps in Flutter"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+/>
+<Callout type="info">
+Before we start, open **[DartPad](https://dartpad.dev/)** - it's a browser-based Dart editor where you can run all the code examples!
+</Callout>
 
 ## What are Iterable?
 - Its a collection of objects that can be iterated over, meaning you can access each element one by one.
 - In Dart, the two main types of iterables are Lists and Maps.
 
+---
 ## Lists in Dart
 - Its the one of the useful object in Dart and also called as Array in other programming languages.
 - It is an ordered collection of items where each item can be accessed using its index.
 
+<Steps >
+<Step >
 ### How to Declare a List in Dart?
-- You can declare a List using the `List` keyword followed by the data type of the elements inside angle brackets `<>` and then use square brackets `[]` to initialize the list with values.
+You can declare a List using the `List` keyword followed by the data type of the elements inside angle brackets `<>` and then use square brackets `[]` to initialize the list with values.
 ```dart
 void main() {
   // Declaring a List of integers
@@ -26,6 +42,8 @@ void main() {
   print('Numbers: $numbers');
 }
 ```
+</Step>
+<Step>
 ### Accessing List Elements
 - You can access elements in a List using their index, which starts from 0 for the first element.
 ```dart
@@ -37,6 +55,8 @@ void main() {
   print('Second fruit: ${fruits[1]}'); // Banana
 }
 ```
+</Step>
+<Step>
 ### Common List Operations
 - Adding Elements: You can add elements to a List using the `add()` method.
 - Removing Elements: You can remove elements using the `remove()` method.
@@ -70,11 +90,19 @@ void main() {
 
 }
 ```
+</Step>
+</Steps>
+
+---
 
 ## Maps in Dart
 - A Map is a collection of key-value pairs, where each key is unique and is used to access its corresponding value.
 - It is also known as Dictionary or HashMap in other programming languages.
 
+
+<Steps>
+
+<Step>
 ### How to Declare a Map in Dart?
 - You can declare a Map using the `Map` keyword followed by the data types of the keys and values inside angle brackets `<>` and then use curly braces `{}` to initialize the map with key-value pairs.
 ```dart
@@ -90,6 +118,10 @@ void main() {
   print('Ages: $ages');
 }
 ```
+</Step>
+
+
+<Step>
 ### Accessing Map Elements
 - You can access values in a Map using their corresponding keys.
 ```dart
@@ -105,6 +137,10 @@ void main() {
   print('Capital of India: ${capitals['India']}'); // New Delhi
 }
 ```
+</Step>
+
+
+<Step>
 ### Common Map Operations
 - Adding Key-Value Pairs: You can add key-value pairs to a Map using the assignment operator `=`.
 - Removing Key-Value Pairs: You can remove key-value pairs using the `remove()`
@@ -139,13 +175,40 @@ void main() {
   });
 }
 ```
-
-## Rescources to Learn Dart
-- Courses and Tutorials: Dart And Flutter Series on Youtube ("https://youtube.com/playlist?list=PL9eMLfd38heN2BbPEng6W9qBLl3oJAtwD&si=w_gsoYnIUSzFBLeR")
-- Official Dart Documentation: The official Dart website (https://dart.dev) provides comprehensive documentation, tutorials, and guides to help you get started with Dart programming.
-- DartPad: An online Dart editor (https://dartpad.dev) that allows you to write, run, and share Dart code directly in your web browser without any setup.
-- Flutter Documentation: Since Dart is primarily used with Flutter, the official Flutter documentation (https://flutter.dev/docs) is an excellent resource for learning how to build apps using Dart and Flutter together.
+</Step>
 
 
-## What's Next?
-- In the Next Lesson, we will explore Classes in Dart. See you there! ([Next: Classes  in Dart](Classes) )
+
+</Steps>
+
+---
+
+## Resources to Learn Dart
+![Test](../assets/dartpad.png)
+
+<Tabs items={['Official Resources', 'Online Tools', 'Video Courses']}>
+
+<Tab value="Official Resources">
+
+- **[dart.dev](https://dart.dev)** - Official Dart documentation with tutorials and API references
+- **[flutter.dev](https://flutter.dev/docs)** - Flutter documentation (works hand-in-hand with Dart)
+
+</Tab>
+
+<Tab value="Online Tools">
+
+- **[DartPad](https://dartpad.dev)** - Write, run, and share Dart code directly in your browser
+- No installation required - perfect for learning and experimenting!
+</Tab>
+
+<Tab value="Video Courses">
+
+- **[Dart And Flutter Series on YouTube](https://youtube.com/playlist?list=PL9eMLfd38heN2BbPEng6W9qBLl3oJAtwD&si=w_gsoYnIUSzFBLeR)** - Comprehensive video tutorials
+
+</Tab>
+
+</Tabs>
+
+---
+
+
