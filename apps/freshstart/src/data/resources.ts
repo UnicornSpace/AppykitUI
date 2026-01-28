@@ -101,6 +101,20 @@ export const resourcesData: Resource[] = [
         title: "ProtoPie",
         isFavorite: false,
     },
+    {
+        category: "ui-design",
+        description: "A huge collection of free SVG icons for you to use in your digital products.",
+        link: "https://iconoir.com/",
+        title: "Iconoir",
+        isFavorite: false,
+    },
+    {
+        category: "ui-design",
+        description: "Generate placeholder logos for your projects.",
+        link: "https://logoipsum.com/",
+        title: "Logoipsm",
+        isFavorite: false,
+    },
 ];
 
 // Helper to get all unique categories

@@ -25,6 +25,134 @@ Before we start, open **[DartPad](https://dartpad.dev/)** - it's a browser-based
 Example : Lets say your desgning a car, whats the common things we see in all cars , like windows, wheels, engine etc and whats the common actions like driving, braking, accelerating. So we can create a class Car which will have all these common properties and behaviors. 
 
 ---
+
+## Example to show why we need Mixins
+<Steps>
+<Step>
+### Lets Create a Base Class
+```dart
+class Animal {
+  void move() {
+    print('Animal moves');
+  }
+}
+
+```
+<Callout type="info">
+Here, `Animal` is a base class with a method `move`.
+</Callout>
+</Step>
+
+<Step>
+### Now Lets Create Subclasses  `Fish` that Inherit from Animal
+```dart
+class Fish extends Animal {
+  void swim() {
+    print('Swimming');
+  }
+}
+
+```
+<Callout type="info">
+Here, `Fish` inherits the `move` method from `Animal` and adds its own method `swim`.
+</Callout>
+</Step>
+
+
+<Step>
+### Now Lets Create Subclasses  `Bird` that Inherit from Animal
+```dart
+class Bird extends Animal {
+  void fly() {
+    print('Flying');
+  }
+}
+
+```
+<Callout type="info">
+Here, `Bird` inherits the `move` method from `Animal` and adds its own method `fly`.
+</Callout>
+</Step>
+
+</Steps>
+
+---
+## Problem with Inheritance
+- Now, what if we want to create a class `Duck` that can both swim and fly? 
+- With traditional inheritance, we can't inherit from both `Fish` and `Bird` because Dart does not support multiple inheritance.
+
+![Problem with Inheritance](../assets/mixins.png)
+
+---
+
+## Solution: Using Mixins
+- Mixins allow us to reuse code from multiple classes without using inheritance.
+- A mixin represents what an object can do, not what it is.
+<Steps>
+<Step>
+### Create mixins for behaviors
+```dart
+mixin CanFly {
+  void fly() {
+    print('Flying');
+  }
+}
+
+mixin CanSwim {
+  void swim() {
+    print('Swimming');
+  }
+}
+
+```
+<Callout type="info">
+`Mixins` are created with the `mixin` keyword and contain methods that can be reused.
+Here, `CanFly` and `CanSwim` are mixins that provide flying and swimming behaviors.
+</Callout>
+</Step>
+
+
+<Step>
+### Base Animal class
+```dart
+class Animal {
+  void move() {
+    print('Animal moves');
+  }
+}
+```
+<Callout type="info">
+Here, `Animal` is a base class with a method `move`.
+</Callout>
+</Step>
+
+
+<Step>
+### Use mixins with classes
+```dart
+class Fish extends Animal with CanSwim {}
+
+class Bird extends Animal with CanFly {}
+```
+<Callout type="info">
+Here, `Fish` uses the `CanSwim` mixin, and `Bird` uses the `CanFly` mixin, allowing them to have swimming and flying behaviors respectively.
+</Callout>
+
+</Step>
+
+<Step>
+### Create Duck class that uses both mixins
+```dart
+class Duck extends Animal with CanFly, CanSwim {}
+```
+<Callout type="info">
+Here, `Duck` uses both `CanFly` and `CanSwim` mixins, allowing it to both fly and swim.
+</Callout>
+</Step>
+
+</Steps>
+
+---
 ## Resources to Learn Dart
 ![Test](../assets/dartpad.png)
 

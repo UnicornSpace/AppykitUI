@@ -1,6 +1,6 @@
 ---
 title: Enums in Dart
-description: Learn about Enumeration in Dart programming language
+description: Learn about Enums in Dart programming language
 author: Likitha N
 date: 2026-01-29
 tags: [dart, enums, programming, beginner]
@@ -19,11 +19,92 @@ isContentReady: false
 <Callout type="info">
 Before we start, open **[DartPad](https://dartpad.dev/)** - it's a browser-based Dart editor where you can run all the code examples!
 </Callout>
-## What are Enumeration in Dart?
 
+## What are Enum in Dart?
+- An enum is a fixed set of named values.
+In simple terms
+- Use enum when a value can be only one of a few options
+- It prevents using random strings or numbers
+- Makes code safer, readable, and bug-free
 
 --- 
 
+## Real-World Example
+- We all have seen the themes in apps like Light mode, Dark mode, System default mode.
+- We can create an enum ThemeMode with these three options.
+![Themes](../assets/themes.png)
+
+
+<Steps>
+<Step>
+### Create an Enum
+
+``` dart
+enum AppTheme {
+  light,
+  dark,
+  system,
+}
+<Callout type="info">
+Enums are defined using the `enum` keyword followed by the name and the list of values inside curly braces.
+</Callout>
+```
+</Step>
+
+
+
+<Step>
+### Use the Enum
+
+``` dart
+void main() {
+  AppTheme selectedTheme = AppTheme.dark;
+
+  if (selectedTheme == AppTheme.dark) {
+    print('Dark mode enabled');
+  }
+}
+```
+<Callout type="info">
+`AppTheme` is the enum that we have created. We can use it to set and check the theme mode in our app.
+</Callout>
+
+</Step>
+
+</Steps>
+
+## Benefits of Using Enums
+<Steps>
+
+<Step >
+**Type Safety** : Prevents invalid values
+
+![Type Safety](../assets/typeSafety.png)
+
+<Callout type="info"> With enums, Dart won’t allow invalid values like `drak`. Only `light`, `dark`, or `system` are allowed. </Callout> 
+
+</Step>
+---
+
+<Step >
+**Readability** : Clear and meaningful names
+![Type Safety](../assets/readability.png)
+<Callout type="info"> Enums make your code self-explanatory, even for beginners. </Callout>
+</Step>
+
+
+---
+<Step >
+**Maintainability** : Easy to update and manage options
+![Type Safety](../assets/maintainabilty.png)
+
+<Callout type="info"> Enums centralize all options in one place, making future changes easy and safe. </Callout>
+</Step>
+</Steps>
+
+
+
+---
 ## Resources to Learn Dart
 ![Test](../assets/dartpad.png)
 
