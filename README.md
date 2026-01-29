@@ -1,12 +1,7 @@
 <div align="center">
     <h1 align="center">AppyKit UI</h1>
-    <h5>AppyKit UI is React Native UI library — designed with developer experience </h5>
 </div>
 
-<div align="center">
-  <a href="https://www.appykit-ui.com/">AppyKit UI »</a>
-</div>
-<br/>
 <img width="1898" height="892" alt="image" src="https://github.com/user-attachments/assets/897ae680-13dd-4332-80c8-b93268cbb52f" />
 
 
