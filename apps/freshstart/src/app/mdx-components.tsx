@@ -21,6 +21,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     Steps,
     Step,
     HeroSection,
+    
     // BlocksHeroSection,
     // ComponentThumbnailCard,
     // ReactNativeThumbnailCard,
