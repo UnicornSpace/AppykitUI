@@ -111,7 +111,7 @@ export const linkItems: LinkItemType[] = [
   },
   {
     // icon: <BookIcon />,
-    text: "resources",
+    text: "Resources",
     url: "/resources",
     // secondary items will be displayed differently on navbar
     secondary: false,

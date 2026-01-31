@@ -34,9 +34,7 @@ export default function FeatureBentoGrid() {
               </CardContent>
             </Card>
             <Card className="relative col-span-full overflow-hidden sm:col-span-3 lg:col-span-2">
-              <Link
-                href={"/blog?category=design"}
-                className="hover:opacity-80 transition-opacity duration-300"
+              <
               >
                 <CardContent className="pt-6">
                   <div className="relative mx-auto flex aspect-square size-32 rounded-full border before:absolute before:-inset-2 before:rounded-full before:border dark:border-white/10 dark:before:border-white/5">
@@ -102,7 +100,7 @@ export default function FeatureBentoGrid() {
                     </p>
                   </div>
                 </CardContent>
-              </Link>
+              </>
             </Card>
             <Card className="relative col-span-full overflow-hidden sm:col-span-3 lg:col-span-2">
               <Link

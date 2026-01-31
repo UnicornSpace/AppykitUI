@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useState, useMemo } from "react";
-import { BsTwitterX, BsLinkedin, BsInstagram, BsFacebook, BsSearch, BsArrowRight } from "react-icons/bs";
+import { BsTwitterX, BsLinkedin, BsInstagram, BsFacebook, BsSearch, BsArrowRight, BsGithub } from "react-icons/bs";
 import { LuBookOpen, LuLayoutGrid } from "react-icons/lu";
 
 interface BlogData {
@@ -62,14 +62,14 @@ export function BlogPageClient({ publishedBlogs }: BlogPageClientProps) {
                     <a href="https://twitter.com/appykitui" target="_blank" rel="noopener noreferrer" className="text-fd-muted-foreground hover:text-fd-foreground transition-colors">
                         <BsTwitterX size={18} />
                     </a>
-                    <a href="https://linkedin.com/company/appykitui" target="_blank" rel="noopener noreferrer" className="text-fd-muted-foreground hover:text-fd-foreground transition-colors">
+                    {/* <a href="https://linkedin.com/company/appykitui" target="_blank" rel="noopener noreferrer" className="text-fd-muted-foreground hover:text-fd-foreground transition-colors">
                         <BsLinkedin size={18} />
-                    </a>
-                    <a href="https://instagram.com/appykitui" target="_blank" rel="noopener noreferrer" className="text-fd-muted-foreground hover:text-fd-foreground transition-colors">
+                    </a> */}
+                    {/* <a href="https://instagram.com/appykitui" target="_blank" rel="noopener noreferrer" className="text-fd-muted-foreground hover:text-fd-foreground transition-colors">
                         <BsInstagram size={18} />
-                    </a>
-                    <a href="https://facebook.com/appykitui" target="_blank" rel="noopener noreferrer" className="text-fd-muted-foreground hover:text-fd-foreground transition-colors">
-                        <BsFacebook size={18} />
+                    </a> */}
+                    <a href="https://github.com/UnicornSpace/AppykitUI" target="_blank" rel="noopener noreferrer" className="text-fd-muted-foreground hover:text-fd-foreground transition-colors">
+                        <BsGithub size={18} />
                     </a>
                 </div>
             </div>
@@ -138,26 +138,30 @@ export function BlogPageClient({ publishedBlogs }: BlogPageClientProps) {
 
                     {/* Newsletter CTA (only show if we have more than 3 blogs) */}
                     {displayBlogs.length > 3 && (
-                        <section className="bg-primary relative overflow-hidden rounded-2xl bg-gradient-to-r text-text  border border-fd-border p-8 md:p-6 mb-4">
+                        <section className="bg-primary relative overflow-hidden rounded-2xl bg-gradient-to-r text-text  border border-fd-border p-8 md:p-6 md:py-4 mb-4">
                             <div className="absolute top-0 right-0 w-64 h-64 bg-fd-primary/5 rounded-full blur-3xl" />
-                            <div className="relative overflow-hidden z-10 grid md:grid-cols-2 gap-8 items-center ">
+                            <div className="relative overflow-hidden z-10 grid md:grid-cols-2 gap-8 items-center  ">
                                 <div>
-                                    <h3 className="text-1xl md:text-xl font-bold text-white mb-0">
+                                    {/* <h3 className="text-1xl md:text-xl font-bold text-white mb-0">
                                         Receive the latest AppykitUI Newsletter updates.
-                                    </h3>
+                                    </h3> */}
                                     <p className="text-white/80">
-                                        Get weekly tips on Flutter development, UI design, and more.
+                                        {/* Get weekly tips on Flutter development, UI design, and more. */}
+                                        Feel free to star us on GitHub and stay updated with our latest releases and features!
                                     </p>
 
-                                    <div className="absolute -left-40 rotate-45 -bottom-10 bg-transparent border-8 border-white z-10  size-60 rounded-full" />
+                                    {/* <div className="absolute -left-40 rotate-45 -bottom-10 bg-transparent border-8 border-white z-10  size-60 rounded-full" /> */}
                                 </div>
-                                <div className="flex gap-3">
-                                    <Input
+                                <div className="flex justify-end gap-3">
+                                    {/* <Input
                                         type="email"
                                         placeholder="Enter your email address"
                                         className="flex-1 bg-fd-background border-fd-border"
-                                    />
-                                    <Button variant={"secondary"} className="px-6">Subscribe</Button>
+                                    /> */}
+                                     
+                                    <Button variant={"secondary"} className="px-6">Github <a href="https://github.com/UnicornSpace/AppykitUI" target="_blank" rel="noopener noreferrer" className="text-fd-muted-foreground hover:text-fd-foreground transition-colors">
+                        <BsGithub size={18} />
+                    </a></Button>
                                 </div>
                             </div>
                         </section>

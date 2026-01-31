@@ -31,9 +31,9 @@ export default function HeroSection() {
           and design<span className="text-primary">*</span>
         </h1>
         <h2 className="text-xl text-muted-foreground max-w-xl mx-auto font-poppins px-2">
-          A growing library of beautifully crafted components
+          Learn app development and design the right way 
           {/* <br /> */}
-          to help developers ship faster and design better.
+          {/* to help developers ship faster and design better. */}
         </h2>
         <div className="flex flex-col sm:flex-row gap-2 justify-center pt-8">
           {/* <Button size="lg" className=" rounded-full h-12">
@@ -47,11 +47,11 @@ export default function HeroSection() {
             </Button>
           </Link>
           <Link
-            href={"/learn/flutter-development"}
+            href={"/learn/dart-programming"}
             className="w-full sm:w-auto"
           >
             <Button variant="default" className=" rounded-full" size={"xl"}>
-              Learn Flutter <FaFlutter className="ml-2" />
+              Learn Dart <FaFlutter className="ml-2" />
             </Button>
           </Link>
           {/* <button className="rounded-full h-10 flex items-center gap-2 border  px-4 dark:bg-white dark:text-black bg-black text-white">
