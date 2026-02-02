@@ -115,6 +115,34 @@ export const resourcesData: Resource[] = [
         title: "Logoipsm",
         isFavorite: false,
     },
+    {
+        category: "icons",
+        description: "Beautifully Crafted Free & Premium 3D Icons",
+        link: "https://3dicons.co/",
+        title: "3D Icons",
+        isFavorite: true,
+    },
+    {
+        category: "assets",
+        description: "Generate beautiful, customizable gradients crafted for designers and developers.",
+        link: "https://www.noisygradients.com/",
+        title: "Nosiy Gradients",
+        isFavorite: false,
+    },
+    {
+        category: "assets",
+        description: "Open source illustrations kit",
+        link: "https://illlustrations.co/",
+        title: "illlustrations",
+        isFavorite: false,
+    },
+    {
+        category: "assets",
+        description: "100+ Abstract shapes with cool grainy gradient. Ready to use with any design dev project.",
+        link: "https://coolshap.es/",
+        title: "CoolShapes",
+        isFavorite: false,
+    },
 ];
 
 // Helper to get all unique categories

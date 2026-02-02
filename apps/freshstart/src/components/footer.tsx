@@ -62,7 +62,7 @@ function MainFooter() {
             </Link>
           </nav> */}
 
-          <div className="mb-8 w-full max-w-md">
+          {/* <div className="mb-8 w-full max-w-md">
             <form className="flex space-x-2">
               <div className="flex-grow">
                 <Label htmlFor="email" className="sr-only">
@@ -79,7 +79,7 @@ function MainFooter() {
                 Subscribe
               </Button>
             </form>
-          </div>
+          </div> */}
           <div className="text-center">
             <p className="text-sm text-muted-foreground">
               © 2026 Appykit. All rights reserved.
