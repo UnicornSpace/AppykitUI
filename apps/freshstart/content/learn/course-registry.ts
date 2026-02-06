@@ -3,7 +3,7 @@ import { LuBrainCircuit } from "react-icons/lu";
 export const coursesRegistry = [
     {
         title: 'Learn Flutter Development — Build Cross-Platform Apps',
-        description: `This is a hands-on course where you'll learn to build apps using GenAI APIs with OpenAI, Claude Anthropic. We’ll explore how to use prompts, manage context, build chatbots, and connect LLMs to your own data using tools like LangChain, LangGraph, Mem0, Qdrant, Neo4j, MongoDB. No AI background required — just basic Python and curiosity.`,
+        description: `This is a hands-on course where you'll learn Flutter development from the ground up. Starting with the basics of Dart programming language, you'll progress to building user interfaces using Flutter's widget system. The course covers essential topics such as state management, navigation, and working with APIs. By the end of the course, you'll have the skills to create beautiful, responsive, and high-performance mobile applications.`,
         slug: 'flutter-development',
         seo: {
             description: "Learn Flutter development with clear, written guides. Build cross-platform mobile apps using Flutter, widgets, layouts, and best practices."
@@ -16,7 +16,7 @@ export const coursesRegistry = [
     },
     {
         title: 'Learn Dart Programming ',
-        description: `Beginner to Advanced Guide — This is a hands-on course where you'll learn to build apps using GenAI APIs with OpenAI, Claude Anthropic. We’ll explore how to use prompts, manage context, build chatbots, and connect LLMs to your own data using tools like LangChain, LangGraph, Mem0, Qdrant, Neo4j, MongoDB. No AI background required — just basic Python and curiosity.`,
+        description: `This course provide a comprehensive introduction to Dart programming language. It covers the fundamentals of Dart, including syntax, data types, control structures, functions, and object-oriented programming concepts. The course also explores advanced topics such as asynchronous programming, error handling, and working with libraries and packages. Through practical examples and hands-on exercises, learners will gain the skills needed to write efficient and effective Dart code for various applications.`,
         seo: {
             description: "Learn Dart programming from scratch with structured, written guides. Covers fundamentals, async, OOP, and real-world Dart usage for beginners."
         },
