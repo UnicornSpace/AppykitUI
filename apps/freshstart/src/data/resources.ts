@@ -143,6 +143,62 @@ export const resourcesData: Resource[] = [
         title: "CoolShapes",
         isFavorite: false,
     },
+      {
+        category: "Flutter",
+        description: "Dark theme Design Inspiraion for projects",
+        link: "https://www.darkmodedesign.com/",
+        title: "Dark Mode Design",
+        isFavorite: false,
+    },
+    {
+        category: "Flutter",
+        description: "Explore real-world designs from the best products",
+        link: "https://refero.design/apps",
+        title: "Refero",
+        isFavorite: false,
+    },
+    {
+        category: "Flutter",
+        description: "Find Design Examples for your apps and websites",
+        link: "https://lookup.design/",
+        title: "Look Up",
+        isFavorite: false,
+    },
+    {
+        category: "Flutter",
+        description: "Unlock UI/UX Inspiration with the Best User Flow Examples",
+        link: "https://pageflows.com/",
+        title: "Page FLow",
+        isFavorite: false,
+    },
+    {
+        category: "Flutter",
+        description: "Unlock UI/UX Inspiration with the Best User Flow Examples",
+        link: "https://pageflows.com/",
+        title: "Page FLow",
+        isFavorite: false,
+    },
+    {
+        category: "Flutter",
+        description: "Collections of apps to get inspiration",
+        link: "https://www.appshot.gallery/",
+        title: "AppShot Gallery",
+        isFavorite: false,
+    },
+    {
+        category: "Flutter",
+        description: "Your Local Apps Research Companion",
+        link: "https://chamjo.design/",
+        title: "Chamjo ",
+        isFavorite: false,
+    },
+    {
+        category: "Flutter",
+        description: "Design Research Made Quick & Easy",
+        link: "https://appshots.design/",
+        title: "App Shots",
+        isFavorite: false,
+    },
 ];
 
 // Helper to get all unique categories
