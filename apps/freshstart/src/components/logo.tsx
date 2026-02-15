@@ -46,7 +46,7 @@ const Logo = ({
         className={cn("flex items-center text-xl font-light font-bbh", className)}
       >
         <Image
-          src={"/appykitUI temp logo.png"}
+          src={"/appykitUITemp.png"}
           width={30}
           height={30}
           alt="logo"

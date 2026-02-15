@@ -171,13 +171,7 @@ export const resourcesData: Resource[] = [
         title: "Page FLow",
         isFavorite: false,
     },
-    {
-        category: "UI",
-        description: "Unlock UI/UX Inspiration with the Best User Flow Examples",
-        link: "https://pageflows.com/",
-        title: "Page FLow",
-        isFavorite: false,
-    },
+
     {
         category: "UI",
         description: "Collections of apps to get inspiration",
@@ -199,27 +193,15 @@ export const resourcesData: Resource[] = [
         title: "App Shots",
         isFavorite: false,
     },
-    {
-        category: "Flutter",
-        description: "Design Research Made Quick & Easy",
-        link: "https://appshots.design/",
-        title: "App Shots",
-        isFavorite: false,
-    },
+
     {
         category: "Flutter",
         description: "The internet’s source for company logos and brand assets.",
         link: "https://brandfetch.com/",
-        title: "Branf Fetch",
+        title: "Brand Fetch",
         isFavorite: false,
     },
-    {
-        category: "Flutter",
-        description: "The internet’s source for company logos and brand assets.",
-        link: "https://brandfetch.com/",
-        title: "Branf Fetch",
-        isFavorite: false,
-    },
+
     {
         category: "UI",
         description: "Create High Converting Apps 10x Faster",
