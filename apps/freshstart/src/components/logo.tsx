@@ -30,7 +30,7 @@ const Logo = ({
         )}
       >
         <Image
-          src={"/appykitUI temp logo.png"}
+          src={"/appykitUITemp.png"}
           width={30}
           height={30}
           alt=""

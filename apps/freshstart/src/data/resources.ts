@@ -172,21 +172,21 @@ export const resourcesData: Resource[] = [
         isFavorite: false,
     },
     {
-        category: "Flutter",
+        category: "UI",
         description: "Unlock UI/UX Inspiration with the Best User Flow Examples",
         link: "https://pageflows.com/",
         title: "Page FLow",
         isFavorite: false,
     },
     {
-        category: "Flutter",
+        category: "UI",
         description: "Collections of apps to get inspiration",
         link: "https://www.appshot.gallery/",
         title: "AppShot Gallery",
         isFavorite: false,
     },
     {
-        category: "Flutter",
+        category: "UI",
         description: "Your Local Apps Research Companion",
         link: "https://chamjo.design/",
         title: "Chamjo ",
@@ -199,6 +199,35 @@ export const resourcesData: Resource[] = [
         title: "App Shots",
         isFavorite: false,
     },
+    {
+        category: "Flutter",
+        description: "Design Research Made Quick & Easy",
+        link: "https://appshots.design/",
+        title: "App Shots",
+        isFavorite: false,
+    },
+    {
+        category: "Flutter",
+        description: "The internet’s source for company logos and brand assets.",
+        link: "https://brandfetch.com/",
+        title: "Branf Fetch",
+        isFavorite: false,
+    },
+    {
+        category: "Flutter",
+        description: "The internet’s source for company logos and brand assets.",
+        link: "https://brandfetch.com/",
+        title: "Branf Fetch",
+        isFavorite: false,
+    },
+    {
+        category: "UI",
+        description: "Create High Converting Apps 10x Faster",
+        link: "https://screensdesign.com/",
+        title: "Screens Design",
+        isFavorite: false,
+    },
+    
 ];
 
 // Helper to get all unique categories
