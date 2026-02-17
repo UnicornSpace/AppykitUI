@@ -116,6 +116,11 @@ export const linkItems: LinkItemType[] = [
     // secondary items will be displayed differently on navbar
     secondary: false,
   },
+  {
+    text: "App Gallery",
+    url: "/appGallery",
+    secondary: false,
+  },
   // {
   //   type: "menu",
   //   text: "Flutter",

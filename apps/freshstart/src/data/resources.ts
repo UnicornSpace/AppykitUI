@@ -81,6 +81,13 @@ export const resourcesData: Resource[] = [
         isFavorite: true,
     },
     {
+        category: "Flutter",
+        description: "Discover our app store to explore the world of free and open source (FOSS) apps and learn about our other open source app distribution tools.",
+        link: "https://f-droid.org/",
+        title: "F-Droid",
+        isFavorite: true,
+    },
+    {
         category: "ui-design",
         description: "Helps to Create Flowcharts, Wireframes, Mind Maps, and more.",
         link: "https://whimsical.com/",
@@ -143,7 +150,7 @@ export const resourcesData: Resource[] = [
         title: "CoolShapes",
         isFavorite: false,
     },
-      {
+    {
         category: "Flutter",
         description: "Dark theme Design Inspiraion for projects",
         link: "https://www.darkmodedesign.com/",
@@ -209,7 +216,14 @@ export const resourcesData: Resource[] = [
         title: "Screens Design",
         isFavorite: false,
     },
-    
+    {
+        category: "UI",
+        description: "Beautiful pure  background patterns that you can actually use in your projects!",
+        link: "https://www.magicpattern.design/tools/css-backgrounds",
+        title: "Magic Patterns Backgrounds",
+        isFavorite: false,
+    },
+
 ];
 
 // Helper to get all unique categories

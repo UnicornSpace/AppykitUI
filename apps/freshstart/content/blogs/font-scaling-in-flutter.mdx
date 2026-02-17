@@ -1,0 +1,169 @@
+---
+title: Flutter textScale Factor Explained
+description: Have you noticed that when you increase font size in your phone settings, most Flutter apps break — but Swiggy doesn’t? In this blog, we break down how textScaleFactor works in Flutter and how apps override it.
+author: Likitha N
+date: 2026-02-16
+isPublished: true
+isContentReady: true
+thumbnail : '/text_scale_factor.png'
+---
+
+import { Step, Steps } from 'fumadocs-ui/components/steps';
+import { DynamicCodeBlock } from 'fumadocs-ui/components/dynamic-codeblock';
+import { ImageZoom } from 'fumadocs-ui/components/image-zoom';
+
+<iframe
+  width="100%" 
+  height="400"
+  src="https://www.youtube.com/embed/YOUR_VIDEO_LINK"
+  title="Why Swiggy Font Doesn’t Change"
+  frameBorder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowFullScreen
+/>
+
+<Callout type="info">
+In this post, we’ll compare a typical Flutter app with Swiggy when system font size increases — and understand what textScaleFactor actually does.
+</Callout>
+
+<Steps>
+
+<Step>
+
+## The Problem: Your App Breaks When Font Size Increases
+
+Your Flutter app looks perfect.
+
+Clean layout.  
+Perfect spacing.  
+Everything aligned.
+
+But the moment you increase font size in system settings…
+
+Your UI breaks.
+
+- Text overflows  
+- Cards expand incorrectly  
+- Layout looks ugly  
+
+Now here’s the interesting part:
+
+Swiggy doesn’t break.
+
+Why?
+
+</Step>
+
+<Step>
+
+## What Actually Happens When Font Size Increases?
+
+When a user increases font size in phone settings, Android changes something called **textScaleFactor**.
+
+Flutter automatically reads this value and multiplies all text sizes by it.
+
+For example:
+
+| Font Size | System Scale | Final Size |
+|-----------|--------------|------------|
+| 16        | 1.3          | 20.8       |
+
+So if your layout was designed for 16…
+
+It is now rendering text at 20.8.
+
+And that’s when:
+
+- Overflow happens  
+- Layout breaks  
+- UI becomes inconsistent  
+
+
+![Hero Animation Example](./thumbnails/heroAnimation_ex.png)
+
+</Step>
+
+<Step>
+
+## Why Swiggy Doesn’t Break
+
+Swiggy overrides the scaling.
+
+Instead of allowing Flutter to use the system’s textScaleFactor, they force it to stay at `1.0`.
+
+This means:
+
+- 16 stays 16  
+- No multiplication  
+- No unexpected layout expansion  
+
+Here’s what that looks like in Flutter:
+
+```
+MediaQuery(
+  data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+  child: MyApp(),
+);
+```
+
+By wrapping the app with a modified MediaQuery, scaling is locked.
+
+No matter what the system font size is — the app remains visually stable.
+
+</Step>
+
+<Step>
+
+## Should You Always Override textScaleFactor?
+
+This is where things get important.
+
+By overriding textScaleFactor:
+
+- You gain layout control  
+- You prevent overflow  
+- Your UI remains consistent  
+
+But…
+
+You reduce accessibility.
+
+Users who increase font size usually need better readability — especially elderly users.
+
+If your app depends on accessibility, overriding scaling may not be the best choice.
+
+</Step>
+
+<Step>
+
+## The Better Alternative: Build Flexible Layouts
+
+Instead of disabling scaling, you can design your layout to handle it properly.
+
+That means:
+
+- Avoid fixed heights  
+- Let text wrap naturally  
+- Use Flexible and Expanded correctly  
+- Test your UI with large font sizes  
+
+When your layout is flexible, increasing font size will:
+
+- Expand naturally  
+- Maintain structure  
+- Improve accessibility  
+
+Instead of breaking.
+
+</Step>
+
+</Steps>
+
+<Callout type="success">
+Flutter is not the problem.  
+textScaleFactor is not a bug.  
+
+Your layout must decide whether to control scaling or adapt to it.
+
+If you'd like, I can make a dedicated post on building flexible layouts in Flutter that handle font scaling properly.
+</Callout>
