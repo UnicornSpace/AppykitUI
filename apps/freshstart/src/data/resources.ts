@@ -223,6 +223,20 @@ export const resourcesData: Resource[] = [
         title: "Magic Patterns Backgrounds",
         isFavorite: false,
     },
+    {
+        category: "assets",
+        description: "Open source hand-drawn illustration library.",
+        link: "https://openpeeps.com/",
+        title: "Open Peeps",
+        isFavorite: false,
+    },
+    {
+        category: "assets",
+        description: "Lummi AI is an AI-powered design tool that generates unique and customizable illustrations, icons, and graphics for your projects.",
+        link: "https://www.lummi.ai/",
+        title: "Lummi AI",
+        isFavorite: false,
+    },
 
 ];
 
