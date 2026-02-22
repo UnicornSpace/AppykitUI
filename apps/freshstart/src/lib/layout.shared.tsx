@@ -48,9 +48,9 @@ export const linkItems: LinkItemType[] = [
                 }}
               />
             </div>
-            <p className="font-medium">Getting Started</p>
+            <p className="font-medium">Getting Started with AppyKit</p>
             <p className="text-fd-muted-foreground text-sm">
-              Learn to use Fumadocs on your docs site.
+             New here? Learn how AppyKit helps you design and build better Flutter apps.
             </p>
           </NavbarMenuLink>
 
@@ -61,7 +61,7 @@ export const linkItems: LinkItemType[] = [
             <IconBrandFlutter className="bg-fd-primary text-fd-primary-foreground p-1 mb-2 rounded-md" />
             <p className="font-medium">Learn Flutter</p>
             <p className="text-fd-muted-foreground text-sm">
-              Add interactive experience to your docs.
+              Build real mobile apps with Flutter from UI basics to advanced layouts, animations, and production-ready patterns.
             </p>
           </NavbarMenuLink>
 
@@ -72,7 +72,7 @@ export const linkItems: LinkItemType[] = [
             <FaDartLang className="bg-fd-primary text-fd-primary-foreground p-1 mb-2 rounded-md" />
             <p className="font-medium">Learn Dart</p>
             <p className="text-fd-muted-foreground text-sm">
-              Generate interactive playgrounds and docs for your OpenAPI schema.
+              Master Dart fundamentals used in Flutter apps from core language concepts to writing clean, maintainable app logic.
             </p>
           </NavbarMenuLink>
 
