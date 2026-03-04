@@ -1,3 +1,6 @@
+'use client'
+import posthog from 'posthog-js'
+
 import {
   LuArrowRight,
   LuClock,
@@ -11,7 +14,9 @@ import { Badge } from "./ui/badge";
 import { BsMagic } from "react-icons/bs";
 import { MdDesignServices } from "react-icons/md";
 import { IoPhonePortraitOutline } from "react-icons/io5";
-
+export function handleAnalytics() {
+   posthog.capture('clicked on Resources',)
+}
 export default function HeroSection() {
   return (
     <section className="w-full py-16 md:py-24 overflow-x-hidden max-w-screen ">
@@ -42,7 +47,7 @@ export default function HeroSection() {
           */}
           {/* TODO: hey add for flutter stuff and other resources */}
           <Link href={"/resources"} className="w-full sm:w-auto">
-            <Button variant="secondary" className=" rounded-full" size={"xl"}>
+            <Button onClick={handleAnalytics} variant="secondary" className=" rounded-full" size={"xl"}>
               Resources <LuArrowRight size={16} className="ml-1" />
             </Button>
           </Link>

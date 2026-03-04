@@ -22,6 +22,7 @@
     "packages/*"
   ],
   "dependencies": {
+    "posthog-js": "^1.352.0",
     "react-icons": "^5.5.0"
   }
 }

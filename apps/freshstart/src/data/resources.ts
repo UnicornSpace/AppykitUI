@@ -104,7 +104,7 @@ export const resourcesData: Resource[] = [
     {
         category: "ui-design",
         description: "No-code prototyping tool for digital products.",
-        link: "https://dribbble.com/",
+        link: "https://www.protopie.io/",
         title: "ProtoPie",
         isFavorite: false,
     },
