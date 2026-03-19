@@ -17,6 +17,16 @@ export const docs = defineDocs({
   },
 });
 
+export const componentsDocs = defineDocs({
+  dir: "content/components",
+  docs: {
+    schema: frontmatterSchema,
+  },
+  meta: {
+    schema: metaSchema,
+  },
+});
+
 
 export const blockConfig = defineCollections({
   type: "doc",
@@ -31,11 +41,6 @@ export const blogConfig = defineCollections({
 export const CourseConfig = defineCollections({
   type: "doc",
   dir: "content/courses",
-})
-
-export const ComponentConfig = defineCollections({
-  type: "doc",
-  dir: "content/components",
 })
 
 // export const reactNativeCourseConfig = defineCollections({

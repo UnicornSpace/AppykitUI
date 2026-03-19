@@ -2,6 +2,7 @@ import defaultMdxComponents from "fumadocs-ui/mdx";
 import type { MDXComponents } from "mdx/types";
 import * as TabsComponents from "fumadocs-ui/components/tabs";
 import HeroSection from "@/components/hero-section";
+import ComponentThumbnailCard from "@/components/component-thumbnail-card";
 // import BlocksHeroSection from "@/components/blocks-hero-section";
 // import ThemeButton from "@/components/theme-button";
 // import ComponentThumbnailCard from "./components/component-thumbnail-card";
@@ -10,6 +11,7 @@ import { Step, Steps } from "fumadocs-ui/components/steps";
 import { ImageZoom } from "fumadocs-ui/components/image-zoom";
 import type { ImageProps } from "fumadocs-core/framework";
 import { InlineTOC } from 'fumadocs-ui/components/inline-toc';
+import Image from "next/image";
 // import FlutterBlocksHeroSection from "./components/flutter-blocks-hero-section";
 // use this function to get MDX components, you will need it for rendering MDX
 export function getMDXComponents(components?: MDXComponents): MDXComponents {
@@ -21,6 +23,8 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     Steps,
     Step,
     HeroSection,
+    ComponentThumbnailCard,
+    Image: Image as React.ComponentType<ImageProps>,
     
     // BlocksHeroSection,
     // ComponentThumbnailCard,

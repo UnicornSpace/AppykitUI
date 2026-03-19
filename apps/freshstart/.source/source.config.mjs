@@ -27,9 +27,18 @@ var learn = defineDocs({
     })
   }
 });
+var components = defineDocs({
+  dir: "content/components",
+  docs: {
+    schema: frontmatterSchema.extend({
+      category: z.string().optional()
+    })
+  }
+});
 var source_config_default = defineConfig();
 export {
   blogs,
+  components,
   source_config_default as default,
   learn
 };

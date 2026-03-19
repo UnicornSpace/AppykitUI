@@ -31,4 +31,13 @@ export const learn = defineDocs({
   },
 });
 
+export const components = defineDocs({
+  dir: 'content/components',
+  docs: {
+    schema: frontmatterSchema.extend({
+      category: z.string().optional(),
+    }),
+  },
+});
+
 export default defineConfig(); 

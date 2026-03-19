@@ -46,6 +46,11 @@ export const baseOptions: BaseLayoutProps = {
     //   text: "Components",
     //   url: "/components",
     // },
+    {
+      text: "Components",
+      url: "/components",
+      label: "Browse AppyKit UI components",
+    },
     // {
     //   // icon: <BookIcon />,
     //   text: "Blogs",

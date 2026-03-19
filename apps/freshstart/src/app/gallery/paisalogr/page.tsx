@@ -30,6 +30,9 @@ import {
   AnimatePresence,
 } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
+import { FaMoneyBillWave } from "react-icons/fa6";
+import { BentoDemo } from "@/components/gallery-bentogrid";
+import GalleryIconAccordion from "@/components/gallery-icon-accordion";
 
 /* ─── data ─── */
 
@@ -147,6 +150,12 @@ const reviews = [
   },
 ];
 
+/*
+INSPIRATION:
+https://dribbble.com/shots/26595741-Lumen-Mobile-App-Landing-Page
+
+*/
+
 /* ─── page ─── */
 
 export default function PaisaLogrPage() {
@@ -154,11 +163,11 @@ export default function PaisaLogrPage() {
     <HomeLayout
       {...baseOptions()}
       links={linkItems}
-      className="relative min-h-screen bg-transparent overflow-x-hidden"
+      className="relative min-h-screen bg-white overflow-x-hidden text-zinc-900"
     >
       {/* Subtle grain overlay for depth */}
       <div
-        className="pointer-events-none fixed inset-0 z-[1] opacity-[0.03]"
+        className="pointer-events-none fixed inset-0 z-[1] opacity-[0.03] font-geist"
         style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
           backgroundRepeat: "repeat",
@@ -169,26 +178,33 @@ export default function PaisaLogrPage() {
       {/* ── HERO ── */}
       <HeroSection />
 
-      {/* ── SOCIAL PROOF BAR ── */}
-      <SocialProofBar />
 
       {/* ── SCROLL FAN-OUT ── */}
+      
       <FanOutFeatures />
 
+      <BentoDemo />
+      {/* ── SOCIAL PROOF BAR ── */}
+      {/* <SocialProofBar /> */}
+      <GalleryIconAccordion />
+
       {/* ── STATS ── */}
-      <StatsSection />
+      {/* <StatsSection /> */}
 
       {/* ── FEATURES GRID ── */}
-      <FeaturesSection />
+      {/* <FeaturesSection /> */}
 
       {/* ── HOW IT WORKS ── */}
-      <HowItWorksSection />
+      {/* NOTE: the reason i commneted this is, we look like a technical product, we should stress on benefits not features, because users only care about benefits */}
+      {/* <HowItWorksSection /> */}
 
       {/* ── REVIEWS ── */}
-      <ReviewsSection />
+      {/* <ReviewsSection /> */}
 
       {/* ── TECH STACK ── */}
-      <TechStackSection />
+      {/* NOTE: I'll show this FAQ section, in a single like, this way we're not overcomplicating things
+      - and also the page is too much and complicating the clarity */}
+      {/* <TechStackSection /> */}
 
       {/* ── CTA FOOTER ── */}
       <CtaSection />
@@ -197,7 +213,7 @@ export default function PaisaLogrPage() {
 }
 function HeroSection() {
   return (
-    <section className="relative flex flex-col items-center text-center px-4 pt-24 pb-20 z-10">
+    <section className="relative flex flex-col items-center text-center px-4 pt-12 pb-0 z-10">
       {/* Ambient glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-primary/15 blur-[120px] rounded-full pointer-events-none" />
 
@@ -205,46 +221,49 @@ function HeroSection() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
+        className="flex items-center gap-4 "
       >
         <Image
           src="/paisaLogr/logo.png"
           alt="Paisa Logr"
-          width={80}
-          height={80}
-          className="rounded-2xl mb-8 shadow-lg relative z-10 mx-auto"
+          width={60}
+          height={60}
+          className="rounded-2xl mb-8 shadow-lg relative z-10 mx-auto size-10 sm:size-12"
         />
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="relative z-10  text-2xl text-primary  md:text-2xl font-semibold tracking-tight uppercase leading-none mb-4"
+        >
+          PAISA LOGR
+        </motion.h1>
       </motion.div>
 
-      <motion.h1
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.1 }}
-        className="relative z-10 text-5xl sm:text-6xl md:text-8xl font-black tracking-tight uppercase leading-none mb-4"
-      >
-        PAISA LOGR
-      </motion.h1>
 
       <motion.p
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.2 }}
-        className="relative z-10 text-xl md:text-2xl text-muted-foreground font-light mb-4 max-w-xl mx-auto tracking-wide"
+        className="relative z-10 text-4xl text-black md:text-6xl font-medium  font-manrope mb-4 max-w-4xl mx-auto"
       >
-        Financial clarity, zero clutter.
+        Money
+        <FaMoneyBillWave className="inline-flex mr-4" />
+        made simple, for everyone
       </motion.p>
 
       <motion.p
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.3 }}
-        className="relative z-10 text-base md:text-lg text-foreground/70 leading-relaxed max-w-2xl mb-10 mx-auto"
+        className="relative z-10 text-base md:text-lg text-zinc-600 leading-relaxed max-w-2xl  mx-auto"
       >
         A beautifully designed personal finance tracker built with Flutter,
         helping you take control of your daily spending and income with ease.
       </motion.p>
 
       {/* CTA */}
-      <motion.div
+      {/* <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.4 }}
@@ -253,11 +272,11 @@ function HeroSection() {
         <a href="https://github.com/likithanagaraj/PaisaLogr/releases/latest/download/app-release.apk" className="relative z-10 group inline-flex h-14 items-center justify-center overflow-hidden rounded-full bg-primary px-10 font-medium text-primary-foreground shadow-xl transition-all hover:bg-primary/90 hover:scale-105 active:scale-95 mb-3">
           <LuDownload className="h-5 w-5 mr-3" />
           <span className="text-lg">Download APK (v1.0)</span>
-        </a>  
+        </a>
         <p className="relative z-10 text-xs text-muted-foreground font-mono">
           For Android • 52 MB
         </p>
-      </motion.div>
+      </motion.div> */}
     </section>
   );
 }
@@ -274,7 +293,7 @@ function SocialProofBar() {
       transition={{ duration: 0.5 }}
       className="relative z-10 mx-auto max-w-3xl px-4 mb-4"
     >
-      <div className="flex flex-col sm:flex-row items-center justify-center gap-6 rounded-2xl border border-white/[0.06] bg-white/[0.02] px-8 py-5 backdrop-blur-sm">
+      <div className="flex flex-col sm:flex-row items-center justify-center gap-6 rounded-2xl border border-zinc-200 bg-white px-8 py-5 backdrop-blur-sm">
         {/* Stars */}
         <div className="flex items-center gap-2">
           <div className="flex">
@@ -289,23 +308,23 @@ function SocialProofBar() {
           <span className="text-xs text-muted-foreground">on GitHub</span>
         </div>
 
-        <div className="hidden sm:block w-px h-6 bg-white/10" />
+        <div className="hidden sm:block w-px h-6 bg-zinc-200" />
 
         {/* Open source */}
         <div className="flex items-center gap-2 text-sm">
-          <LuGithub className="w-4 h-4 text-foreground/60" />
-          <span className="text-foreground/60">
-            <span className="text-foreground font-semibold">100%</span>{" "}
+          <LuGithub className="w-4 h-4 text-zinc-600" />
+          <span className="text-zinc-600">
+            <span className="text-zinc-900 font-semibold">100%</span>{" "}
             Open Source
           </span>
         </div>
 
-        <div className="hidden sm:block w-px h-6 bg-white/10" />
+        <div className="hidden sm:block w-px h-6 bg-zinc-200" />
 
         {/* Privacy */}
         <div className="flex items-center gap-2 text-sm">
           <LuShield className="w-4 h-4 text-emerald-400" />
-          <span className="text-foreground/60">
+          <span className="text-zinc-600">
             <span className="text-emerald-400 font-semibold">Zero</span> cloud
             sync
           </span>
@@ -375,7 +394,7 @@ function FanOutFeatures() {
             className="absolute"
           >
             <motion.div style={{ opacity: labelOpacity }} className="absolute -top-10 left-0 w-full text-center z-20">
-              <span className="bg-zinc-900/80 backdrop-blur border border-white/10 px-3 py-1 rounded-full text-xs font-medium text-foreground/70">
+              <span className="bg-zinc-900/90 backdrop-blur border border-zinc-700 px-3 py-1 rounded-full text-xs font-medium text-white/90">
                 📋 Transactions
               </span>
             </motion.div>
@@ -392,7 +411,7 @@ function FanOutFeatures() {
             className="absolute"
           >
             <motion.div style={{ opacity: labelOpacity }} className="absolute -top-10 left-0 w-full text-center z-20">
-              <span className="bg-zinc-900/80 backdrop-blur border border-white/10 px-3 py-1 rounded-full text-xs font-medium text-foreground/70">
+              <span className="bg-zinc-900/90 backdrop-blur border border-zinc-700 px-3 py-1 rounded-full text-xs font-medium text-white/90">
                 🗂️ Spaces
               </span>
             </motion.div>
@@ -447,7 +466,7 @@ function StatsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.08 }}
-            className="flex flex-col items-center justify-center p-6 rounded-2xl border border-white/[0.06] bg-white/[0.02] text-center"
+            className="flex flex-col items-center justify-center p-6 rounded-2xl border border-zinc-200 bg-white text-center"
           >
             <AnimatedNumber target={stat.value} />
             <p className="text-xs text-muted-foreground mt-1 font-medium uppercase tracking-widest">
@@ -483,13 +502,13 @@ function FeaturesSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.07 }}
-            className={`group relative p-6 rounded-2xl bg-gradient-to-br ${f.color} border border-white/[0.06] hover:border-white/[0.12] transition-all duration-300 overflow-hidden`}
+            className={`group relative p-6 rounded-2xl bg-gradient-to-br ${f.color} border border-zinc-200 hover:border-zinc-300 transition-all duration-300 overflow-hidden`}
           >
             {/* Hover glow */}
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-white/[0.02]" />
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-zinc-900/[0.02]" />
 
             <div className="relative z-10">
-              <div className={`mb-4 inline-flex p-2.5 rounded-xl bg-white/5 text-${f.accent}-400`}>
+              <div className={`mb-4 inline-flex p-2.5 rounded-xl bg-zinc-900/5 text-${f.accent}-500`}>
                 {f.icon}
               </div>
               <h3 className="font-bold text-base mb-2">{f.title}</h3>
@@ -563,7 +582,7 @@ function ReviewsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.1 }}
-            className="p-6 rounded-2xl border border-white/[0.06] bg-white/[0.02] flex flex-col gap-4"
+            className="p-6 rounded-2xl border border-zinc-200 bg-white flex flex-col gap-4"
           >
             <div className="flex">
               {[...Array(r.stars)].map((_, j) => (
@@ -573,7 +592,7 @@ function ReviewsSection() {
                 />
               ))}
             </div>
-            <p className="text-sm text-foreground/80 leading-relaxed flex-1">
+            <p className="text-sm text-zinc-700 leading-relaxed flex-1">
               "{r.text}"
             </p>
             <div>
@@ -607,9 +626,9 @@ function TechStackSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.1 }}
             viewport={{ once: true }}
-            className="group p-6 rounded-2xl bg-white/[0.02] border border-white/[0.05] hover:bg-white/[0.05] hover:border-primary/20 transition-all text-center flex flex-col items-center"
+            className="group p-6 rounded-2xl bg-white border border-zinc-200 hover:bg-zinc-50 hover:border-primary/20 transition-all text-center flex flex-col items-center"
           >
-            <div className="mb-4 bg-white/5 p-3 rounded-xl group-hover:scale-110 transition-transform duration-300">
+            <div className="mb-4 bg-zinc-900/5 p-3 rounded-xl group-hover:scale-110 transition-transform duration-300">
               {tech.icon}
             </div>
             <h3 className="font-bold text-sm mb-1">{tech.title}</h3>
@@ -621,7 +640,7 @@ function TechStackSection() {
       <div className="mt-10 text-center">
         <Link
           href="https://github.com/likithanagaraj/PaisaLogr"
-          className="inline-flex items-center gap-2 text-sm text-foreground/50 hover:text-primary transition-colors border border-white/[0.08] px-6 py-3 rounded-full hover:bg-white/5 hover:border-primary/20"
+          className="inline-flex items-center gap-2 text-sm text-zinc-600 hover:text-primary transition-colors border border-zinc-200 px-6 py-3 rounded-full hover:bg-zinc-50 hover:border-primary/20"
         >
           <LuGithub className="w-4 h-4" />
           View Source on GitHub
@@ -640,37 +659,37 @@ function CtaSection() {
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className="relative z-10 text-center px-4 py-28 border-t border-white/[0.05] overflow-hidden"
+      className="relative z-10 text-center px-4 py-28 border-t border-zinc-200 overflow-hidden"
     >
       {/* Glow */}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-primary/5 to-primary/10 pointer-events-none" />
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-primary/10 blur-[120px] rounded-full pointer-events-none" />
 
       <div className="relative z-10">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary mb-4">
+        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary mb-2">
           Free · Open Source · Forever
         </p>
-        <h2 className="text-4xl md:text-5xl font-black mb-4 leading-tight">
-          Ready to own
+        <h2 className="text-4xl md:text-5xl font-bold mb-4 leading-">
+          Ready to own your
           <br />
-          your finances?
+          finances?
         </h2>
         <p className="text-muted-foreground mb-10 max-w-sm mx-auto">
           No subscription. No account. No excuses.
           Just download and start.
         </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-         <a
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a
             href="https://github.com/likithanagaraj/PaisaLogr/releases/latest/download/app-release.apk"
-            className="group inline-flex h-14 items-center justify-center gap-3 rounded-full bg-primary px-12 font-semibold text-primary-foreground shadow-xl transition-all hover:bg-primary/90 hover:scale-105 active:scale-95">
+            className="group inline-flex h-14 items-center justify-center gap-3 rounded-full bg-[#BB4C1A] px-12 font-semibold text-primary-foreground shadow-xl transition-all hover:bg-[#BB4C1A]/90 hover:scale-105 active:scale-95">
             <LuDownload className="h-5 w-5 group-hover:animate-bounce" />
             Download APK (v1.0)
-        </a>
+          </a>
 
           <Link
             href="https://github.com/likithanagaraj/PaisaLogr"
-            className="inline-flex h-14 items-center gap-2 rounded-full border border-white/10 px-8 text-sm font-medium text-foreground/60 transition-all hover:bg-white/5 hover:text-foreground"
+            className="inline-flex h-14 items-center gap-2 rounded-full border border-zinc-200 px-8 text-sm font-medium text-zinc-600 transition-all hover:bg-zinc-50 hover:text-zinc-900"
           >
             <LuGithub className="w-4 h-4" />
             Star on GitHub
@@ -678,7 +697,7 @@ function CtaSection() {
           </Link>
         </div>
 
-        <div className="mt-8 flex items-center justify-center gap-6 text-xs text-muted-foreground/50">
+        <div className="mt-8 flex items-center justify-center gap-6 text-xs text-zinc-500">
           {["No account needed", "Works offline", "Open source"].map((t) => (
             <span key={t} className="flex items-center gap-1.5">
               <LuCheck className="w-3 h-3 text-emerald-500" />

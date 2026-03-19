@@ -4,16 +4,16 @@ import {
   Geist,
   Geist_Mono,
   Inter,
+  Manrope,
   Poppins,
   Source_Serif_4,
 } from "next/font/google";
 import "./globals.css";
-import { RootProvider } from "fumadocs-ui/provider/next";
-import MainFooter from "@/components/footer";
+import { AppProviderShell } from "@/components/app-provider-shell";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
-const geistSans = Source_Serif_4({
+const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
@@ -21,6 +21,11 @@ const geistSans = Source_Serif_4({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const manrope = Manrope({
+  variable: "--font-manrope",
+  // subsets: ["latin", "latin-ext", "greek"],
 });
 
 const sourceSerif = Source_Serif_4({
@@ -116,15 +121,17 @@ export default function RootLayout({
     <html
       lang="en"
       className={` ${bbh.variable} 
-    ${poppins.variable} font-poppins`}
+      ${geistSans.variable}    font-geist
+    `}
+      suppressHydrationWarning
     >
       {/* ${geistSans.variable} ${geistMono.variable} */}
       <body
+        suppressHydrationWarning
         className={` 
             antialiased flex flex-col min-h-screen`}
       >
-        <RootProvider>{children}</RootProvider>
-        <MainFooter />
+        <AppProviderShell>{children}</AppProviderShell>
       </body>
     </html>
   );
