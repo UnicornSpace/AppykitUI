@@ -1,0 +1,59 @@
+---
+title: Onboarding
+description: Represent people, teams, and authors with an image plus a graceful fallback.
+category: Data Display
+---
+
+<Tabs items={['preview', 'code']} defaultValue="preview" >
+  <Tab value="preview">
+    <Image
+      src="/paisaLogr/onboarding.png"
+      alt="Profile screen with an accordion section expanded to show more details."
+      width={250}
+      height={300}
+      className="rounded-lg border"
+    />
+
+  </Tab>
+  <Tab value="code">
+    ```tsx
+<Accordion type="single" collapsible>
+  <AccordionItem value="item-1">
+    <AccordionTrigger>What is AppyKit UI?</AccordionTrigger>
+    <AccordionContent>
+      A growing component library and resource hub for Flutter developers.
+    </AccordionContent>
+  </AccordionItem>
+</Accordion>
+```
+
+  </Tab>
+</Tabs>
+## Preview
+![](/paisaLogr/onboarding.png)
+
+```tsx
+<Avatar>
+  <AvatarImage src="/avatar.png" alt="Aarav" />
+  <AvatarFallback>AA</AvatarFallback>
+</Avatar>
+```
+Avatars add personality and recognition to lists, comments, profile screens, and team settings. A solid fallback matters just as much as the image itself.
+
+## Installation
+
+```bash
+npx appykit@latest add avatar
+```
+
+## Usage
+
+```tsx
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+```
+
+## Best Practices
+
+- Always include a fallback
+- Use initials or a short label when no image is available
+- Keep avatar size consistent within the same interface section

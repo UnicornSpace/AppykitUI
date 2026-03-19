@@ -117,9 +117,15 @@ export const linkItems: LinkItemType[] = [
     secondary: false,
   },
   {
-    text: "App Gallery",
-    url: "/appGallery",
+    text: "Gallery",
+    url: "/gallery",
     secondary: false,
+  },
+  {
+    text: "Components",
+    url: "/components",
+    secondary: false,
+    label: "new"
   },
   // {
   //   type: "menu",

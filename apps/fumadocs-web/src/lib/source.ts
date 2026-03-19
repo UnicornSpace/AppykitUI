@@ -1,4 +1,4 @@
-import { blockConfig, blogConfig, ComponentConfig, CourseConfig, docs } from '@/.source';
+import { blockConfig, blogConfig, componentsDocs, CourseConfig, docs } from '@/.source';
 import { loader } from 'fumadocs-core/source';
 import { createMDXSource } from 'fumadocs-mdx';
 
@@ -25,22 +25,21 @@ export const courses = loader({
 
 export const components = loader({
   baseUrl: "/components",
-  source: createMDXSource(ComponentConfig)
+  source: componentsDocs.toFumadocsSource(),
 })
 export const flutterBlocks = loader({
   baseUrl: "/flutter/blogs",
-  source: createMDXSource(ComponentConfig)
+  source: componentsDocs.toFumadocsSource()
 })
 export const flutter = loader({
   baseUrl: "/flutter",
-  source: createMDXSource(ComponentConfig)
+  source: componentsDocs.toFumadocsSource()
 })
 export const course = loader({
   baseUrl: "/course",
-  source: createMDXSource(ComponentConfig)
+  source: componentsDocs.toFumadocsSource()
 })
 export const reactNativeCourse = loader({
   baseUrl: "/reactNativeCourse",
-  source: createMDXSource(ComponentConfig)
+  source: componentsDocs.toFumadocsSource()
 })
-
