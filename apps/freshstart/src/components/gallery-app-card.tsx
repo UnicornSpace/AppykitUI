@@ -1,5 +1,6 @@
 "use client"
 
+import type { MouseEvent } from "react"
 import {
   Card,
   CardContent,
@@ -14,20 +15,23 @@ import { BsGithub } from "react-icons/bs"
 import Link from "next/link"
 
 type GalleryAppCardProps = {
+  href?: string
   title?: string
   description?: string
   imageSrc?: string
   imageAlt?: string
   githubUrl: string
-  downloadUrl: string
+  downloadUrl?: string
   githubLabel?: string
   downloadLabel?: string
+  downloadDisabled?: boolean
   className?: string
   outerCircleColorClassName?: string
   innerCircleColorClassName?: string
 }
 
 export default function GalleryAppCard({
+  href,
   title = "PaisaLogr",
   description = "Mindful Finance tracker",
   imageSrc = "/paisaLogr/HomeScreen.jpeg",
@@ -36,16 +40,27 @@ export default function GalleryAppCard({
   downloadUrl,
   githubLabel = "View on GitHub",
   downloadLabel = "Download APK",
+  downloadDisabled = false,
   className,
   outerCircleColorClassName = "bg-blue-500/80",
   innerCircleColorClassName = "bg-blue-500",
 }: GalleryAppCardProps) {
-  const openInNewTab = (url: string) => {
+  const openInNewTab = (url?: string) => {
+    if (!url) return
     window.open(url, "_blank", "noopener,noreferrer")
   }
 
+  const handleButtonClick = (
+    event: MouseEvent<HTMLButtonElement>,
+    url?: string
+  ) => {
+    event.preventDefault()
+    event.stopPropagation()
+    openInNewTab(url)
+  }
+
   return (
-    <Link href={`/gallery/${title.toLowerCase().replace(/\s+/g, "")}`}>
+    <Link href={href ?? `/gallery/${title.toLowerCase().replace(/\s+/g, "")}`}>
       <Card className={cn("flex flex-row w-full h-64 !max-h-64 overflow-hidden", className)}>
         <CardHeader className="w-[60%] pr-0 md:pr-4 justify-between">
           <div>
@@ -54,11 +69,19 @@ export default function GalleryAppCard({
             <CardDescription className="opacity-50 font-normal  text-lg sm:text-xl">{description}</CardDescription>
           </div>
           <div className="md:flex items-end hidden">
-            <Button className={"px-10 rounded-4xl"} onClick={() => openInNewTab(githubUrl)}>
+            <Button
+              className={"px-10 rounded-4xl"}
+              onClick={(event) => handleButtonClick(event, githubUrl)}
+            >
               <BsGithub className="ml-2" />
               {githubLabel}
             </Button>
-            <Button variant="outline" className="ml-2 px-4 rounded-4xl" onClick={() => openInNewTab(downloadUrl)}>
+            <Button
+              variant="outline"
+              className="ml-2 px-4 rounded-4xl"
+              disabled={downloadDisabled}
+              onClick={(event) => handleButtonClick(event, downloadUrl)}
+            >
               {downloadLabel}
             </Button>
           </div>

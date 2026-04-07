@@ -6,7 +6,7 @@ import { RootProvider } from "fumadocs-ui/provider/next";
 
 import MainFooter from "@/components/footer";
 
-const LIGHT_ONLY_PREFIXES = ["/gallery/paisalogr"] as const;
+const LIGHT_ONLY_PREFIXES = ["/gallery/paisalogr", "/gallery/redefai"] as const;
 
 function normalizePathname(pathname: string | null) {
   if (!pathname) return "/";
