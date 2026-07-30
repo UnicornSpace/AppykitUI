@@ -1,4 +1,5 @@
-import type { Metadata, ReactNode } from "react";
+import type { ReactNode } from "react";
+import type { Metadata } from "next";
 import { HomeLayout } from "fumadocs-ui/layouts/home";
 import { baseOptions, linkItems } from "@/lib/layout.shared";
 
