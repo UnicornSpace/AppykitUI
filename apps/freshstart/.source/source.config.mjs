@@ -15,6 +15,23 @@ var blogs = defineDocs({
     })
   }
 });
+var caseStudies = defineDocs({
+  dir: "content/casestudies",
+  docs: {
+    schema: frontmatterSchema.extend({
+      isPublished: z.boolean().default(false),
+      isContentReady: z.boolean().default(false),
+      author: z.string().optional(),
+      authorLink: z.string().url().optional(),
+      date: z.coerce.date().optional(),
+      tags: z.array(z.string()).default([]),
+      thumbnail: z.string().default("/Flutter-appykit-blog-thumbnail.png"),
+      externalLink: z.string().url().optional(),
+      company: z.string().optional(),
+      industry: z.string().optional()
+    })
+  }
+});
 var learn = defineDocs({
   dir: "content/learn",
   docs: {
@@ -38,6 +55,7 @@ var components = defineDocs({
 var source_config_default = defineConfig();
 export {
   blogs,
+  caseStudies,
   components,
   source_config_default as default,
   learn

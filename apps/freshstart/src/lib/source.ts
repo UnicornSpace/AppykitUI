@@ -1,4 +1,4 @@
-import { blogs as blogsSource, components as componentsSource, learn as learnSource } from 'fumadocs-mdx:collections/server';
+import { blogs as blogsSource, components as componentsSource, learn as learnSource, caseStudies as caseStudiesSource } from 'fumadocs-mdx:collections/server';
 import { loader } from 'fumadocs-core/source';
 import { toFumadocsSource } from 'fumadocs-mdx/runtime/server';
 
@@ -8,6 +8,10 @@ export const blogs = loader({
   source: blogsSource.toFumadocsSource(),
 });
 
+export const caseStudies = loader({
+  baseUrl: '/casestudy',
+  source: caseStudiesSource.toFumadocsSource(),
+});
 
 export const learn = loader({
   baseUrl: '/learn',

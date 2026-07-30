@@ -110,6 +110,11 @@ export const linkItems: LinkItemType[] = [
     secondary: false,
   },
   {
+    text: "CaseStudy",
+    url: "/casestudy",
+    secondary: false,
+  },
+  {
     // icon: <BookIcon />,
     text: "Resources",
     url: "/resources",

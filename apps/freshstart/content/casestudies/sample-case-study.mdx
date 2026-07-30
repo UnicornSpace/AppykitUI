@@ -1,0 +1,258 @@
+---
+title: 'Paisa Logr'
+description: 'Designing a mobile app that helps young adults effortlessly track and organize their personal expenses.'
+isPublished: true
+isContentReady: true
+author: 'AppykitUI Team'
+date: 2026-07-30
+tags: ['case-study', 'flutter', 'ui-system']
+thumbnail: '/caseStudyimages/paisalogr.png'
+company: 'AppykitUI'
+industry: 'Design Systems'
+externalUrl: "https://docs.google.com/presentation/d/1Au4ffwiL9_eOYvnzbFQrkAqUkU87oU25UmmeVIycI9U/edit?usp=sharing"
+---
+
+
+import { Steps, Step } from 'fumadocs-ui/components/steps';
+import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
+import { Accordions, Accordion } from 'fumadocs-ui/components/accordion';
+import { ImageZoom } from 'fumadocs-ui/components/image-zoom';
+
+
+<Callout type="info">
+Detailed Case Study :  [PaisaLogr](https://docs.google.com/presentation/d/1Au4ffwiL9_eOYvnzbFQrkAqUkU87oU25UmmeVIycI9U/edit?usp=sharing)
+</Callout>
+
+<ImageZoom
+  src="/caseStudyimages/playstoreImage1.png"
+  alt="Paisa Logr — expense tracking app cover"
+  width={1400}
+  height={788}
+/>
+
+## Overview
+
+| | |
+| --- | --- |
+| **Role** | Product Designer — research, UX/UI, prototyping, user testing |
+| **Product** | PaisaLogr, a mobile expense-tracking app |
+| **Audience** | Young adults tracking day-to-day and event spending |
+| **Tools** | eraser.io (low-fidelity wireframes), figma (designing and prototyping) |
+
+
+## The Problem
+
+<Callout type="warn" title="Losing track of everyday spending">
+  Young adults often overlook small daily expenses and struggle to organize
+  spending across different events like trips, outings, and celebrations —
+  making it difficult to understand where their money goes.
+</Callout>
+
+## The Challenge
+
+- Encourage young adults to build a **consistent expense-tracking habit**.
+- **Reduce the effort** required to log expenses, making tracking quick and intuitive.
+
+## My Role
+
+As the Product Designer, I was responsible for understanding user needs through
+research, designing intuitive user experiences and interfaces, creating
+interactive prototypes, and ensuring the app provided a seamless, effortless
+experience for tracking personal finances.
+
+## Product Discovery
+
+### Competitive Analysis
+
+We conducted a competitive analysis of the most widely used expense-tracking
+apps to understand their strengths, identify usability gaps, and uncover
+opportunities for improving the overall user experience.
+
+
+<ImageZoom
+  src="/caseStudyimages/competitive-analysis.png"
+  alt="Competitive analysis of popular expense tracking apps"
+  width={1400}
+  height={788}
+/>
+
+<Callout type="info" title="Key opportunity">
+  Design an expense tracker that prioritizes **simplicity, speed, and
+  contextual organization** over feature complexity.
+</Callout>
+
+### User Persona
+
+
+<ImageZoom
+  src="/caseStudyimages/user-persona.png"
+  alt="User persona for Paisa Logr"
+  width={1400}
+  height={788}
+/>
+
+## Research Insights
+
+Three recurring problems surfaced from research:
+
+<Cards>
+  <Card title="Small expenses go unnoticed">
+    Small, frequent purchases are easy to forget, making it difficult for users
+    to understand where their money is actually going.
+  </Card>
+  <Card title="Existing apps feel complex">
+    Many expense trackers prioritize advanced features, making quick expense
+    logging feel time-consuming and overwhelming.
+  </Card>
+  <Card title="No context for spending">
+    Users struggle to separate expenses for trips, outings, or special
+    occasions from everyday spending, reducing financial clarity.
+  </Card>
+</Cards>
+
+## Design Goals
+
+1. **Effortless logging** — make expense entry fast enough for daily use.
+2. **Context-first organization** — group expenses by trips, outings, and events.
+3. **Habit building** — encourage a consistent tracking routine.
+4. **Clarity at a glance** — present spending insights through a clean, intuitive interface.
+
+## Ideation
+
+Big ideas that emerged during the brainstorming session:
+
+<Cards>
+  <Card title="Event-Based Organization">
+    Dedicated spaces for trips, outings, festivals, or any personal event —
+    keeping related transactions together for better context and budgeting.
+  </Card>
+  <Card title="Visual Spending Insights">
+    Represent spending through charts and visual summaries, helping users
+    quickly understand where their money goes without reading long transaction
+    lists.
+  </Card>
+  <Card title="Financial Awareness Cards">
+    Bite-sized educational tips and insights that encourage smarter financial
+    habits and better money management over time.
+  </Card>
+</Cards>
+
+## Feature Selection
+
+Each "How might we" question from research was mapped to a core feature:
+
+<Accordions type="multiple">
+  <Accordion title="How might we help users organize expenses for different events?">
+    **Event-Based Organization** — create dedicated *Spaces* for trips,
+    outings, festivals, or personal events, allowing users to keep related
+    transactions together and view event-specific spending.
+  </Accordion>
+  <Accordion title="How might we help users quickly understand their spending patterns?">
+    **Visual Insights** — charts, summaries, and visual analytics help users
+    scan their spending at a glance and identify trends without reading long
+    transaction lists.
+  </Accordion>
+  <Accordion title="How might we make expense logging simple enough to encourage daily use?">
+    **Local-First Experience** — fast, reliable expense logging that works
+    instantly, even offline, so users can record cash or manual transactions
+    whenever they occur.
+  </Accordion>
+</Accordions>
+
+## The Solution
+
+Introducing **PaisaLogr** a fast, context-aware expense tracker.
+
+{/* TODO: Export the final UI screens from the deck */}
+<Tabs items={['Onboarding', 'Home & Transactions', 'Events & Profile']}>
+  <Tab value="Onboarding">
+    <ImageZoom
+      src="/caseStudyimages/onboarding.png"
+      alt="PaisaLogr onboarding screens"
+      width={1400}
+      height={788}
+    />
+    A short, focused onboarding flow that users understood quickly in testing.
+  </Tab>
+  <Tab value="Home & Transactions">
+    <ImageZoom
+      src="/caseStudyimages/home-transactions.png"
+      alt="PaisaLogr home and transaction screens"
+      width={1400}
+      height={788}
+    />
+    The home screen leads with income, expenses, and top spending category,
+    followed by recent transactions and event-based Spaces — key information
+    without navigating through multiple screens.
+  </Tab>
+  <Tab value="Events & Profile">
+    <ImageZoom
+      src="/caseStudyimages/events-profile.png"
+      alt="PaisaLogr events and profile screens"
+      width={1400}
+      height={788}
+    />
+    Spaces keep trip and event spending separate from everyday transactions,
+    with profile settings kept minimal.
+  </Tab>
+</Tabs>
+
+## UI Design Process
+
+### Iterations & User Testing
+
+<Steps>
+  <Step>
+    #### Low-fidelity onboarding iterations
+
+    Round 1 explored the onboarding flow through quick wireframes built in
+    **eraser.io**.
+    <ImageZoom
+      src="/caseStudyimages/lowfi-onboarding.png"
+      alt="Low fidelity onboarding iterations"
+      width={1400}
+      height={788}
+    />
+  </Step>
+  <Step>
+    #### Choosing the essential tabs
+
+    We tested which tabs were essential to keep the interface simple and easy
+    to navigate.
+
+    {/* TODO: Export the navigation exploration slide */}
+    <ImageZoom
+      src="/caseStudyimages/tab-iterations.png"
+      alt="Tab navigation iterations"
+      width={1400}
+      height={788}
+    />
+  </Step>
+  <Step>
+    #### Home screen layout
+
+    We compared layouts to find which screen enables users to quickly scan key
+    information while reducing cognitive load — cutting unwanted information in
+    favor of a card view.
+
+    The final hierarchy: a quick scan of **income, expenses, and top spending
+    category**, followed by **recent transactions** and **event-based Spaces**.
+
+    
+    <ImageZoom
+      src="/caseStudyimages/home-iterations.png"
+      alt="Home screen layout iterations"
+      width={1400}
+      height={788}
+    />
+  </Step>
+</Steps>
+
+### Testing Results
+
+- Users **quickly understood the onboarding** flow.
+- **Event-based organization** made expense tracking more meaningful.
+- The **Home screen** provided a clear overview of finances at a glance.
+- Users preferred a **minimal expense entry flow** with fewer steps.
+- **Visual spending insights** helped users identify spending patterns faster.
+
