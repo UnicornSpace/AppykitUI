@@ -1,0 +1,485 @@
+---
+title: 'Redesigning SubSpace for better discovery'
+description: 'Redesigning SubSpace to improve discovery, personalization, and cross-vertical engagement.'
+isPublished: true
+isContentReady: true
+author: 'AppykitUI Team'
+date: 2026-08-10
+tags: ['case-study', 'ui/ux', 'product-design']
+thumbnail: '/caseStudyimages/subSpace/subspace.png'
+company: 'AppykitUI'
+industry: 'UI UX'
+---
+
+import { Steps, Step } from 'fumadocs-ui/components/steps';
+import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
+import { Accordions, Accordion } from 'fumadocs-ui/components/accordion';
+import { ImageZoom } from 'fumadocs-ui/components/image-zoom';
+
+## Overview
+
+| | |
+| --- | --- |
+| **Role** | Product Designer — UX audit, information architecture, wireframing, UI design |
+| **Product** | SubSpace — a money-saving platform |
+| **Focus** | Discovery, personalization, cross-vertical engagement, rental flow |
+| **Tools** | Figma, eraser.io |
+
+> **SubSpace had many ways to save money, but users mainly discovered subscriptions. I redesigned the experience to make other services easier to find, make recommendations more relevant, and reduce unnecessary steps.**
+
+---
+
+# 01 · Context
+
+## What is SubSpace?
+
+SubSpace is a platform that helps users save money through:
+
+- Shared subscriptions
+- Gift cards
+- Credit card benefits
+- Rentals
+- Bill payments
+- Wallet
+- Member chat
+
+The problem was not the number of features.
+
+The problem was **how easily users could discover and understand them.**
+
+## The Problem
+
+<Callout type="warn" title="Many ways to save, but poor discovery">
+
+Subscriptions were easy to find and understand.
+
+Other services such as **CardMatch, Rentals, Bills, and Gift Cards** were less visible.
+
+Some flows also required too many screens before users could complete an action.
+</Callout>
+
+### I focused on three problems
+
+1. **Discovery** — How can users notice all the ways SubSpace can save them money?
+2. **Relevance** — How can we show users services that are useful to them?
+3. **Efficiency** — How can we reduce unnecessary steps?
+
+---
+
+# 02 · UX Audit
+
+I reviewed the main app areas:
+
+**Home · Explore · Wallet · Chat · Account**
+
+I also reviewed:
+
+**Subscriptions · CardMatch · Rentals · Bills · Gift Cards**
+
+The audit helped identify where users were losing attention and where important actions were buried.
+
+<ImageZoom
+  src="/caseStudyimages/Subspace/HomeScreenAudit-1.png"
+  alt="SubSpace app audit showing usability and hierarchy issues"
+  width={1400}
+  height={788}
+/>
+
+<ImageZoom
+  src="/caseStudyimages/Subspace/HomeScreenAudit-2.png"
+  alt="SubSpace app audit showing usability and hierarchy issues"
+  width={1400}
+  height={788}
+/>
+
+## Key Findings
+
+<Cards>
+
+<Card title="Too much competing content">
+Many elements competed for attention on the Home screen.
+</Card>
+
+<Card title="Home and Explore overlap">
+Both screens offered similar content and actions, making their purpose unclear.
+</Card>
+
+<Card title="Important services were hidden">
+Subscriptions were easy to discover, while Rentals, Bills, Gift Cards, and CardMatch were easier to miss.
+</Card>
+
+<Card title="Repeated actions">
+Some actions appeared in more than one place and used unnecessary screen space.
+</Card>
+
+<Card title="No onboarding">
+New users were not clearly introduced to how SubSpace works.
+</Card>
+
+</Cards>
+
+---
+
+# 03 · Design Direction
+
+The redesign followed three simple ideas:
+
+### Discover → Understand → Act
+
+**Discover**  
+Make different ways to save easy to find.
+
+**Understand**  
+Explain why a service is useful to the user.
+
+**Act**  
+Make the next action simple and quick.
+
+## Information Hierarchy
+
+I gave Home and Explore different jobs.
+
+### Home — Quick access
+
+Home focuses on:
+
+- Search
+- Popular subscriptions
+- More ways to save
+- Personalized recommendations
+- Popular content
+
+### Explore — Discover
+
+Explore focuses on:
+
+- Subscriptions
+- Credit Cards
+- Gift Cards
+- Rentals
+- Bills
+- Subscription activity
+
+This removes the overlap between the two screens.
+
+## Wireframing
+
+I explored different layouts before moving to high-fidelity designs.
+
+The main questions were:
+
+- What should users see first?
+- How can other services become easier to discover?
+- Where should recommendations appear?
+- How can Home and Explore have different purposes?
+- Which steps can be removed from the Rental flow?
+
+<ImageZoom
+  src="/caseStudyimages/Subspace/subspace-wireframes.png"
+  alt="SubSpace low fidelity wireframes"
+  width={1400}
+  height={788}
+/>
+
+---
+
+# 04 · Discovery
+
+## Making More Ways to Save Visible
+
+### Before
+
+The Home screen had many elements competing for attention.
+
+Subscriptions naturally received more attention than the other services.
+
+### After
+
+I created clearer sections:
+
+- Popular Subscriptions
+- More Ways to Save
+- Save Before You Shop
+- Popular Movies
+
+<ImageZoom
+  src="/caseStudyimages/Subspace/RedesignHomeScreenAudit.png"
+  alt="SubSpace Home screen before and after redesign"
+  width={1400}
+  height={788}
+/>
+
+<ImageZoom
+  src="/caseStudyimages/Subspace/subspace-home-before-after.png"
+  alt="SubSpace Home screen before and after redesign"
+  width={1400}
+  height={788}
+/>
+
+### More Ways to Save
+
+Credit Cards, Gift Cards, Rentals, and Bills are grouped under one simple idea:
+
+> **More Ways to Save**
+
+Instead of presenting them as separate products, users can understand them as different ways to reduce their spending.
+
+---
+
+# 05 · Personalized Cross-Vertical Engagement
+
+## The Problem
+
+A user may come to SubSpace only for subscriptions and never explore the other services.
+
+A generic promotion like:
+
+> **"Buy a Gift Card"**
+
+can feel like an advertisement.
+
+## The Idea
+
+**Show based on interest.**
+
+Use what the user already does to suggest the next useful service.
+
+For example, if a user already spends:
+
+**YouTube Premium — ₹375/month**  
+**JioHotstar — ₹149/month**
+
+SubSpace can show:
+
+> **You've spent ₹524 on subscriptions this month.**  
+> Buy a discounted Gift Card before your next renewal and save more.
+
+The recommendation is based on something the user already pays for.
+
+### The flow
+
+**Existing activity → Relevant recommendation → Clear saving → Action**
+
+<ImageZoom
+  src="/caseStudyimages/Subspace/RedesignExploreScreenAudit.png"
+  alt="SubSpace Explore screen before and after redesign"
+  width={1400}
+  height={788}
+/>
+
+<ImageZoom
+  src="/caseStudyimages/Subspace/subspace-explore-before-after.png"
+  alt="SubSpace Explore screen before and after redesign"
+  width={1400}
+  height={788}
+/>
+
+## Why this is different
+
+The goal is not to push another product.
+
+The goal is to answer:
+
+> **"How can I save money on something I already use?"**
+
+This creates a stronger connection between SubSpace's different verticals.
+
+It also supports the marketplace flywheel:
+
+**More relevant discovery → More users use other verticals → More activity across the marketplace → More value for users**
+
+---
+
+# 06 · Reducing Steps
+
+## Rental Flow
+
+The Rental journey had an unnecessary browsing step.
+
+### Before
+
+**Home → Rentals → Category → Product List → Product Details → Checkout**
+
+### After
+
+**Home → Rentals → Category/Product → Product Details → Checkout**
+
+<ImageZoom
+  src="/caseStudyimages/Subspace/ReduceSteps.png"
+  alt="SubSpace rental flow before and after"
+  width={1400}
+  height={788}
+/>
+
+### Result
+
+**5 steps → 4 steps**
+
+Instead of sending users to another screen to browse products, products are shown closer to the category selection.
+
+The goal was simple:
+
+> **Show the product sooner and get the user closer to checkout.**
+
+---
+
+# 07 · Rental Experience
+
+I also redesigned the Rental screen to make browsing and listing easier.
+
+### Changes
+
+- Clear rental categories
+- Better product cards
+- Availability information
+- Clear "Rent Now" action
+- In-page "List Product" CTA
+
+<ImageZoom
+  src="/caseStudyimages/Subspace/subspace-rentals.png"
+  alt="SubSpace redesigned Rentals experience"
+  width={1400}
+  height={788}
+/>
+
+<ImageZoom
+  src="/caseStudyimages/Subspace/subspace-rental-before-after.png"
+  alt="SubSpace rental flow before and after"
+  width={1400}
+  height={788}
+/>
+
+The screen supports both sides of the marketplace:
+
+**Rent → Save money**
+
+**List → Earn money**
+
+This makes the Rental vertical useful for both buyers and sellers.
+
+---
+
+# 08 · Final Experience
+
+## Home
+
+<ImageZoom
+  src="/caseStudyimages/Subspace/HomeScreen.png"
+  alt="Final SubSpace Home screen"
+  width={1400}
+  height={788}
+/>
+
+Home now focuses on:
+
+- Quick actions
+- Popular subscriptions
+- More ways to save
+- Relevant recommendations
+
+---
+
+## Explore
+
+<ImageZoom
+  src="/caseStudyimages/Subspace/ExploreScreen.png"
+  alt="Final SubSpace Explore screen"
+  width={1400}
+  height={788}
+/>
+
+Explore is focused on discovering different SubSpace services and managing subscription activity.
+
+---
+
+## Rentals
+
+<ImageZoom
+  src="/caseStudyimages/Subspace/RentalScreen.png"
+  alt="Final SubSpace Rentals screen"
+  width={1400}
+  height={788}
+/>
+
+Rentals provides clearer categories, easier browsing, and a shorter path to checkout.
+
+---
+
+# 09 · Before → After
+
+<Cards>
+
+<Card title="Discovery">
+**Before:** Services competed for attention.
+
+**After:** Services are grouped into clear sections such as "More Ways to Save".
+</Card>
+
+<Card title="Personalization">
+**Before:** Cross-vertical recommendations could feel generic.
+
+**After:** Recommendations are connected to the user's existing activity.
+</Card>
+
+<Card title="Navigation">
+**Before:** Home and Explore had similar purposes.
+
+**After:** Home focuses on quick access. Explore focuses on discovery.
+</Card>
+
+<Card title="Rental Flow">
+**Before:** 5 steps to checkout.
+
+**After:** 4 steps by removing an unnecessary screen.
+</Card>
+
+</Cards>
+
+---
+
+# 10 · Future Opportunities
+
+The audit also showed a few opportunities beyond the redesigned screens.
+
+## Onboarding
+
+Introduce SubSpace before users enter the main app.
+
+Explain:
+
+- What SubSpace does
+- How shared subscriptions work
+- How users can save
+- What the other services offer
+
+## Product Tours
+
+Use short guides when introducing a new feature or service.
+
+This helps users discover features without permanently adding more UI to the screen.
+
+## Personalization
+
+Ask for the user's name during onboarding and use it for a simple greeting.
+
+More importantly, use user activity to show relevant saving opportunities.
+
+---
+
+# 11 · Key Learning
+
+The biggest learning from this project was:
+
+> **More features do not automatically create more value.**
+
+SubSpace already had many ways to save money.
+
+The bigger problem was helping users understand:
+
+> **"Which one can help me right now?"**
+
+So I focused on connecting the user's current activity with the next useful action.
+
+### The final approach
+
+**Understand the user → Show a relevant way to save → Make the action easy.**
